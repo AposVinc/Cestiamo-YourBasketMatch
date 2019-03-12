@@ -4,12 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TranslateService } from '@ngx-translate/core';//lingua
-import {LinguaService} from '../services/lingua.service'
+import { LinguaService } from '../services/lingua.service'
 
 
 //import { ListapartitePage } from '../pages/listapartite/listapartite';
-import { LISTA_PARTITE_PAGE, CONTATTACI_PAGE } from '../pages/pages';
-
+import { LISTA_PARTITE_PAGE, MIE_PARTITE_PAGE, STORICO_PARTITE_PAGE, CONTATTACI_PAGE, INFO_APP_PAGE } from '../pages/pages';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,10 +25,14 @@ export class MyApp {
     private translate: TranslateService,private linguaService: LinguaService, ) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // used for an example of ngFor and navigation MENU LATERALE false= back  true = menu
     this.pages = [
-      { title: 'Lista partite', component: LISTA_PARTITE_PAGE ,menuenab:true },
-      { title: 'Contattaci', component: CONTATTACI_PAGE ,menuenab:false}
+      { title: 'Lista partite', component: LISTA_PARTITE_PAGE ,menuenab: false },
+      { title: 'Mie partite', component: MIE_PARTITE_PAGE, menuenab: false },
+      { title: 'Storico Partite', component: STORICO_PARTITE_PAGE, menuenab:false },
+      { title: 'Contattaci', component: CONTATTACI_PAGE ,menuenab: false},
+      { title: 'Info', component: INFO_APP_PAGE, menuenab: false }
+      
     ];
 
   }

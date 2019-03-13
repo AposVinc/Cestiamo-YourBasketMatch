@@ -1,7 +1,31 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col padding-top col-12>
+            <h2 ion-text class="no-margin bold text-white" *ngIf="utente">
+              {{utente.cognome + ' ' + utente.nome}}
+            </h2>
+            <span ion-text color="light" *ngIf="utente">{{utente.ruolo | uppercase}}</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row no-padding class="other-data">
+          <ion-col no-padding class="column">
+            <button ion-button icon-left small full color="light" menuClose (click)="profilo()">
+              <ion-icon name="contact"></ion-icon>
+              {{'PROFILO_MENU' | translate}}
+            </button>
+          </ion-col>
+          <ion-col no-padding class="column">
+            <button ion-button icon-left small full color="light" menuClose (click)="logout()">
+              <ion-icon name="log-out"></ion-icon>
+              {{'LOGOUT_MENU' | translate}}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-toolbar>
   </ion-header>
 

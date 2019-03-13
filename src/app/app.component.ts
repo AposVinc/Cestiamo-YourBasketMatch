@@ -31,8 +31,8 @@ export class MyApp {
       { title: 'LISTA_PARTITE', component: LISTA_PARTITE_PAGE ,menuenab: true },
       { title: 'MIE_PARTITE', component: MIE_PARTITE_PAGE, menuenab: true },
       { title: 'STORICO_PARTITE', component: STORICO_PARTITE_PAGE, menuenab: true },
-      { title: 'CONTATTACI_PAGE', component: CONTATTACI_PAGE ,menuenab: false},
-      { title: 'INFO_APP_PAGE', component: INFO_APP_PAGE, menuenab: false }
+      { title: 'CONTATTACI', component: CONTATTACI_PAGE ,menuenab: false},
+      { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false }
       
     ];
 
@@ -48,7 +48,7 @@ export class MyApp {
   }
 
   initTranslate() {
-   /* // Set the default language for translation strings, and the current language.
+  /*  // Set the default language for translation strings, and the current language.
     let linguaPreferita = this.linguaService.getLinguaPreferita();
     this.translate.setDefaultLang(linguaPreferita);
     this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {

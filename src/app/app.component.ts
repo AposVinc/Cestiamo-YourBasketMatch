@@ -24,14 +24,15 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     private translate: TranslateService,private linguaService: LinguaService, ) {
     this.initializeApp();
+    this.initTranslate();
 
     // used for an example of ngFor and navigation MENU LATERALE false= back  true = menu
     this.pages = [
-      { title: 'Lista partite', component: LISTA_PARTITE_PAGE ,menuenab: false },
-      { title: 'Mie partite', component: MIE_PARTITE_PAGE, menuenab: false },
-      { title: 'Storico Partite', component: STORICO_PARTITE_PAGE, menuenab:false },
-      { title: 'Contattaci', component: CONTATTACI_PAGE ,menuenab: false},
-      { title: 'Info', component: INFO_APP_PAGE, menuenab: false }
+      { title: 'LISTA_PARTITE', component: LISTA_PARTITE_PAGE ,menuenab: true },
+      { title: 'MIE_PARTITE', component: MIE_PARTITE_PAGE, menuenab: true },
+      { title: 'STORICO_PARTITE', component: STORICO_PARTITE_PAGE, menuenab: true },
+      { title: 'CONTATTACI_PAGE', component: CONTATTACI_PAGE ,menuenab: false},
+      { title: 'INFO_APP_PAGE', component: INFO_APP_PAGE, menuenab: false }
       
     ];
 
@@ -47,7 +48,7 @@ export class MyApp {
   }
 
   initTranslate() {
-    // Set the default language for translation strings, and the current language.
+   /* // Set the default language for translation strings, and the current language.
     let linguaPreferita = this.linguaService.getLinguaPreferita();
     this.translate.setDefaultLang(linguaPreferita);
     this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {
@@ -57,7 +58,10 @@ export class MyApp {
         this.translate.use(linguaPreferita);
         this.linguaService.updateLingua(linguaPreferita);
       }
-    });
+    });*/
+    this.translate.setDefaultLang('it');
+    this.translate.use('it');
+  
     
     //Bisognerebbe settarlo anche quando si cambia la lingua
     /*

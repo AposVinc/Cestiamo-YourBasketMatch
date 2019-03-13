@@ -33,10 +33,10 @@
     <ion-list>
     
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" [hidden]="p.menuenab==false" >
-        {{p.title}}
+        {{p.title | translate}}
       </button>
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage2(p)"[hidden]="p.menuenab==true" >
-          {{p.title}}
+          {{p.title | translate}}
         </button>
 
     </ion-list>

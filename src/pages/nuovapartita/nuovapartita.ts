@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 /**
  * Generated class for the NuovapartitaPage page.
  *
@@ -17,10 +18,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class NuovapartitaPage {
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,) {
   }
-/*
-  customActionSheetOptions: any = {
+
+
+
+  /*customActionSheetOptions: any = {
     header: 'Colors',
     subHeader: 'Select your favorite color'
   }*/
@@ -30,3 +33,4 @@ export class NuovapartitaPage {
   }
 
 }
+

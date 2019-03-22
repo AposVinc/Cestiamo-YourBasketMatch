@@ -1,0 +1,41 @@
+<!--
+  Generated template for the NuovapartitaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>{{ 'NUOVA_PARTITA' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-list-header>Interface Options</ion-list-header>
+    <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY"></ion-datetime>
+    </ion-item>
+<!--
+    <ion-item>
+        <ion-label>Action Sheet</ion-label>
+        <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One">
+          <ion-select-option value="red">Red</ion-select-option>
+          <ion-select-option value="purple">Purple</ion-select-option>
+          <ion-select-option value="yellow">Yellow</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+          <ion-select-option value="green">Green</ion-select-option>
+        </ion-select>
+      </ion-item>
+    -->
+  
+
+    </ion-list>
+</ion-content>

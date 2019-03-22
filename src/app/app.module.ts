@@ -15,7 +15,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';//lingua
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { LinguaService } from '../services/lingua.service';
 import { IonicStorageModule } from '@ionic/storage';//storage
-
+import { PartitaService } from '../services/partita.service';
 
 
 
@@ -59,6 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
     LinguaService,
+    PartitaService,
   ]
 })
 export class AppModule {}

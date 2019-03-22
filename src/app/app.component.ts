@@ -22,7 +22,7 @@ export class MyApp {
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-    private translate: TranslateService,private linguaService: LinguaService, ) {
+    private translate: TranslateService, private linguaService: LinguaService, ) {
     this.initializeApp();
     this.initTranslate();
 

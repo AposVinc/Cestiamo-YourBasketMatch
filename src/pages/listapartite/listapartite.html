@@ -6,16 +6,73 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
-    <ion-title>{{'LISTA_PARTITE' | translate }}</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>{{'LISTA_PARTITE' | translate }}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <button class="item item-block item-md" ion item>
+        <ion-label >
+          <button side="left"> 111 </button>
+          <div side="right">
+              <p>nome campo</p>
+              <p>gg/mm/aaaa    hh:mm</p>
+              <p>persone mancanti: x</p>
+          </div>
+        </ion-label>              
+    </button>
+
+              <button ion-button color="light" large full outline>
+                  <ion-icon ></ion-icon> 
+                2 Vs 2 
+              </button>
+              <button ion-button color="light" large full outline>
+                  <ion-icon name="search"></ion-icon> <!-- ricerca -->
+                2 Vs 2 
+              </button>             
+              
+              <button ion-button icon-only outline >
+                  <ion-icon name="search"></ion-icon>
+              </button>
+
+
+              <button ion-item expand="full">
+                  <h2 style="font-weight: bold">aaa</h2>
+                  <h3></h3>
+                </button>
+            
+              <button ion-item expand="full">
+                  <h2 style="font-weight: bold">bbb</h2>
+                  <h3></h3>
+              </button>
+
+
+  </ion-list>
+
+  
+
+
+      <ion-fab vertical="center" horizontal="end" slot="fixed">
+          <button fab-button color="primary">          
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-fab>
+
+      
+<button fab fab-bottom fab-center class="fixed" (click)="add()"> <ion-icon name="add"></ion-icon> </button>
+
 </ion-content>
+
+

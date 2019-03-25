@@ -18,7 +18,6 @@ import {MIE_PARTITE_PAGE} from "../pages";
 })
 export class NuovapartitaPage {
   
-
   constructor(public navCtrl: NavController, public navParams: NavParams,) {
   }
 

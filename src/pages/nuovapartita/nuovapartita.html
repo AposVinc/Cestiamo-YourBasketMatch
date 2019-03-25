@@ -21,8 +21,8 @@
       <ion-list>
 
           <ion-item>
-            <ion-label>Campo</ion-label>
-            <ion-select interface="action-sheet" placeholder="Seleziona">
+            <ion-label>{{'CAMPO' | translate }}</ion-label>
+            <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}">
               <ion-option value="Campo1">Campo1</ion-option>
               <ion-option value="Campo2">Campo2</ion-option>
               <ion-option value="Campo3">Campo3</ion-option>
@@ -31,18 +31,18 @@
           </ion-item>
 
           <ion-item>
-              <ion-label>Data</ion-label>
+              <ion-label>{{'DATA' | translate }}</ion-label>
               <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY"></ion-datetime>
           </ion-item>
 
           <ion-item>
-              <ion-label>Orario</ion-label>
+              <ion-label>{{'ORARIO' | translate}}</ion-label>
               <ion-datetime display-format="HH: mm" pickerFormat="HH: mm"></ion-datetime>
           </ion-item>
 
           <ion-item>
-            <ion-label>Tipologia</ion-label>
-              <ion-select interface="action-sheet" placeholder="Seleziona">
+            <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
+              <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" >
                   <ion-option value="1Vs1">1 Vs 1</ion-option>
                   <ion-option value="2Vs2">2 Vs 2</ion-option>
                   <ion-option value="3Vs3">3 Vs 3</ion-option>
@@ -55,9 +55,7 @@
 
 
     <button ion-button block color="secondary" class="buttonCreateMatch" (click)="openMyMatch()" >
-      Crea Partita
+      {{'CREA_PARTITA' | translate }}
     </button>
 
 </ion-content>
-
-

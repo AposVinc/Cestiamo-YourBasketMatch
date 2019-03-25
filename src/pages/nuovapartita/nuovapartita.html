@@ -1,4 +1,4 @@
- <!--
+<!--
   Generated template for the NuovapartitaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -10,23 +10,14 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>{{ 'NUOVA_PARTITA' | translate }}</ion-title>
+    <ion-title>{{ 'NUOVA_PARTITA' | translate }}</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 
 <ion-content padding>
   <ion-list>
-
-    <ion-item>
-      <ion-label>Campo</ion-label>
-      <ion-select interface="action-sheet" placeholder="Seleziona">
-        <ion-option value="Campo1">Campo1</ion-option>
-        <ion-option value="Campo2">Campo2</ion-option>
-        <ion-option value="Campo3">Campo3</ion-option>
-        <ion-option value="Campo4">Campo4</ion-option>
-      </ion-select>
-    </ion-item>
       
     <ion-item>
         <ion-label>Date</ion-label>
@@ -34,29 +25,17 @@
     </ion-item>
 
     <ion-item>
-        <ion-label>Orario</ion-label>
-        <ion-datetime display-format="HH: mm" pickerFormat="HH: mm"></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Tipologia</ion-label>
-      <ion-select interface="action-sheet" placeholder="Seleziona">
-        <ion-option value="1Vs1">1 Vs 1</ion-option>
-        <ion-option value="2Vs2">2 Vs 2</ion-option>
-        <ion-option value="3Vs3">3 Vs 3</ion-option>
-        <ion-option value="4Vs4">4 Vs 4</ion-option>
-        <ion-option value="5Vs5">5 Vs 5</ion-option>
-      </ion-select>
-    </ion-item>
+        <ion-label>Seleziona il campo</ion-label>
+        <ion-select interface="action-sheet" placeholder="Select One">
+            <ion-option value="Campo1">Campo1</ion-option>
+          <ion-option value="Campo2">Campo2</ion-option>
+          <ion-option value="Campo3">Campo3</ion-option>
+          <ion-option value="Campo4">Campo4</ion-option>
+          
+        </ion-select>
+      </ion-item>
+    
+  
 
   </ion-list>
-
-  <button ion-button block color="secondary" class="buttonCreateMatch">Crea Partita</button>
-
-
- <!--<ion-footer>
-   <button ion-button full color="secondary" style= "position:fixed; bottom:40px;">Crea Partita</button>
- </ion-footer>
--->
-
-
+</ion-content>

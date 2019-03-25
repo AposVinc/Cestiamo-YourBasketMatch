@@ -21,15 +21,8 @@ export class NuovapartitaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,) {
   }
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuovapartitaPage');
-  }
-
-  ionViewDidLeave() {
-    console.log('ionViewDidLeave NuovapartitaPage');
-    //Inserito perche' se l'utente va in un altro tab (es. notizia), e ritorna nel tab esami rimane aperta questa vista
-    this.navCtrl.popToRoot();
   }
 
 }

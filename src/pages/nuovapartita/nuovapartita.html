@@ -1,0 +1,61 @@
+<!--
+  Generated template for the NuovapartitaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>{{ 'NUOVA_PARTITA' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+      <ion-list>
+
+          <ion-item>
+            <ion-label>{{'CAMPO' | translate }}</ion-label>
+            <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}">
+              <ion-option value="Campo1">Campo1</ion-option>
+              <ion-option value="Campo2">Campo2</ion-option>
+              <ion-option value="Campo3">Campo3</ion-option>
+              <ion-option value="Campo4">Campo4</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>{{'DATA' | translate }}</ion-label>
+              <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>{{'ORARIO' | translate}}</ion-label>
+              <ion-datetime display-format="HH: mm" pickerFormat="HH: mm"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
+              <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" >
+                  <ion-option value="1Vs1">1 Vs 1</ion-option>
+                  <ion-option value="2Vs2">2 Vs 2</ion-option>
+                  <ion-option value="3Vs3">3 Vs 3</ion-option>
+                  <ion-option value="4Vs4">4 Vs 4</ion-option>
+                  <ion-option value="5Vs5">5 Vs 5</ion-option>
+              </ion-select>
+          </ion-item>
+
+      </ion-list>
+
+
+    <button ion-button block color="secondary" class="buttonCreateMatch" (click)="openMyMatch()" >
+      {{'CREA_PARTITA' | translate }}
+    </button>
+
+</ion-content>

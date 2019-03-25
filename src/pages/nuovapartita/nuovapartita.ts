@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {MIE_PARTITE_PAGE} from "../pages";
 
 
 /**
@@ -22,6 +23,12 @@ export class NuovapartitaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuovapartitaPage');
+  }
+
+
+  openMyMatch() {
+    //this.navCtrl.setRoot(MIE_PARTITE_PAGE);
+    this.navCtrl.popTo(MIE_PARTITE_PAGE);
   }
 
 }

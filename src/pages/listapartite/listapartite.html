@@ -16,56 +16,67 @@
 </ion-header>
 
 
+
 <ion-content padding>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
+  <ion-icon name="search"></ion-icon>
+
   <ion-list>
-    <button class="item item-block item-md" ion item>
+
+    <ion-grid>
+      <button ion-item class="item item-block item-md" (click)="openPartita()">
+        <div>
+          <ion-row>
+            <ion-col col-3>
+              <button ion-button class="circle-btn">
+                <p class="match-list">2vs2</p>
+              </button>
+            </ion-col>
+            <ion-col col-9>
+              <div>
+                <p>nome campo</p>
+                <p>gg/mm/aaaa   hh:mm</p>
+                <p>persone mancanti: xx</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </button>
+    </ion-grid>
+
+
+    <ion-grid>
+      <button ion-item class="item item-block item-md" >
         <ion-label >
-          <button side="left"> 111 </button>
-          <div side="right">
-              <p>nome campo</p>
-              <p>gg/mm/aaaa    hh:mm</p>
-              <p>persone mancanti: x</p>
-          </div>
-        </ion-label>              
-    </button>
-
-              <button ion-button color="light" large full outline>
-                  <ion-icon ></ion-icon> 
-                2 Vs 2 
+          <ion-row>
+            <ion-col col-3>
+              <button ion-button padding-bottom="20">
+                2vs2
               </button>
-              <button ion-button color="light" large full outline>
-                  <ion-icon name="search"></ion-icon> <!-- ricerca -->
-                2 Vs 2 
-              </button>             
-              
-              <button ion-button icon-only outline >
-                  <ion-icon name="search"></ion-icon>
-              </button>
-
-
-              <button ion-item expand="full">
-                  <h2 style="font-weight: bold">aaa</h2>
-                  <h3></h3>
-                </button>
-            
-              <button ion-item expand="full">
-                  <h2 style="font-weight: bold">bbb</h2>
-                  <h3></h3>
-              </button>
-
-
+            </ion-col>
+            <ion-col col-9>
+              <div>
+                <p>nome campo</p>
+                <p>gg/mm/aaaa   hh:mm</p>
+                <p>persone mancanti: xx</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+      </button>
+    </ion-grid>
   </ion-list>
 
-  <ion-fab right bottom (click)="add()">
+  <ion-fab right bottom (click)="openPage3()">
       <button ion-fab >
         <ion-icon name="add"></ion-icon>
       </button>
  </ion-fab>
+
 
 
 </ion-content>

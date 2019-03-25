@@ -17,16 +17,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NuovapartitaPage {
   
-
   constructor(public navCtrl: NavController, public navParams: NavParams,) {
   }
-
-
-
-  /*customActionSheetOptions: any = {
-    header: 'Colors',
-    subHeader: 'Select your favorite color'
-  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuovapartitaPage');

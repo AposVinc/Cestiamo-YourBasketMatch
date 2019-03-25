@@ -14,8 +14,11 @@
   "ORARIO": "Orario",
   "TIPOLOGIA": "Tipologia",
   "SELEZIONA": "Seleziona",
-  "CREA_PARTITA": "Crea partita"
+  "CREA_PARTITA": "Crea partita",
 
+  "LINGUA": "Lingua" ,
+  "ITALIANO": "Italiano",
+  "INGLESE": "Inglese"
 
 
 

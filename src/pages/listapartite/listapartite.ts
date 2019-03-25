@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Refresher } from 'ionic-angular';
 
 import { Partita } from '../../model/partita.model';
 import { PartitaService } from '../../services/partita.service';
-import {LOGIN_PAGE, NUOVA_PARTITA_PAGE} from "../pages";
+import { NUOVA_PARTITA_PAGE} from "../pages";
 
 
 /**
@@ -42,7 +42,7 @@ export class ListapartitePage {
     });
   }
 
-  openPage3() {
-    this.navCtrl.push(LOGIN_PAGE);
+  openNuovaPartita() {
+    this.navCtrl.push(NUOVA_PARTITA_PAGE);
   }
 }

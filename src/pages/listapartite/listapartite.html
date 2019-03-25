@@ -23,12 +23,13 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-icon name="search"></ion-icon>
 
   <ion-list>
 
+    <ion-icon name="search"></ion-icon>
+
     <ion-grid>
-      <button ion-item class="item item-block item-md" (click)="openPartita()">
+      <button ion-item (click)="openPartita()">
         <div>
           <ion-row>
             <ion-col col-3>
@@ -38,9 +39,9 @@
             </ion-col>
             <ion-col col-9>
               <div>
-                <p>nome campo</p>
-                <p>gg/mm/aaaa   hh:mm</p>
-                <p>persone mancanti: xx</p>
+                <h2>nome campo</h2>
+                <h2>gg/mm/aaaa   hh:mm</h2>
+                <h2>persone mancanti: xx</h2>
               </div>
             </ion-col>
           </ion-row>
@@ -60,9 +61,9 @@
             </ion-col>
             <ion-col col-9>
               <div>
-                <p>nome campo</p>
-                <p>gg/mm/aaaa   hh:mm</p>
-                <p>persone mancanti: xx</p>
+                <h2>nome campo</h2>
+                <h2>gg/mm/aaaa   hh:mm</h2>
+                <h2>persone mancanti: xx</h2>
               </div>
             </ion-col>
           </ion-row>
@@ -71,7 +72,7 @@
     </ion-grid>
   </ion-list>
 
-  <ion-fab right bottom (click)="openPage3()">
+  <ion-fab right bottom (click)="openNuovaPartita()">
       <button ion-fab >
         <ion-icon name="add"></ion-icon>
       </button>

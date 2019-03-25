@@ -44,7 +44,6 @@
         </ion-select>
       </ion-item>
       
-
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage2(p)"[hidden]="p.menuenab==true" >
           {{p.title | translate}}
         </button>

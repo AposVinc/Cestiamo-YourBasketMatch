@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {MIE_PARTITE_PAGE} from "../pages";
 
 
 /**
@@ -26,10 +27,10 @@ export class NuovapartitaPage {
     console.log('ionViewDidLoad NuovapartitaPage');
   }
 
-  ionViewDidLeave() {
-    console.log('ionViewDidLeave NuovapartitaPage');
-    //Inserito perche' se l'utente va in un altro tab (es. notizia), e ritorna nel tab esami rimane aperta questa vista
-    this.navCtrl.popToRoot();
+
+  openMyMatch() {
+    //this.navCtrl.setRoot(MIE_PARTITE_PAGE);
+    this.navCtrl.popTo(MIE_PARTITE_PAGE);
   }
 
 }

@@ -32,6 +32,14 @@
     color:black;
 }
 
+.buttonCreateMatch {
+  position: fixed;
+  left: 20px;
+  bottom: 70px;
+  right: 20%;
+}
+
+
 .primary-bg {
     background-color: color($colors, primary) !important;
 }
@@ -122,5 +130,4 @@
     padding: 70px 0;
     border: 3px solid green;
 }
-
 

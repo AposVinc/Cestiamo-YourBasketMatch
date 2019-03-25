@@ -6,8 +6,6 @@ export const URL = {
     LOGIN: URL_BASE + "/login",
     LOGOUT: URL_BASE + "/logout",
     UPDATE_PROFILO: URL_BASE + "/utente/updateprofilo",
-    
-    PARTITA: URL_BASE + "/partite"
     /*
     NOTIZIE: URL_BASE + "/notizie",
     INSEGNAMENTI: URL_BASE + "/insegnamenti",

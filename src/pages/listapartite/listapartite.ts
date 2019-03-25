@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Refresher } from 'ionic-angular';
-
-import { Partita } from '../../model/partita.model';
-import { PartitaService } from '../../services/partita.service';
-import {LOGIN_PAGE, NUOVA_PARTITA_PAGE} from "../pages";
-
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the ListapartitePage page.
@@ -19,30 +14,12 @@ import {LOGIN_PAGE, NUOVA_PARTITA_PAGE} from "../pages";
   templateUrl: 'listapartite.html',
 })
 export class ListapartitePage {
-  listaPartite: Array<Partita>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListapartitePage');
-    this.partitaService.list().subscribe((data: Array<Partita>) => {
-      this.listaPartite = data;
-    });
   }
 
-  openPartita(n: Partita) {
-    this.navCtrl.push('PatitaPage', { partitaId: n.id });
-  }
-
-  doRefresh(refresher: Refresher) {
-    this.partitaService.list().subscribe((data: Array<Partita>) => {
-      this.listaPartite = data;
-      refresher.complete();
-    });
-  }
-
-  openPage3() {
-    this.navCtrl.push(LOGIN_PAGE);
-  }
 }

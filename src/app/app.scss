@@ -15,6 +15,12 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+//delete scrollbar
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
 
 .toolbar-background {
     background-color: color($colors, primary);
@@ -31,6 +37,15 @@
 .bar-button-default-wp {
     color:black;
 }
+
+
+.buttonCreateMatch {
+  position: fixed;
+  left: 20px;
+  bottom: 70px;
+  right: 20px;
+}
+
 
 .primary-bg {
     background-color: color($colors, primary) !important;
@@ -98,12 +113,29 @@
 }
 
 .user-list {
-    .item {
-        &:last-child {
-        border-bottom: 0;
-        }
-        .item-inner {
-        border-color: rgba(86, 61, 124, .1);
-        }
-    }
+  .item {
+      &:last-child {
+      border-bottom: 0;
+      }
+      .item-inner {
+      border-color: rgba(86, 61, 124, .1);
+      }
+  }
 }
+
+.circle-btn {
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+ }
+
+.match-list{
+}
+
+ion-card{
+  background-color: color($colors, secondary) !important;
+}
+
+

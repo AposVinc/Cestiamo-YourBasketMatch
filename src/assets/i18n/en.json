@@ -14,9 +14,11 @@
   "ORARIO": "Hour",
   "TIPOLOGIA": "Typology",
   "SELEZIONA": "Selection",
-  "CREA_PARTITA": "Create Matches"
+  "CREA_PARTITA": "Create Matches",
 
-
+  "LINGUA": "Language" ,
+  "ITALIANO": "Italian",
+  "INGLESE": "English"
 
 
 

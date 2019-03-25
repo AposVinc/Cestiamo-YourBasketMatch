@@ -28,7 +28,7 @@ export class NuovapartitaPage {
 
   openMyMatch() {
     //this.navCtrl.setRoot(MIE_PARTITE_PAGE);
-    this.navCtrl.popTo(MIE_PARTITE_PAGE);
+    this.navCtrl.setRoot(MIE_PARTITE_PAGE);
   }
 
 }

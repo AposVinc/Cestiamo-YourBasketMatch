@@ -30,6 +30,7 @@ export class MyApp {
       { title: 'LISTA_PARTITE', component: LISTA_PARTITE_PAGE ,menuenab: true },
       { title: 'MIE_PARTITE', component: MIE_PARTITE_PAGE, menuenab: true },
       { title: 'STORICO_PARTITE', component: STORICO_PARTITE_PAGE, menuenab: true },
+
       { title: 'CONTATTACI', component: CONTATTACI_PAGE ,menuenab: false},
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
       { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false }

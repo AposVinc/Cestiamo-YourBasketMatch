@@ -43,7 +43,7 @@
   position: fixed;
   left: 20px;
   bottom: 70px;
-  right: 20%;
+  right: 20px;
 }
 
 .primary-bg {
@@ -131,6 +131,10 @@
  }
 
 .match-list{
+}
+
+ion-card{
+  background-color: color($colors, secondary) !important;
 }
 
 

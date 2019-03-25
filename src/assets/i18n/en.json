@@ -1,6 +1,5 @@
 {
-  
- "PROFILO_MENU": "Profile",
+  "PROFILO_MENU": "Profile",
   "LOGOUT_MENU": "Logout",
 
   "LISTA_PARTITE": "List of Matches",
@@ -8,6 +7,7 @@
   "STORICO_PARTITE": "Historical Matches",
   "CONTATTACI": "Contact us",
   "INFO_APP": "Info",
+  "NUOVA_PARTITA": "New Matches",
 
   "CAMPO" : "Basketball Field",
   "DATA" : "Date",
@@ -16,10 +16,10 @@
   "SELEZIONA": "Selection",
   "CREA_PARTITA": "Create Matches",
 
-
   "LINGUA": "Language" ,
   "ITALIANO": "Italian",
   "INGLESE": "English"
+
 
 
 }

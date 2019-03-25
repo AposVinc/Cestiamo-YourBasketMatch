@@ -8,6 +8,8 @@ export const BACHECA_PARTITA_PAGE = 'BachecapartitaPage';
 
 export const MIE_PARTITE_PAGE = 'MiepartitePage';
 
+export const NUOVA_PARTITA_PAGE ='NuovapartitaPage';
+
 export const STORICO_PARTITE_PAGE = 'StoricopartitePage';
 
 export const PROFILO_PERSONALE_PAGE = 'ProfilopersonalePage';

@@ -1,14 +1,13 @@
 {
- "PROFILO_MENU": "Profilo",
+  "PROFILO_MENU": "Profilo",
   "LOGOUT_MENU": "Esci",
-
 
   "LISTA_PARTITE": "Lista Partite",
   "MIE_PARTITE": "Mie Partite",
   "STORICO_PARTITE": "Storico Partite",
   "CONTATTACI": "Contattaci",
   "INFO_APP": "Info",
-
+  "NUOVA_PARTITA": "Nuova Partita",
 
   "CAMPO" : "Campo",
   "DATA" : "Data",
@@ -17,10 +16,12 @@
   "SELEZIONA": "Seleziona",
   "CREA_PARTITA": "Crea partita",
 
-
   "LINGUA": "Lingua" ,
   "ITALIANO": "Italiano",
   "INGLESE": "Inglese"
+
+
+
 
 
 }

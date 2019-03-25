@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';//lingua
 import { LinguaService } from '../services/lingua.service'
 
 //import { ListapartitePage } from '../pages/listapartite/listapartite';
-import { LISTA_PARTITE_PAGE, MIE_PARTITE_PAGE, STORICO_PARTITE_PAGE, CONTATTACI_PAGE, INFO_APP_PAGE } from '../pages/pages';
+import { LISTA_PARTITE_PAGE, MIE_PARTITE_PAGE, STORICO_PARTITE_PAGE, CONTATTACI_PAGE, INFO_APP_PAGE, NUOVA_PARTITA_PAGE } from '../pages/pages';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,9 +30,11 @@ export class MyApp {
       { title: 'LISTA_PARTITE', component: LISTA_PARTITE_PAGE ,menuenab: true },
       { title: 'MIE_PARTITE', component: MIE_PARTITE_PAGE, menuenab: true },
       { title: 'STORICO_PARTITE', component: STORICO_PARTITE_PAGE, menuenab: true },
+
       { title: 'CONTATTACI', component: CONTATTACI_PAGE ,menuenab: false},
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
       { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false }
+
     ];
 
   }

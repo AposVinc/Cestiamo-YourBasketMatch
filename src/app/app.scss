@@ -123,15 +123,22 @@
 }
 
 .circle-btn {
-  width: 100%;
-  padding-bottom: 100%;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-right: 2px;
+  padding: 1px;
  }
 
-.match-list{
+.heightcentre{
+  width: 50%;
+  margin: auto;
 }
+
+
 
 ion-card{
   background-color: color($colors, secondary) !important;

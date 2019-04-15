@@ -6,12 +6,12 @@
 -->
 <ion-header xmlns="http://www.w3.org/1999/html">
 
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-      <ion-title>{{'LISTA_PARTITE' | translate }}</ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'LISTA_PARTITE' | translate }}</ion-title>
+  </ion-navbar>
 
 </ion-header>
 
@@ -23,7 +23,6 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-
   <ion-list>
 
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
@@ -32,87 +31,60 @@
         {{ item }}
       </ion-item>
     </ion-list>
-<!--
-    <ion-grid>
-      <button ion-item (click)="openPartita()">
-        <div>
-          <ion-row>
-            <ion-col col-3>
-              <button ion-button class="circle-btn">
-                <p class="match-list">2vs2</p>
-              </button>
-            </ion-col>
-            <ion-col col-9>
-              <div>
-                <h2>nome campo</h2>
-                <h2>gg/mm/aaaa   hh:mm</h2>
-                <h2>persone mancanti: xx</h2>
-              </div>
-            </ion-col>
-          </ion-row>
-        </div>
-      </button>
-    </ion-grid>
--->
 
     <ion-card (click)="openPartita()">
       <ion-card-content>
         <ion-row>
-          <ion-col col-3 id="heightcentre" class="heightcentre">
-            <button ion-button id="circle-btn" class="circle-btn">
+          <ion-col col-3 class="heightcentre">
+            <button ion-button class="circle-btn">
+              <Span style="text-transform:none;">1vs1</Span>
+            </button>
+          </ion-col>
+          <ion-col col-9 class="heightcentre">
+            <div>
+              <ion-row>nome campo</ion-row>
+              <ion-row style="display: inline">
+                <p style="text-align: left">gg/mm/aaaa</p>
+                <p style="text-align: right">hh:mm</p>
+              </ion-row>
+              <ion-row>persone mancanti: xx</ion-row>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card (click)="openPartita()">
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-3 class="heightcentre">
+            <button ion-button class="circle-btn">
               <Span style="text-transform:none;">2Vs2</Span>
             </button>
           </ion-col>
           <ion-col col-9 class="heightcentre">
-            <div >
-              <h2>nome campo</h2>
-              <h2>gg/mm/aaaa   hh:mm</h2>
-              <h2>persone mancanti: xx</h2>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card (click)="openPartita()">
-      <ion-card-content>
-        <ion-row>
-          <ion-col col-3>
-            <button ion-button class="circle-btn">
-              <p class="match-list">2vs2</p>
-            </button>
-          </ion-col>
-          <ion-col col-9>
             <div>
-              <h2>nome campo</h2>
-              <h2>gg/mm/aaaa   hh:mm</h2>
-              <h2>persone mancanti: xx</h2>
+              <ion-row>nome campo</ion-row>
+              <ion-row style="display: inline">
+                <p style="text-align: left">gg/mm/aaaa</p>
+                <p style="text-align: right">hh:mm</p>
+              </ion-row>
+              <ion-row>persone mancanti: xx</ion-row>
             </div>
           </ion-col>
         </ion-row>
       </ion-card-content>
     </ion-card>
 
-
-
-
-    <!--
-        <button (click)="openPartita()">
-          <ion-card-content>
-            The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-          </ion-card-content>
-        </button>
-        -->
-
-
-    </ion-list>
+  </ion-list>
 
 
   <ion-fab right bottom (click)="openNuovaPartita()">
-      <button ion-fab >
-        <ion-icon name="add"></ion-icon>
-      </button>
- </ion-fab>
+    <button ion-fab >
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 
 
 

@@ -5,7 +5,6 @@ import { Partita } from '../../model/partita.model';
 import { PartitaService } from '../../services/partita.service';
 import { NUOVA_PARTITA_PAGE} from "../pages";
 
-
 /**
  * Generated class for the ListapartitePage page.
  *

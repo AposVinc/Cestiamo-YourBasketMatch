@@ -10,12 +10,39 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>login</ion-title>
+    <ion-title>{{ 'LOGIN_PAGE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding >
+
+  <ion-list>
+    <ion-item>
+      <!-- <ion-label color="primary" stacked> Inserisci la mail</ion-label> -->
+      <ion-input type="email" placeholder="Email Input"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Password Input"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+                              <ion-row class="icons-basic-page">
+                                <ion-col><ion-icon name="log-in"></ion-icon></ion-col>
+                                <ion-col><ion-icon name="logo-facebook" ></ion-icon></ion-col>
+                              </ion-row>
+
+
+  <div padding class="buttonBottom">
+    <button ion-button color="secondary" block (click)="openRegistration()" >
+      {{'REGISTRATI' | translate }}
+    </button>
+  </div>
 
 </ion-content>
+
+
+
+

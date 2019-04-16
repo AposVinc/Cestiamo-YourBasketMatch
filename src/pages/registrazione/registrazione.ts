@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {LOGIN_PAGE} from "../pages";
 
 /**
  * Generated class for the RegistrazionePage page.
@@ -20,6 +21,10 @@ export class RegistrazionePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrazionePage');
+  }
+
+  createAccount() {
+    this.navCtrl.setRoot(LOGIN_PAGE);
   }
 
 }

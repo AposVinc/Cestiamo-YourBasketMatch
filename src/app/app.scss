@@ -39,12 +39,14 @@
 }
 
 
-.buttonCreateMatch {
+.buttonBottom {
   position: fixed;
   left: 20px;
   bottom: 70px;
   right: 20px;
 }
+
+
 
 .primary-bg {
   background-color: color($colors, primary) !important;
@@ -136,5 +138,6 @@
 ion-card{
   background-color: color($colors, secondary) !important;
 }
+
 
 

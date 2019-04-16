@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {MIE_PARTITE_PAGE} from "../pages";
+import {LOGIN_PAGE, MIE_PARTITE_PAGE} from "../pages";
+import {LoginPage} from "../login/login";
 
 
 /**
@@ -29,6 +30,8 @@ export class NuovapartitaPage {
   openMyMatch() {
     this.navCtrl.setRoot(MIE_PARTITE_PAGE);
   }
+
+
 
 }
 

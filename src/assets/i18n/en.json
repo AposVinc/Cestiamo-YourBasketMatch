@@ -1,20 +1,24 @@
 {
-  "PROFILO_MENU": "Profile",
+  "PROFILO_MENU": "Account",
   "LOGOUT_MENU": "Logout",
+  "LOGIN_PAGE": "Login",
+  "REGISTRATI": "Sign In",
 
-  "LISTA_PARTITE": "List of Matches",
+  "CREA_ACCOUNT": "Create Account",
+
+  "LISTA_PARTITE": "Matches List",
   "MIE_PARTITE": "My Matches",
-  "STORICO_PARTITE": "Historical Matches",
+  "STORICO_PARTITE": "Archived Matches",
   "CONTATTACI": "Contact us",
   "INFO_APP": "Info",
   "NUOVA_PARTITA": "New Matches",
 
   "CAMPO" : "Basketball Field",
   "DATA" : "Date",
-  "ORARIO": "Hour",
-  "TIPOLOGIA": "Typology",
-  "SELEZIONA": "Selection",
-  "CREA_PARTITA": "Create Matches",
+  "ORARIO": "Time",
+  "TIPOLOGIA": "Type",
+  "SELEZIONA": "Select",
+  "CREA_PARTITA": "Create Match",
 
   "LINGUA": "Language" ,
   "ITALIANO": "Italian",

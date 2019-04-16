@@ -10,10 +10,11 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>{{ 'LOGIN_PAGE' | translate }}</ion-title>
+    <ion-title>{{ 'LOGIN' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
+
 
 
 <ion-content padding >
@@ -27,6 +28,16 @@
       <ion-input type="password" placeholder="Password Input"></ion-input>
     </ion-item>
   </ion-list>
+
+
+  <button ion-button icon-only (click)="openRegistration()">
+    <ion-icon name="log-in"></ion-icon>
+  </button>
+
+  <ion-list class="icons-basic-page" >
+    <ion-icon name="logo-facebook" ></ion-icon>
+  </ion-list>
+
 
 
                               <ion-row class="icons-basic-page">

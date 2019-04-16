@@ -47,6 +47,35 @@
 }
 
 
+.icons-basic-page {
+  ion-icon {
+    font-size: 45px;
+  }
+
+  ion-row {
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  ion-col {
+    flex: 0 0 5%;
+    max-width: 25%;
+    text-align: center;
+    padding: 15px 5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .primary-bg {
   background-color: color($colors, primary) !important;

@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';//lingua
 import { LinguaService } from '../services/lingua.service'
 
+
 //import { ListapartitePage } from '../pages/listapartite/listapartite';
 import {
   LISTA_PARTITE_PAGE,
@@ -29,7 +30,7 @@ export class MyApp {
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-    private translate: TranslateService, private linguaService: LinguaService, ) {
+    private translate: TranslateService, private linguaService: LinguaService,) {
     this.initializeApp();
     this.initTranslate();
 
@@ -45,7 +46,6 @@ export class MyApp {
 
 
     ];
-
   }
 
   initializeApp() {
@@ -80,6 +80,8 @@ export class MyApp {
     });
     */
   }
+
+
 
   openPage(page) {
     // Reset the content nav to have just this page

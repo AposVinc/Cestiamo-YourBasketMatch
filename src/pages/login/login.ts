@@ -23,7 +23,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   openRegistration() {
-    this.navCtrl.setRoot(REGISTRAZIONE_PAGE);
+    this.navCtrl.setRoot(REGISTRAZIONE_PAGE);//deve autenticarmi
   }
 
 }

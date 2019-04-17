@@ -133,7 +133,7 @@
       background-image: linear-gradient(135deg, color($colors, secondary), color($colors, primary));
   }
 
-  .other-data {
+  .other-data {             //pulsanti nel menu laterale
       .column {
           &:first-child {
               border-right: 1px solid rgba(36, 50, 157, .25);

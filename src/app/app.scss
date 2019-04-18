@@ -40,12 +40,43 @@
 }
 
 
-.buttonCreateMatch {
+.buttonBottom {
   position: fixed;
   left: 20px;
   bottom: 70px;
   right: 20px;
 }
+
+
+.icons-basic-page {
+  ion-icon {
+    font-size: 45px;
+  }
+
+  ion-row {
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  ion-col {
+    flex: 0 0 5%;
+    max-width: 25%;
+    text-align: center;
+    padding: 15px 5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .primary-bg {
   background-color: color($colors, primary) !important;
@@ -103,7 +134,7 @@
       background-image: linear-gradient(135deg, color($colors, secondary), color($colors, primary));
   }
 
-  .other-data {
+  .other-data {             //pulsanti nel menu laterale
       .column {
           &:first-child {
               border-right: 1px solid rgba(36, 50, 157, .25);
@@ -148,5 +179,6 @@
 ion-card{
   background-color: color($colors, secondary) !important;
 }
+
 
 

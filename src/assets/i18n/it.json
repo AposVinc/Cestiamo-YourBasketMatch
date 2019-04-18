@@ -1,6 +1,10 @@
 {
   "PROFILO_MENU": "Profilo",
   "LOGOUT_MENU": "Esci",
+  "LOGIN": "Login",
+  "REGISTRATI": "Registrati",
+
+  "CREA_ACCOUNT": "Crea Profilo",
 
   "LISTA_PARTITE": "Lista Partite",
   "MIE_PARTITE": "Mie Partite",

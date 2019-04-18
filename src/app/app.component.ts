@@ -6,8 +6,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TranslateService } from '@ngx-translate/core';//lingua
 import { LinguaService } from '../services/lingua.service'
 
+
 //import { ListapartitePage } from '../pages/listapartite/listapartite';
-import { LISTA_PARTITE_PAGE, MIE_PARTITE_PAGE, STORICO_PARTITE_PAGE, CONTATTACI_PAGE, INFO_APP_PAGE, NUOVA_PARTITA_PAGE } from '../pages/pages';
+import {
+  LISTA_PARTITE_PAGE,
+  MIE_PARTITE_PAGE,
+  STORICO_PARTITE_PAGE,
+  CONTATTACI_PAGE,
+  INFO_APP_PAGE,
+  NUOVA_PARTITA_PAGE,
+  LOGIN_PAGE
+} from '../pages/pages';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +30,7 @@ export class MyApp {
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-    private translate: TranslateService, private linguaService: LinguaService, ) {
+    private translate: TranslateService, private linguaService: LinguaService,) {
     this.initializeApp();
     this.initTranslate();
 
@@ -33,10 +42,10 @@ export class MyApp {
 
       { title: 'CONTATTACI', component: CONTATTACI_PAGE ,menuenab: false},
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
-      { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false }
+      { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false },
+
 
     ];
-
   }
 
   initializeApp() {
@@ -72,6 +81,8 @@ export class MyApp {
     */
   }
 
+
+
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
@@ -79,5 +90,8 @@ export class MyApp {
   }
   openPage2(page){ // ci fa il back          
     this.nav.push(page.component);
+  }
+  login(page) {
+    this.nav.push(LOGIN_PAGE); //per entrare dal menu laterale
   }
 }

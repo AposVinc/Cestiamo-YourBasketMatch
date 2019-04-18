@@ -28,6 +28,7 @@
     "@ionic/storage": "2.2.0",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
+    "cordova-android": "^7.1.4",
     "cordova-plugin-actionsheet": "2.3.3",
     "cordova-plugin-email-composer": "0.9.2",
     "cordova-sqlite-storage": "2.4.0",

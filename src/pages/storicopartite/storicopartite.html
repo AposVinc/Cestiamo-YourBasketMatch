@@ -24,13 +24,6 @@
 
   <ion-list>
 
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item *ngFor="let item of items">
-        {{ item }}
-      </ion-item>
-    </ion-list>
-
     <ion-card (click)="openPartita()">
       <ion-card-content>
         <ion-row>

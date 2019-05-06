@@ -9,6 +9,6 @@ export class Utente {
   datanascita: Date;
   partitegiocate: number;
   mediavoto: Voto;
-  img: string='';
+  img: string;
 
 }

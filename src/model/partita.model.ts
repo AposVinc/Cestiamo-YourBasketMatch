@@ -1,5 +1,6 @@
 import { Time } from "@angular/common";
 import { Campo } from './campo.model';
+import {Utente} from "./utente.model";
 
 export class Partita {
     tipologia: string;
@@ -8,6 +9,7 @@ export class Partita {
     data: Date;
     orario : Time;
     personeMancanti: number;
+    partecipanti: Utente;
     
 }
 

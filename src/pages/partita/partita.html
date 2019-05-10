@@ -31,4 +31,23 @@
         </ion-row>
       </div>
 </div>
+  <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+    <button ion-button color="secondary"  block (click)="openBacheca" >
+      {{'BACHECA' | translate }}
+    </button>
+  </div>
+
+  <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+    <button ion-button color="secondary" block (click)="leavePartita" >
+      {{'LASCIA_PARTITA' | translate }}
+    </button>
+  </div>
+
+  <ion-item style="position: fixed">
+    <ion-avatar item-start>
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Item Avatar</ion-label>
+  </ion-item>
+
 </ion-content>

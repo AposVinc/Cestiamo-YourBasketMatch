@@ -1,23 +1,20 @@
 import { Time } from "@angular/common";
 import { Campo } from './campo.model';
 import {Utente} from "./utente.model";
+import {Bacheca} from "./bacheca.model";
+import {Tipopartita} from "./tipopartita.model";
 
 export class Partita {
-    tipologia: string;
+    tipologia: Tipopartita;
     id: number;
     nomeCampo: Campo;
     data: Date;
     orario : Time;
     personeMancanti: number;
     partecipanti: Utente;
-    
+    bacheca: Bacheca;
 }
 
-export const TIPOLOGIA_PARTITA_UNO = "unoVSuno";
-export const TIPOLOGIA_PARTITA_DUE = "dueVSdue";
-export const TIPOLOGIA_PARTITA_TRE = "treVStre";
-export const TIPOLOGIA_PARTITA_QUATTRO = "quattroVSquattro";
-export const TIPOLOGIA_PARTITA_CINQUE = "cinqueVScinque";   // enum su parte server
 
 
 

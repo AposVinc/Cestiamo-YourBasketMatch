@@ -42,11 +42,20 @@
 
 .buttonBottom {
   position: fixed;
-  left: 20px;
   bottom: 70px;
+}
+
+.buttonCenter{
+  left: 20px;
   right: 20px;
 }
 
+ion-avatar,
+ion-avatar > img{
+  border-radius:50%;
+  height:12px;
+  width:12px;
+}
 
 .icons-basic-page {
   ion-icon {

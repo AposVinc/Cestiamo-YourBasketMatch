@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {MIE_PARTITE_PAGE} from "../pages";
 
 /**
  * Generated class for the PartitaPage page.
@@ -21,5 +22,14 @@ export class PartitaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartitaPage');
   }
+
+  openBacheca() {
+    this.navCtrl.setRoot(MIE_PARTITE_PAGE);
+  }
+
+  leavePartita() {
+    this.navCtrl.setRoot(MIE_PARTITE_PAGE);
+  }
+
 
 }

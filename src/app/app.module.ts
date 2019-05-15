@@ -15,7 +15,6 @@ import { LinguaService } from '../services/lingua.service';
 import { IonicStorageModule } from '@ionic/storage';//storage
 import { PartitaService } from '../services/partita.service';
 
-import {EmailComposer } from '@ionic-native/email-composer/ngx';
 
 
 
@@ -54,7 +53,6 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
-    EmailComposer, //mail
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
     LinguaService,

@@ -17,12 +17,11 @@
 
 
 <ion-content padding>
+  <div style="padding: 10px">
   <button ion-button class="circle-btn center">
     <Span style="text-transform:none;">1vs1</Span>
   </button>
-
-
-      <div style="padding: ">
+      <div >
         <ion-row>nome campo</ion-row>
         <ion-row>Via XX.....</ion-row>
         <ion-row>Num: </ion-row>
@@ -31,5 +30,24 @@
           <p style="text-align: right">hh:mm</p>
         </ion-row>
       </div>
+</div>
+  <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+    <button ion-button color="secondary"  block (click)="openBacheca" >
+      {{'BACHECA' | translate }}
+    </button>
+  </div>
+
+  <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+    <button ion-button color="secondary" block (click)="leavePartita" >
+      {{'LASCIA_PARTITA' | translate }}
+    </button>
+  </div>
+
+  <ion-item style="position: fixed">
+    <ion-avatar item-start>
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Item Avatar</ion-label>
+  </ion-item>
 
 </ion-content>

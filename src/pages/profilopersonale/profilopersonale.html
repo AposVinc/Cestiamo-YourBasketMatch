@@ -18,33 +18,71 @@
 
   <ion-content padding>
 
-
-    <ion-avatar ion-border-radius (click)="modifica()">
-      <img [src]=""  [(ngModel)]="image" ngDefaultControl style="width:150px; height:150px ;margin:auto;">
+    <ion-avatar class="avatars">
+      <img src="assets/imgs/logo.png">
     </ion-avatar>
 
+  <ion-list>
+
     <ion-item>
-      <ion-label>Nome</ion-label>
-      <ion-input type="text" name="title"></ion-input>
+      <ion-label>{{ 'NOME' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
     </ion-item>
+
+
+    <ion-item>
+      <ion-label>{{ 'COGNOME' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>{{'DATA_DI_NASCITA' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
+      <!-- <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY"></ion-datetime>  -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'INDIRIZZO' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'CITTA' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'PARTITE_GIOCATE' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{ 'VOTO' | translate }}</ion-label>
+      <ion-label>funzione da prendere</ion-label>
+    </ion-item>
+  </ion-list>
 
     <!--
-    <ion-item>
-      <ion-label>Todo</ion-label>
-      <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
-    </ion-item>
-
-
-
-    <ion-list no-lines padding >
-        <ion-item>
-          <ion-label style="color:black">{{'Nome'|translate}}: </ion-label>
-        </ion-item>
 
         <ion-item>
-          <ion-label style="color:black">Email: </ion-label>
+          <ion-label>Todo</ion-label>
+          <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
         </ion-item>
-    </ion-list>
-    -->
+
+
+
+        <ion-list no-lines padding >
+            <ion-item>
+              <ion-label style="color:black">{{'Nome'|translate}}: </ion-label>
+            </ion-item>
+        </ion-list>
+        -->
+
+    <div padding class="buttonCenter buttonBottom" >
+      <button ion-button color="secondary" block (click)="openEditProfile()" >
+        {{'MODIFICA_PROFILO' | translate }}
+      </button>
+    </div>
 
 </ion-content>

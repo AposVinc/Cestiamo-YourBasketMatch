@@ -23,3 +23,5 @@ export const RECUPERA_PASSWORD_PAGE = 'RecuperapasswordPage';
 export const INFO_APP_PAGE = 'InfoappPage';
 
 export const CONTATTACI_PAGE = 'ContattaciPage';
+
+export const MODIFICA_PROFILO_PAGE = 'ModificaprofiloPage';

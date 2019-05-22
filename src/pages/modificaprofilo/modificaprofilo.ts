@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {LOGIN_PAGE, MIE_PARTITE_PAGE, REGISTRAZIONE_PAGE} from "../pages";
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the ModificaprofiloPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,19 +10,16 @@ import {LOGIN_PAGE, MIE_PARTITE_PAGE, REGISTRAZIONE_PAGE} from "../pages";
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-modificaprofilo',
+  templateUrl: 'modificaprofilo.html',
 })
-export class LoginPage {
+export class ModificaprofiloPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-  openRegistration() {
-    this.navCtrl.push(REGISTRAZIONE_PAGE);//deve autenticarmi
+    console.log('ionViewDidLoad ModificaprofiloPage');
   }
 
 }

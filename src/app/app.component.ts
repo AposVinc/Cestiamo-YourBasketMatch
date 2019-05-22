@@ -15,8 +15,10 @@ import {
   CONTATTACI_PAGE,
   INFO_APP_PAGE,
   NUOVA_PARTITA_PAGE,
-  LOGIN_PAGE, PROFILO_PERSONALE_PAGE
+  LOGIN_PAGE,
+  PROFILO_PERSONALE_PAGE,
 } from '../pages/pages';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -99,4 +101,6 @@ export class MyApp {
     this.nav.push(PROFILO_PERSONALE_PAGE);
     //per entrare nel profilo dal menu laterale
   }
+
+
 }

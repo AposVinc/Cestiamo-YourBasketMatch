@@ -101,6 +101,4 @@ export class MyApp {
     this.nav.push(PROFILO_PERSONALE_PAGE);
     //per entrare nel profilo dal menu laterale
   }
-
-
 }

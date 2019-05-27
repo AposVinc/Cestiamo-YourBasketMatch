@@ -4,9 +4,12 @@
       <ion-grid>
         <ion-row>
           <ion-col padding-top col-12>
-            <h2 ion-text class="no-margin bold text-white" *ngIf="utente">
-              {{utente.cognome + ' ' + utente.nome}}
-            </h2>
+            <ion-avatar class="avatars">
+              <img src="assets/imgs/logo1.png">
+            </ion-avatar>
+              <h2 ion-text class="no-margin bold text-white" *ngIf="utente">
+                {{utente.cognome + ' ' + utente.nome}}
+              </h2>
             <span ion-text color="light" *ngIf="utente">{{utente.ruolo | uppercase}}</span>
           </ion-col>
         </ion-row>

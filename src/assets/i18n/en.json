@@ -4,6 +4,21 @@
   "LOGIN": "Login",
   "REGISTRATI": "Sign In",
 
+  "MODIFICA_PROFILO": "Edit Profile",
+  "SALVA_MODIFICHE" : "Save Modify",
+  "NOME" : "Name",
+  "COGNOME":"Surname",
+  "DATA_DI_NASCITA": "Birthday",
+  "INDIRIZZO": "Address",
+  "CITTA": "City",
+  "PARTITE_GIOCATE": "Matches Complete",
+  "VOTO": "Voto",
+
+
+
+
+
+
   "CREA_ACCOUNT": "Create Account",
 
   "LISTA_PARTITE": "Matches List",
@@ -19,6 +34,7 @@
   "TIPOLOGIA": "Type",
   "SELEZIONA": "Select",
   "CREA_PARTITA": "Create Match",
+
 
   "LINGUA": "Language" ,
   "ITALIANO": "Italian",

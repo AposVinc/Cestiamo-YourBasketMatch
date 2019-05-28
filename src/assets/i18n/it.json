@@ -4,6 +4,18 @@
   "LOGIN": "Login",
   "REGISTRATI": "Registrati",
 
+  "MODIFICA_PROFILO": "Modifica Profilo",
+  "SALVA_MODIFICHE" : "Salva Modifiche",
+  "NOME" : "Nome",
+  "COGNOME":"Cognome",
+  "DATA_DI_NASCITA": "Data di Nascita",
+  "INDIRIZZO":"Indirizzo",
+  "CITTA":"Città",
+  "PARTITE_GIOCATE": "Partite giocate",
+  "VOTO": "Voto",
+
+
+
   "CREA_ACCOUNT": "Crea Profilo",
 
   "LISTA_PARTITE": "Lista Partite",

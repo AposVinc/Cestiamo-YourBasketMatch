@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {MODIFICA_PROFILO_PAGE} from "../pages";
 
 /**
  * Generated class for the ProfilopersonalePage page.
@@ -21,5 +22,11 @@ export class ProfilopersonalePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilopersonalePage');
   }
+
+  openEditProfile(page) {
+    this.navCtrl.push(MODIFICA_PROFILO_PAGE);
+    //modifica profilo
+  }
+
 
 }

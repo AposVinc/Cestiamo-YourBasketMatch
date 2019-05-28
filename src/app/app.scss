@@ -53,10 +53,13 @@
 ion-avatar,
 ion-avatar > img{
   border-radius:50%;
-  height:12px;
-  width:12px;
+  height:50px;
+  width:50px;
 }
 
+.avatars {
+  margin: auto;
+}
 .icons-basic-page {
   ion-icon {
     font-size: 45px;
@@ -73,6 +76,7 @@ ion-avatar > img{
     padding: 15px 5px;
   }
 }
+
 
 
 

@@ -12,7 +12,7 @@ export class PartitaService {
     }
 
     list(): Observable<Array<Partita>> {
-        return this.http.get<Array<Partita>>(URL.PARTITA);
+        return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
     }
 
     findById(partitaId: number): Observable<Partita> {
@@ -20,3 +20,4 @@ export class PartitaService {
         return this.http.get<Partita>(apiURL);
     }
 }
+

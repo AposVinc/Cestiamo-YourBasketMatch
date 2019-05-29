@@ -27,14 +27,14 @@ export class ListapartitePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListapartitePage');
+    console.log('ionViewDidLoad ListaPartitePage');
     this.partitaService.list().subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
     });
   }
 
   openPartita(n: Partita) {
-    this.navCtrl.push('PatitaPage', { partitaId: n.id });
+    this.navCtrl.push(PARTITA_PAGE, { partitaId: n.id });
   }
 
   doRefresh(refresher: Refresher) {
@@ -48,10 +48,9 @@ export class ListapartitePage {
     this.navCtrl.push(NUOVA_PARTITA_PAGE);
   }
 
-
-
   openPartita2(){
     this.navCtrl.push(PARTITA_PAGE);
   }
+
 
 }

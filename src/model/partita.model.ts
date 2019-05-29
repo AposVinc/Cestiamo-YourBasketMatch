@@ -10,9 +10,9 @@ export class Partita {
     nomeCampo: Campo;
     data: Date;
     orario : Time;
-    personeMancanti: number;
-    partecipanti: Utente;
-    bacheca: Bacheca;
+    //personeMancanti: number;
+    //partecipanti: Utente;
+    //bacheca: Bacheca;
 }
 
 

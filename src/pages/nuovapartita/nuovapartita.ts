@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LOGIN_PAGE, MIE_PARTITE_PAGE} from "../pages";
 import {LoginPage} from "../login/login";
+import {Campo} from "../../model/campo.model";
+import {Partita} from "../../model/partita.model";
+import {PartitaService} from "../../services/partita.service";
 
 
 /**
@@ -18,12 +21,16 @@ import {LoginPage} from "../login/login";
   
 })
 export class NuovapartitaPage {
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams,) {
+  listaCampi: Array<Campo>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public partitaService: PartitaService,) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuovapartitaPage');
+    this.partitaService.listCampi().subscribe((data: Array<Campo>) => {
+      this.listaCampi = data;
+    });
   }
 
 

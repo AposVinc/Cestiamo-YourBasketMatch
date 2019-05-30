@@ -9,6 +9,7 @@ export const URL = {
 
     LISTA_PARTITE: URL_BASE + '/getListaPartite',
     PARTITA: URL_BASE + '/getPartita',
+    LISTA_CAMPI: URL_BASE + '/getListaCampi',
 
 };
 

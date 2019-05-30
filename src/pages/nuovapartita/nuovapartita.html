@@ -23,10 +23,7 @@
           <ion-item>
             <ion-label>{{'CAMPO' | translate }}</ion-label>
             <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}">
-              <ion-option value="Campo1">Campo1</ion-option>
-              <ion-option value="Campo2">Campo2</ion-option>
-              <ion-option value="Campo3">Campo3</ion-option>
-              <ion-option value="Campo4">Campo4</ion-option>
+              <ion-option *ngFor="let c of listaCampi" value="{{c.id}}">{{c.citta}},&nbsp;&nbsp;{{c.via}}</ion-option>
             </ion-select>
           </ion-item>
 
@@ -43,11 +40,11 @@
           <ion-item>
             <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
               <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" >
-                  <ion-option value="1Vs1">1 Vs 1</ion-option>
-                  <ion-option value="2Vs2">2 Vs 2</ion-option>
-                  <ion-option value="3Vs3">3 Vs 3</ion-option>
-                  <ion-option value="4Vs4">4 Vs 4</ion-option>
-                  <ion-option value="5Vs5">5 Vs 5</ion-option>
+                  <ion-option value="1">1 Vs 1</ion-option>
+                  <ion-option value="2">2 Vs 2</ion-option>
+                  <ion-option value="3">3 Vs 3</ion-option>
+                  <ion-option value="4">4 Vs 4</ion-option>
+                  <ion-option value="5">5 Vs 5</ion-option>
               </ion-select>
           </ion-item>
 

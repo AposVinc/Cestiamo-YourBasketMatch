@@ -3,5 +3,4 @@ export class Campo {
   citta: string;
   via: string;
   telefono: string;
-
 }

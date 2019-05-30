@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { URL } from '../constants';
 import { Partita } from '../model/partita.model';
+import {Campo} from "../model/campo.model";
 
 @Injectable()
 export class PartitaService {
@@ -18,6 +19,10 @@ export class PartitaService {
     findById(partitaId: number): Observable<Partita> {
         let apiURL = `${URL.PARTITA}/${partitaId}`;
         return this.http.get<Partita>(apiURL);
+    }
+
+    listCampi(): Observable<Array<Campo>>{
+      return  this.http.get<Array<Campo>> (URL.LISTA_CAMPI)
     }
 }
 

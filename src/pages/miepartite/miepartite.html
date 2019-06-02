@@ -34,13 +34,11 @@
           <ion-col col-9 class="heightcentre">
             <div>
               <ion-row>nome campo</ion-row>
-              <ion-row style="display: inline">
-                <ion-label style="text-align: left">gg/mm/aaaa</ion-label>
-                <ion-label style="text-align: right">hh:mm</ion-label>
-                <p style="text-align: left">gg/mm/aaaa</p>
-                <p style="text-align: right">hh:mm</p>
-              </ion-row>
-              <ion-row>persone mancanti: xx</ion-row>
+                <ion-row style="display: inline">
+                    <p style="text-align: left">gg/mm/aaaa</p>
+                    <p style="text-align: right">hh:mm</p>
+                </ion-row>
+                <ion-row>persone mancanti: xx</ion-row>
             </div>
           </ion-col>
         </ion-row>
@@ -48,40 +46,40 @@
     </ion-card>
 
 
-    <ion-card (click)="openPartita()">
-      <ion-card-content>
-        <ion-row>
-          <ion-col col-3 class="heightcentre">
-            <button ion-button class="circle-btn">
-              <Span style="text-transform:none;">4vs4</Span>
-            </button>
-          </ion-col>
-          <ion-col col-9 class="heightcentre">
-            <div>
-              <ion-row>nome campo</ion-row>
-              <ion-row style="display: inline">
-                <p style="text-align: left">gg/mm/aaaa</p>
-                <p style="text-align: right">hh:mm</p>
-              </ion-row>
-              <ion-row>persone mancanti: xx</ion-row>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
+        <ion-card (click)="openPartita()">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-3 class="heightcentre">
+                <button ion-button class="circle-btn">
+                  <Span style="text-transform:none;">4vs4</Span>
+                </button>
+              </ion-col>
+              <ion-col col-9 class="heightcentre">
+                <div>
+                  <ion-row>nome campo</ion-row>
+                  <ion-row style="display: inline">
+                    <p style="text-align: left">gg/mm/aaaa</p>
+                    <p style="text-align: right">hh:mm</p>
+                  </ion-row>
+                  <ion-row>persone mancanti: xx</ion-row>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
 
-  </ion-list>
-
-
-  <ion-fab right bottom (click)="openNuovaPartita()">
-    <button ion-fab >
-      <ion-icon name="add"></ion-icon>
-    </button>
-  </ion-fab>
+      </ion-list>
 
 
+      <ion-fab right bottom (click)="openNuovaPartita()">
+        <button ion-fab >
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-fab>
 
-</ion-content>
+
+
+    </ion-content>
 
 
 

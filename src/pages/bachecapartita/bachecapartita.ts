@@ -22,4 +22,6 @@ export class BachecapartitaPage {
     console.log('ionViewDidLoad BachecapartitaPage');
   }
 
+
+
 }

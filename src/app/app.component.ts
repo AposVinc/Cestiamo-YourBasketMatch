@@ -17,6 +17,7 @@ import {
   NUOVA_PARTITA_PAGE,
   LOGIN_PAGE,
   PROFILO_PERSONALE_PAGE,
+  BACHECA_PARTITA_PAGE,
 } from '../pages/pages';
 
 
@@ -45,7 +46,7 @@ export class MyApp {
       { title: 'CONTATTACI', component: CONTATTACI_PAGE ,menuenab: false},
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
       { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false },
-
+      { title: 'BACHECA_PARTITA_PAGE', component: BACHECA_PARTITA_PAGE, menuenab: true },
 
     ];
   }

@@ -5,6 +5,7 @@ import {LoginPage} from "../login/login";
 import {Campo} from "../../model/campo.model";
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
+import {NgForm} from "@angular/forms";
 
 
 /**
@@ -22,6 +23,8 @@ import {PartitaService} from "../../services/partita.service";
 })
 export class NuovapartitaPage {
   listaCampi: Array<Campo>;
+  partita :Partita = new Partita();
+  today = new Date();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public partitaService: PartitaService,) {
   }
@@ -38,6 +41,15 @@ export class NuovapartitaPage {
     this.navCtrl.setRoot(MIE_PARTITE_PAGE);
   }
 
+  createMatch(partitaForm: NgForm){
+    this.partita.campo = partitaForm.value.campo;
+    this.partita.data = partitaForm.value.data;
+    this.partita.orario = partitaForm.value.orario;
+    this.partita.tipologia = partitaForm.value.tipologia;
+
+    this.partitaService.create(this.partita);
+    this.openMyMatch();
+  }
 
 
 }

@@ -194,3 +194,7 @@ ion-avatar > img{
 ion-card{
   background-color: color($colors, secondary) !important;
 }
+
+ion-select{
+  max-width: 75% !important;
+}

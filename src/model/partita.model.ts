@@ -7,12 +7,12 @@ import {Tipopartita} from "./tipopartita.model";
 export class Partita {
     tipologia: Tipopartita;
     id: number;
-    nomeCampo: Campo;
+    campo: Campo;
     data: Date;
     orario : Time;
-    //personeMancanti: number;
-    //partecipanti: Utente;
-    //bacheca: Bacheca;
+    personeMancanti: number;
+    partecipanti: Utente;
+    bacheca: Bacheca;
 }
 
 

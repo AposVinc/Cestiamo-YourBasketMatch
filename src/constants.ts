@@ -5,12 +5,14 @@ export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost/cestiamo/api';
 export const URL = {
     LOGIN: URL_BASE + '/login',
     LOGOUT: URL_BASE + '/logout',
-    UPDATE_PROFILO: URL_BASE + '/utente/updateprofilo',
+    CREATE_USER: URL_BASE + '/creaUtente',
+    UPDATE_USER: URL_BASE + '/updateUtente',
+    URL_IMG:URL_BASE+'/updateImage',
 
     LISTA_PARTITE: URL_BASE + '/getListaPartite',
     PARTITA: URL_BASE + '/getPartita',
     LISTA_CAMPI: URL_BASE + '/getListaCampi',
-
+    NUOVA_PARTITA: URL_BASE + '/nuovaPartita',
 };
 
 export const X_AUTH = "X-Auth";

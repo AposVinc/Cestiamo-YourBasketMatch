@@ -17,29 +17,27 @@
 
 
 <ion-content padding>
-
-      <ion-list>
-
+      <form #partitaForm="ngForm">
           <ion-item>
             <ion-label>{{'CAMPO' | translate }}</ion-label>
-            <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}">
+            <ion-select name="campo" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required [(ngModel)]="partita.campo" #campo="ngModel">
               <ion-option *ngFor="let c of listaCampi" value="{{c.id}}">{{c.citta}},&nbsp;&nbsp;{{c.via}}</ion-option>
             </ion-select>
           </ion-item>
 
           <ion-item>
               <ion-label>{{'DATA' | translate }}</ion-label>
-              <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY"></ion-datetime>
+              <ion-datetime name="data" displayFormat="MMM DD, YYYY" min="{{today.toISOString()}}" max="{{today.getFullYear()+20}}" required [(ngModel)]="partita.data" #data="ngModel"></ion-datetime>
           </ion-item>
 
           <ion-item>
               <ion-label>{{'ORARIO' | translate}}</ion-label>
-              <ion-datetime display-format="HH: mm" pickerFormat="HH: mm"></ion-datetime>
+              <ion-datetime name="orario" displayFormat="HH:mm" pickerFormat="HH: mm" required [(ngModel)]="partita.orario" #orario="ngModel"></ion-datetime>-+>
           </ion-item>
 
           <ion-item>
             <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
-              <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" >
+              <ion-select name="tipologia" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required [(ngModel)]="partita.tipologia" #tipologia="ngModel">
                   <ion-option value="1">1 Vs 1</ion-option>
                   <ion-option value="2">2 Vs 2</ion-option>
                   <ion-option value="3">3 Vs 3</ion-option>
@@ -48,14 +46,13 @@
               </ion-select>
           </ion-item>
 
-      </ion-list>
+      <div padding class="buttonCenter buttonBottom">
+        <button ion-button color="secondary" block type="submit" [disabled]="!partitaForm.form.valid" (click)="createMatch(partitaForm)">
+          {{'CREA_PARTITA' | translate }}
+        </button>
+      </div>
 
-  <div padding class="buttonCenter buttonBottom" >
-    <button ion-button color="secondary" block (click)="openMyMatch()" >
-      {{'CREA_PARTITA' | translate }}
-    </button>
-  </div>
-
+  </form>
 
 </ion-content>
 

@@ -27,9 +27,9 @@ import {
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   id = 1;
-  
+
   rootPage: any = LISTA_PARTITE_PAGE;
-  
+
 
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
@@ -47,7 +47,7 @@ export class MyApp {
       { title: 'CONTATTACI', component: CONTATTACI_PAGE ,menuenab: false},
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
       { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false },
-      { title: 'BACHECA_PARTITA_PAGE', component: BACHECA_PARTITA_PAGE, menuenab: true },
+      { title: 'BACHECA_PARTITA', component: BACHECA_PARTITA_PAGE, menuenab: true },
 
     ];
   }
@@ -75,8 +75,8 @@ export class MyApp {
     });*/
     this.translate.setDefaultLang('it');
     this.translate.use('it');
-  
-    
+
+
     //Bisognerebbe settarlo anche quando si cambia la lingua
     /*
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
@@ -92,7 +92,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  openPage2(page){ // ci fa il back          
+  openPage2(page){ // ci fa il back
     this.nav.push(page.component);
   }
   login(page) {

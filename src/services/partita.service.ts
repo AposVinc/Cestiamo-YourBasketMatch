@@ -10,9 +10,9 @@ import {Campo} from "../model/campo.model";
 @Injectable()
 export class PartitaService {
 
-    constructor(private http: HttpClient, public storage: Storage, public utenteService: UtenteService) {
+    constructor(private http: HttpClient, public storage: Storage, ) {//public utenteService: UtenteService
     }
-
+/*
     create(p: Partita){
       this.utenteService.getUtente().subscribe((utente)=>{
       p.partecipanti= utente;
@@ -23,7 +23,7 @@ export class PartitaService {
         );
       });
     }
-
+*/
 
     list(): Observable<Array<Partita>> {
         return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);

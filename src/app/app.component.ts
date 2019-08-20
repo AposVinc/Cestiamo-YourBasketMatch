@@ -26,6 +26,7 @@ import {
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  id = 1;
   
   rootPage: any = LISTA_PARTITE_PAGE;
   
@@ -98,8 +99,8 @@ export class MyApp {
     this.nav.push(LOGIN_PAGE); //per entrare dal menu laterale
   }
 
-  profile(page) {
-    this.nav.push(PROFILO_PERSONALE_PAGE);
+  profile() {
+    this.nav.push(PROFILO_PERSONALE_PAGE, this.id);
     //per entrare nel profilo dal menu laterale
   }
 }

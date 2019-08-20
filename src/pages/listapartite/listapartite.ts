@@ -33,8 +33,8 @@ export class ListapartitePage {
     });
   }
 
-  openPartita(n: Partita) {
-    this.navCtrl.push(PARTITA_PAGE, { partitaId: n.id });
+  openPartita(p: Partita) {
+    this.navCtrl.push(PARTITA_PAGE, p);
   }
 
   doRefresh(refresher: Refresher) {

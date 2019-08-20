@@ -12,26 +12,27 @@ export class PartitaService {
 
     constructor(private http: HttpClient, public storage: Storage, ) {//public utenteService: UtenteService
     }
-/*
+
+
     create(p: Partita){
-      this.utenteService.getUtente().subscribe((utente)=>{
+      /*this.utenteService.getUtente().subscribe((utente)=>{
       p.partecipanti= utente;
       return this.http.post<Partita>(URL.NUOVA_PARTITA,p).toPromise()
         .then((response: Partita) => {
           return response;
         }).catch(error => { console.error() }
         );
-      });
+       });    */
     }
-*/
+
 
     list(): Observable<Array<Partita>> {
-        return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
+      return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
     }
 
     findById(partitaId: number): Observable<Partita> {
-        let apiURL = `${URL.PARTITA}/${partitaId}`;
-        return this.http.get<Partita>(apiURL);
+      let apiURL = `${URL.PARTITA}/${partitaId}`;
+      return this.http.get<Partita>(apiURL);
     }
 
     listCampi(): Observable<Array<Campo>>{

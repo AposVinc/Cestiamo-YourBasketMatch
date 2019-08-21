@@ -19,7 +19,7 @@
 
 <ion-content padding>
   <ion-card>
-    <div style="padding: 10px">
+    <div style="padding: 10px" *ngIf="partita1">
       <button ion-button class="circle-btn center">
         <Span style="text-transform:none;">1vs1</Span>
       </button>
@@ -29,7 +29,7 @@
             <ion-row>Num: </ion-row>
             <ion-row style="display: inline">
               <p style="text-align: left">gg/mm/aaaa</p>
-              <p style="text-align: right">hh:mm</p>
+              <p style="text-align: right">{{partita1.orario}}</p>
             </ion-row>
           </div>
     </div>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {BACHECA_PARTITA_PAGE, MIE_PARTITE_PAGE} from "../pages";
+import {Partita} from "../../model/partita.model";
+import {PartitaService} from "../../services/partita.service";
 
 /**
  * Generated class for the PartitaPage page.
@@ -16,11 +18,17 @@ import {BACHECA_PARTITA_PAGE, MIE_PARTITE_PAGE} from "../pages";
 })
 export class PartitaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+partita1:Partita;
+
+constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService:PartitaService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartitaPage');
+    // @ts-ignore
+    this.partitaService.findById("1").subscribe((data: Partita)=> {
+      this.partita1= data;
+    });
   }
 
   openBacheca() {

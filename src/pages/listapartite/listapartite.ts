@@ -6,6 +6,7 @@ import { PartitaService } from '../../services/partita.service';
 import { NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 
 import { Nav } from 'ionic-angular';
+import {Campo} from "../../model/campo.model";
 
 
 /**
@@ -22,6 +23,7 @@ import { Nav } from 'ionic-angular';
 })
 export class ListapartitePage {
   listaPartite: Array<Partita>;
+  listaCampi: Array<Campo>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService) {
   }
@@ -31,6 +33,10 @@ export class ListapartitePage {
     this.partitaService.list().subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
     });
+    this.partitaService.listCampi().subscribe((data:Array<Campo>) => {
+      this.listaCampi = data;
+    });
+
   }
 
   openPartita(p: Partita) {

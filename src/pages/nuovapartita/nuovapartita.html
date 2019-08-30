@@ -38,11 +38,7 @@
           <ion-item>
             <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
               <ion-select name="tipologia" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required [(ngModel)]="partita.tipologia" #tipologia="ngModel">
-                  <ion-option value="1">1 Vs 1</ion-option>
-                  <ion-option value="2">2 Vs 2</ion-option>
-                  <ion-option value="3">3 Vs 3</ion-option>
-                  <ion-option value="4">4 Vs 4</ion-option>
-                  <ion-option value="5">5 Vs 5</ion-option>
+                  <ion-option *ngFor="let t of listaTipologia" value="{{t.id}}">{{t.nome}}</ion-option>
               </ion-select>
           </ion-item>
 

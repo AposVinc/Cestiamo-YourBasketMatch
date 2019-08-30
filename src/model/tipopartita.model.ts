@@ -5,9 +5,8 @@ export class Tipopartita {
 
 }
 
-
-export const TIPOLOGIA_PARTITA_UNO = "unoVSuno";
-export const TIPOLOGIA_PARTITA_DUE = "dueVSdue";
-export const TIPOLOGIA_PARTITA_TRE = "treVStre";
-export const TIPOLOGIA_PARTITA_QUATTRO = "quattroVSquattro";
-export const TIPOLOGIA_PARTITA_CINQUE = "cinqueVScinque";   // enum su parte server
+export const TIPOLOGIA_PARTITA_UNO = "1 vs 1";
+export const TIPOLOGIA_PARTITA_DUE = "2 vs 2";
+export const TIPOLOGIA_PARTITA_TRE = "3 vs 3";
+export const TIPOLOGIA_PARTITA_QUATTRO = "4 vs 4";
+export const TIPOLOGIA_PARTITA_CINQUE = "5 vs 5";   // enum su parte server

@@ -6,6 +6,7 @@ import {Campo} from "../../model/campo.model";
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
 import {NgForm} from "@angular/forms";
+import {Tipopartita} from "../../model/tipopartita.model";
 
 
 /**
@@ -24,6 +25,7 @@ import {NgForm} from "@angular/forms";
 export class NuovapartitaPage {
   listaCampi: Array<Campo>;
   partita :Partita = new Partita();
+  listaTipologia : Array<Tipopartita>;
   today = new Date();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public partitaService: PartitaService,) {
@@ -34,8 +36,10 @@ export class NuovapartitaPage {
     this.partitaService.listCampi().subscribe((data: Array<Campo>) => {
       this.listaCampi = data;
     });
+    this.partitaService.ListTypeMatch().subscribe((data: Array<Tipopartita>) => {
+      this.listaTipologia = data;
+    });
   }
-
 
   openMyMatch() {
     this.navCtrl.setRoot(MIE_PARTITE_PAGE);
@@ -50,7 +54,6 @@ export class NuovapartitaPage {
     this.partitaService.create(this.partita);
     this.openMyMatch();
   }
-
 
 }
 

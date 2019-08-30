@@ -38,7 +38,11 @@
 
   "BACHECA": "Bacheca",
   "BACHECA_PARTITA": "Bacheca Partita",
-  "LASCIA_PARTITA": "Lascia Partita"
+  "LASCIA_PARTITA": "Lascia Partita",
+
+  "PASSWORD_DIMENTICATA": "Reimposta la Password",
+  "LOGIN_FACEBOOK": "Accedi con Facebook"
+
 
 
 

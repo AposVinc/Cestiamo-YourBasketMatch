@@ -1,3 +1,5 @@
+import './shared/rxjs-operators';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -14,6 +16,7 @@ import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { LinguaService } from '../services/lingua.service';
 import { IonicStorageModule } from '@ionic/storage';//storage
 import { PartitaService } from '../services/partita.service';
+import {UtenteService} from "../services/utente.service";
 
 
 
@@ -57,6 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
 
     LinguaService,
     PartitaService,
+    UtenteService,
 
 
   ]

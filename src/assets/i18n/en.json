@@ -42,7 +42,10 @@
 
   "BACHECA": "Message Board",
   "BACHECA_PARTITA": "Board MatchS",
-  "LASCIA_PARTITA": "Leave Match"
+  "LASCIA_PARTITA": "Leave Match",
+
+  "PASSWORD_DIMENTICATA": "Reset Your Password",
+  "LOGIN_FACEBOOK": "Sign in With Facebook"
 
 
 

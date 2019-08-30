@@ -5,24 +5,24 @@ import { Storage } from '@ionic/storage';
 import { UtenteService } from "./utente.service";
 import { URL } from '../constants';
 import { Partita } from '../model/partita.model';
-import {Campo} from "../model/campo.model";
+import { Campo } from "../model/campo.model";
+import {Tipopartita } from "../model/tipopartita.model";
 
 @Injectable()
 export class PartitaService {
 
-    constructor(private http: HttpClient, public storage: Storage, ) {//public utenteService: UtenteService
+    constructor(private http: HttpClient, public storage: Storage, public utenteService: UtenteService) {
     }
 
-
     create(p: Partita){
-      /*this.utenteService.getUtente().subscribe((utente)=>{
-      p.partecipanti= utente;
-      return this.http.post<Partita>(URL.NUOVA_PARTITA,p).toPromise()
-        .then((response: Partita) => {
-          return response;
-        }).catch(error => { console.error() }
-        );
-       });    */
+      this.utenteService.getUtente().subscribe((utente)=>{
+        p.partecipanti = utente;
+        return this.http.post<Partita>(URL.NUOVA_PARTITA,p).toPromise()
+          .then((response: Partita) => {
+            return response;
+          }).catch(error => { console.error() }
+          );
+      });
     }
 
 
@@ -36,7 +36,11 @@ export class PartitaService {
     }
 
     listCampi(): Observable<Array<Campo>>{
-      return  this.http.get<Array<Campo>> (URL.LISTA_CAMPI)
+      return this.http.get<Array<Campo>> (URL.LISTA_CAMPI)
+    }
+
+    ListTypeMatch(): Observable<Array<Tipopartita>>{
+      return this.http.get<Array<Tipopartita>> (URL.LISTA_TIPO_PARTITA)
     }
 
 

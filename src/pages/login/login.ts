@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController, Events, IonicPage, NavController, NavParams } from 'ionic-angular';
-import {LISTA_PARTITE_PAGE, LOGIN_PAGE, MIE_PARTITE_PAGE, RECUPERA_PASSWORD_PAGE, REGISTRAZIONE_PAGE} from "../pages";
+import { LISTA_PARTITE_PAGE, RECUPERA_PASSWORD_PAGE, REGISTRAZIONE_PAGE} from "../pages";
 import { Account, UtenteService } from "../../services/utente.service";
 import { TranslateService } from "@ngx-translate/core";
 import { HttpErrorResponse } from "@angular/common/http";
@@ -21,7 +21,7 @@ import { Utente } from "../../model/utente.model";
 export class LoginPage {
   loginTitle: string;
   loginSubTitle: string;
-  account: Account = { username:"aaa.aa@aaa.it", password:"Mario" };
+  account: Account = { username:"aaa.aa@aaa.it", password:"123456789" };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public events: Events, public translateService: TranslateService, public utenteService: UtenteService) {
   }

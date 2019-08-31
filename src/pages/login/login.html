@@ -18,7 +18,7 @@
 
 
 <ion-content padding >
-  <form #loginForm="ngForm">
+  <form #loginForm="ngForm" (ngSubmit)="login()">
     <div padding="2px"></div>
   <ion-list>
     <ion-item>
@@ -30,15 +30,14 @@
     </ion-item>
   </ion-list>
 
-    <ion-item text-center (click)="openRecoveryPassword()"><a href="#"> {{'PASSWORD_DIMENTICATA' | translate}} </a></ion-item>
-
     <div padding class="buttonCenter" >
-      <button ion-button color="primary" block (click)="login()" [disabled]="!loginForm.form.valid" >
+      <button ion-button color="primary" block  [disabled]="!loginForm.form.valid" >
         {{'LOGIN' | translate }}
       </button>
     </div>
-
+  </form>
     <ion-row class="icons-basic-page">
+      <ion-item text-center (click)="openRecoveryPassword()"><a href="#"> {{'PASSWORD_DIMENTICATA' | translate}} </a></ion-item>
       <ion-item>
       <ion-col><ion-icon name="logo-facebook" ></ion-icon></ion-col>
       <ion-col><a href="#" > {{'LOGIN_FACEBOOK' | translate}} </a></ion-col>
@@ -52,7 +51,7 @@
     </button>
   </div>
 
-  </form>
+
 </ion-content>
 
 

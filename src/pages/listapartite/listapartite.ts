@@ -48,9 +48,5 @@ export class ListapartitePage {
     this.navCtrl.push(NUOVA_PARTITA_PAGE);
   }
 
-  openPartita2(){
-    this.navCtrl.push(PARTITA_PAGE);
-  }
-
 
 }

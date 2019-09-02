@@ -1,4 +1,3 @@
-import { Time } from "@angular/common";
 import { Campo } from './campo.model';
 import { Utente } from "./utente.model";
 import { Bacheca } from "./bacheca.model";
@@ -9,7 +8,6 @@ export class Partita {
     id: number;
     campo: Campo;
     data: Date;
-    orario : Time;
     personeMancanti: number;
     partecipanti: Utente;
     bacheca: Bacheca;

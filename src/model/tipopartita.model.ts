@@ -2,7 +2,6 @@ export class Tipopartita {
   id: number;
   nome: string;
   quantitaG: number;
-
 }
 
 export const TIPOLOGIA_PARTITA_UNO = "1 vs 1";

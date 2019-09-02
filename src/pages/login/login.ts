@@ -37,7 +37,7 @@ export class LoginPage {
   }
 
   openRegistration() {
-    this.navCtrl.push(REGISTRAZIONE_PAGE);//deve autenticarmi
+    this.navCtrl.push(REGISTRAZIONE_PAGE);  //deve autenticarmi
   }
 
   openRecoveryPassword() {

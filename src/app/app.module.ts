@@ -14,7 +14,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core'; //lingua
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';//lingua
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { LinguaService } from '../services/lingua.service';
-import { IonicStorageModule } from '@ionic/storage';//storage
+import { IonicStorageModule } from '@ionic/storage';  //storage
 import { PartitaService } from '../services/partita.service';
 import {UtenteService} from "../services/utente.service";
 
@@ -40,7 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory:(createTranslateLoader),
         deps:[HttpClient]
        }
-    }), 
+    }),
     IonicStorageModule.forRoot({
       name: 'cestiamo__db',
         driverOrder: ['indexeddb', 'sqlite', 'websql']
@@ -50,8 +50,8 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    
-    
+
+
   ],
   providers: [
     StatusBar,

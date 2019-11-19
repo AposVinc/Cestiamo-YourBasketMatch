@@ -37,8 +37,6 @@ export class UtenteService {
       });
   }
 
-
-
   updateImage(image){
     return this.http.post(URL.URL_IMG,image,{ observe: 'response' }).toPromise()
       .then((response: HttpResponse<Utente>)=>{

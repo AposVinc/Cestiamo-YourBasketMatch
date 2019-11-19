@@ -12,20 +12,25 @@
 
         <ion-row no-padding class="other-data">
           <ion-col no-padding class="column">
-            <button ion-button icon-left small full color="light" menuClose (click)="profile()">
+            <button ion-button icon-left small full color="light" menuClose (click)="openProfile()">
               <ion-icon name="contact"></ion-icon>
               {{'PROFILO_MENU' | translate}}
             </button>
           </ion-col>
           <ion-col no-padding class="column">
-            <button ion-button icon-left small full color="light" menuClose *ngIf="isLogged" (click)="openLoginPage()">
-              <ion-icon name="log-in"></ion-icon>
-              {{'LOGIN' | translate}}
-            </button>
-            <button ion-button icon-left small full color="light" menuClose *ngIf="!isLogged" (click)="logout()">
-              <ion-icon name="log-out"></ion-icon>
-              {{'LOGOUT' | translate}}
-            </button>
+            <div *ngIf="isLogged === false" >
+              <button ion-button icon-left small full color="light" menuClose (click)="openLoginPage()">
+                <ion-icon name="log-in"></ion-icon>
+                {{'LOGIN' | translate}}
+              </button>
+            </div>
+            <div *ngIf="isLogged === true" >
+              <button ion-button icon-left small full color="light" menuClose (click)="logout()">
+                <ion-icon name="log-out"></ion-icon>
+                {{'LOGOUT' | translate}}
+              </button>
+            </div>
+
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -18,9 +18,13 @@
             </button>
           </ion-col>
           <ion-col no-padding class="column">
-            <button ion-button icon-left small full color="light" menuClose (click)="login()">
+            <button ion-button icon-left small full color="light" menuClose *ngIf="isLogged" (click)="openLoginPage()">
               <ion-icon name="log-in"></ion-icon>
               {{'LOGIN' | translate}}
+            </button>
+            <button ion-button icon-left small full color="light" menuClose *ngIf="!isLogged" (click)="logout()">
+              <ion-icon name="log-out"></ion-icon>
+              {{'LOGOUT' | translate}}
             </button>
           </ion-col>
         </ion-row>
@@ -30,7 +34,7 @@
 
   <ion-content>
     <ion-list>
-    
+
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" [hidden]="p.menuenab==false" >
         {{p.title | translate}}
       </button>

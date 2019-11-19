@@ -19,6 +19,7 @@ import {
   PROFILO_PERSONALE_PAGE,
   BACHECA_PARTITA_PAGE,
 } from '../pages/pages';
+import {UtenteService} from "../services/utente.service";
 
 
 @Component({
@@ -27,14 +28,13 @@ import {
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   id = 1;
+  private isLogged: boolean = false;
 
   rootPage: any = LISTA_PARTITE_PAGE;
-
-
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-    private translate: TranslateService, private linguaService: LinguaService,) {
+    private translate: TranslateService, private linguaService: LinguaService, public utenteService: UtenteService) {
     this.initializeApp();
     this.initTranslate();
 
@@ -48,7 +48,6 @@ export class MyApp {
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
       { title: 'NUOVA_PARTITA', component: NUOVA_PARTITA_PAGE, menuenab: false },
       { title: 'BACHECA_PARTITA', component: BACHECA_PARTITA_PAGE, menuenab: true },
-
     ];
   }
 
@@ -57,7 +56,8 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+
+
     });
   }
 
@@ -86,6 +86,14 @@ export class MyApp {
   }
 
 
+  getisLogged(): boolean {
+    return this.isLogged;
+  }
+
+  setisLogged(value: boolean) {
+    this.isLogged = value;
+  }
+
 
   openPage(page) {
     // Reset the content nav to have just this page
@@ -95,9 +103,15 @@ export class MyApp {
   openPage2(page){ // ci fa il back
     this.nav.push(page.component);
   }
-  login(page) {
+  openLoginPage() {
     this.nav.push(LOGIN_PAGE); //per entrare dal menu laterale
   }
+
+  logout() {
+    this.utenteService.logout();
+    this.setisLogged(false);
+  }
+
 
   profile() {
     this.nav.push(PROFILO_PERSONALE_PAGE, this.id);

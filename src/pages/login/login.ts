@@ -5,6 +5,7 @@ import { Account, UtenteService } from "../../services/utente.service";
 import { TranslateService } from "@ngx-translate/core";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Utente } from "../../model/utente.model";
+import {MyApp} from "../../app/app.component";
 
 /**
  * Generated class for the LoginPage page.
@@ -21,7 +22,7 @@ import { Utente } from "../../model/utente.model";
 export class LoginPage {
   loginTitle: string;
   loginSubTitle: string;
-  account: Account = { username:"aaa.aa@aaa.it", password:"123456789" };
+  account: Account = { username:"mario.rossi@mail.it", password:"123456789" };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public events: Events, public translateService: TranslateService, public utenteService: UtenteService) {
   }
@@ -48,7 +49,8 @@ export class LoginPage {
     this.utenteService.login(this.account)
       .subscribe((utente: Utente) => {
           this.events.publish('login', utente);
-          this.navCtrl.setRoot(LISTA_PARTITE_PAGE);
+          
+          this.navCtrl.pop();
         },
         (err: HttpErrorResponse) => {
           if (err.status == 401) {

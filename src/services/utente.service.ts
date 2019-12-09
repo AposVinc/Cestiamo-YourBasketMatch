@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { Utente } from '../model/utente.model';
-import { AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH } from '../constants';
-import { Storage } from '@ionic/storage';
-import { fromPromise } from 'rxjs/observable/fromPromise';
+import {Utente} from '../model/utente.model';
+import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
+import {Storage} from '@ionic/storage';
+import {fromPromise} from 'rxjs/observable/fromPromise';
 
 
 @Injectable()

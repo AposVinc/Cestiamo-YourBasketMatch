@@ -15,8 +15,6 @@
 
 </ion-header>
 
-
-
 <ion-content padding>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
@@ -38,7 +36,7 @@
               <ion-row>{{p.campo.citta + ', ' + p.campo.via}} </ion-row>
               <ion-row style="display: inline">
                 <p style="text-align:left;">
-                  {{p.data | date:'dd/MM/yyyy'}}
+                  {{p.data | date:'dd MMM yyyy'}}
                   <span style="float:right;">
                       {{p.data | date:'hh:mm'}}
                   </span>
@@ -62,5 +60,3 @@
 
 
 </ion-content>
-
-

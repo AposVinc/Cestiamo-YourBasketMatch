@@ -11,7 +11,7 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>partita</ion-title>
+    <ion-title>{{'PARTITA' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,17 +19,17 @@
 
 <ion-content padding>
   <ion-card>
-    <div style="padding: 10px" *ngIf="partita1">
+    <div style="padding: 10px" ><!--*ngIf="partita1"-->
       <button ion-button class="circle-btn center">
         <Span style="text-transform:none;">1vs1</Span>
       </button>
-          <div >
-            <ion-row>nome campo</ion-row>
-            <ion-row>Via XX.....</ion-row>
-            <ion-row>Num: </ion-row>
+          <div *ngIf="partita1">
+            <ion-row>{{partita1.campo.citta}}</ion-row>
+            <ion-row>{{partita1.campo.via}}</ion-row>
+            <ion-row>{{partita1.campo.telefono}}</ion-row>
             <ion-row style="display: inline">
-              <p style="text-align: left">gg/mm/aaaa</p>
-              <p style="text-align: right">{{partita1.orario}}</p>
+              <p style="text-align: left">{{partita1.data | date:'dd MMM yyyy'}}</p>
+              <p style="text-align: right">{{partita1.data | date:'hh:mm'}}</p>
             </ion-row>
           </div>
     </div>

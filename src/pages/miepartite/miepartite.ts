@@ -31,7 +31,7 @@ export class MiepartitePage {
   }
 
   openPartita(n: Partita) {
-    this.navCtrl.push('PatitaPage', { partitaId: n.id });
+    this.navCtrl.push('PatitaPage', { partitaId: n.id }); //this.navCtrl.push(PARTITA_PAGE, p);
   }
 
   doRefresh(refresher: Refresher) {

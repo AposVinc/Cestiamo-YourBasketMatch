@@ -46,9 +46,13 @@ export class NuovapartitaPage {
     this.navCtrl.setRoot(MIE_PARTITE_PAGE);
   }
 
-  createMatch(partitaForm: NgForm){
+  createMatch(partitaForm: NgForm) {
     this.partita.campo = partitaForm.value.campo;
-    this.partita.data = new Date(partitaForm.value.data.year, partitaForm.value.data.month, partitaForm.value.data.day, partitaForm.value.orario.hour, partitaForm.value.orario.minute);
+    this.partita.data = new Date(partitaForm.value.data.year,
+                                  partitaForm.value.data.month,
+                                  partitaForm.value.data.day,
+                                  partitaForm.value.orario.hour,
+                                  partitaForm.value.orario.minute);
     this.partita.tipologia = partitaForm.value.tipologia;
 
     this.partitaService.create(this.partita);

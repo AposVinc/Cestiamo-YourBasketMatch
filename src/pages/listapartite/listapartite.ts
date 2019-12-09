@@ -21,6 +21,7 @@ import { Nav } from 'ionic-angular';
   templateUrl: 'listapartite.html',
 })
 export class ListapartitePage {
+
   listaPartite: Array<Partita>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService) {
@@ -34,7 +35,7 @@ export class ListapartitePage {
   }
 
   openPartita(p: Partita) {
-    this.navCtrl.push(PARTITA_PAGE, p);
+    this.navCtrl.push('PartitaPage', { partitaId: p.id});
   }
 
   doRefresh(refresher: Refresher) {
@@ -47,6 +48,4 @@ export class ListapartitePage {
   openNuovaPartita() {
     this.navCtrl.push(NUOVA_PARTITA_PAGE);
   }
-
-
 }

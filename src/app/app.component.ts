@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TranslateService } from '@ngx-translate/core';//lingua
 import { LinguaService } from '../services/lingua.service';
-
+import { HttpErrorResponse } from "@angular/common/http";
 //import { ListapartitePage } from '../pages/listapartite/listapartite';
 import {
   LISTA_PARTITE_PAGE,
@@ -28,15 +28,17 @@ import {Utente} from "../model/utente.model";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   id = 1;
+  utente: Utente;
   isLogged: boolean = false;
 
   rootPage: any = LISTA_PARTITE_PAGE;
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
-              private translate: TranslateService, private linguaService: LinguaService, public utenteService: UtenteService) {
+              private translate: TranslateService, public events: Events, private linguaService: LinguaService, public utenteService: UtenteService) {
 
     this.initTranslate();
+    this.subscribeToEvents();
 
     // used for an example of ngFor and navigation MENU LATERALE false= back  true = menu
     this.pages = [
@@ -50,14 +52,14 @@ export class MyApp {
       { title: 'BACHECA_PARTITA', component: BACHECA_PARTITA_PAGE, menuenab: true },
     ];
 
+
     this.platform.ready().then(() => {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
+          this.utente = utente;
           this.isLogged = true;
-          console.log('loggato');
         } else {
           this.isLogged = false;
-          console.log('non loggato');
         }
       });
       statusBar.styleDefault();
@@ -90,6 +92,29 @@ export class MyApp {
     */
   }
 
+  subscribeToEvents() {
+    this.events.subscribe('login', (utente: Utente) => {
+      this.utente = utente;
+      this.isLogged=true;
+    });
+    this.events.subscribe('server-error', (err: HttpErrorResponse) => {
+      this.showMessageServerError(err);
+    });
+  }
+  showMessageServerError(err: HttpErrorResponse) {
+    let errorMessage = "Errore nel server";
+
+    switch (err.status) {
+      case 403:
+        errorMessage = "Utente non autorizzato";
+        break;
+      case 401:
+        errorMessage = "Utente non autenticato";
+        break;
+      default:
+        errorMessage = `Errore: ${err.status}`;
+    }
+  }
 
   openPage(page) {
     // Reset the content nav to have just this page
@@ -104,12 +129,9 @@ export class MyApp {
   }
 
   logout() {
-    console.log('tentativo logout');
     this.utenteService.logout();
     this.isLogged = false;
-    console.log(this.isLogged);
   }
-
 
   openProfile() {
     this.nav.push(PROFILO_PERSONALE_PAGE, this.id);

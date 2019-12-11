@@ -35,7 +35,7 @@ export class ListapartitePage {
   }
 
   openPartita(p: Partita) {
-    this.navCtrl.push('PartitaPage', { partitaId: p.id});
+    this.navCtrl.push(PARTITA_PAGE, { partitaId: p.id});
   }
 
   doRefresh(refresher: Refresher) {
@@ -48,4 +48,5 @@ export class ListapartitePage {
   openNuovaPartita() {
     this.navCtrl.push(NUOVA_PARTITA_PAGE);
   }
+
 }

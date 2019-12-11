@@ -33,12 +33,16 @@
           </ion-col>
           <ion-col col-9 class="heightcentre">
             <div>
-              <ion-row>{{p.campo.citta}}</ion-row>
+              <ion-row>{{p.campo.citta + ', ' + p.campo.via}} </ion-row>
               <ion-row style="display: inline">
-                <p style="text-align: left">{{p.data | date:'dd MMM yyyy'}}</p>
-                <p style="text-align: right">{{p.data | date: 'hh:mm'}}</p>
+                <p style="text-align:left;">
+                  {{p.data | date:'dd MMM yyyy'}}
+                  <span style="float:right;">
+                      {{p.data | date:'hh:mm'}}
+                  </span>
+                </p>
               </ion-row>
-              <ion-row>PERSONE MANCANTI{{p.personeMancanti}}</ion-row>
+              <ion-row>Persone Mancanti: {{p.personeMancanti}}</ion-row>
             </div>
           </ion-col>
         </ion-row>

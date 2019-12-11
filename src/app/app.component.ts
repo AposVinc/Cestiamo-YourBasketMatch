@@ -101,6 +101,7 @@ export class MyApp {
       this.showMessageServerError(err);
     });
   }
+
   showMessageServerError(err: HttpErrorResponse) {
     let errorMessage = "Errore nel server";
 

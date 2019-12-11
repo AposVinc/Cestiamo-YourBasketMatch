@@ -17,20 +17,17 @@ import {PartitaService} from "../../services/partita.service";
   templateUrl: 'partita.html',
 })
 export class PartitaPage {
-partita1:Partita;
+partita: Partita;
 
 constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService:PartitaService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartitaPage');
-    // @ts-ignore       findById(this.navParams.data.partitaId)        findById("1")
-    this.partitaService.findById(1).subscribe((data: Partita) => {
-      this.partita1 = data;
+    this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
+      this.partita = data;
     });
   }
-
-
 
   openBacheca() {
     this.navCtrl.setRoot(BACHECA_PARTITA_PAGE);

@@ -19,29 +19,29 @@
 
 <ion-content padding>
   <ion-card>
-    <div style="padding: 10px" ><!--*ngIf="partita1"-->
+    <div style="padding: 10px" *ngIf="partita">
       <button ion-button class="circle-btn center">
-        <Span style="text-transform:none;">1vs1</Span>
+        <Span style="text-transform:none;">{{partita.tipologia.nome}}</Span>
       </button>
-          <div *ngIf="partita1">
-            <ion-row>{{partita1.campo.citta}}</ion-row>
-            <ion-row>{{partita1.campo.via}}</ion-row>
-            <ion-row>{{partita1.campo.telefono}}</ion-row>
+          <div >
+            <ion-row>{{partita.campo.citta}}</ion-row>
+            <ion-row>{{partita.campo.via}}</ion-row>
+            <ion-row>{{partita.campo.telefono}}</ion-row>
             <ion-row style="display: inline">
-              <p style="text-align: left">{{partita1.data | date:'dd MMM yyyy'}}</p>
-              <p style="text-align: right">{{partita1.data | date:'hh:mm'}}</p>
+              <p style="text-align: left">{{partita.data | date:'dd MMM yyyy'}}</p>
+              <p style="text-align: right">{{partita.data | date:'hh:mm'}}</p>
             </ion-row>
           </div>
     </div>
 </ion-card>
   <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-    <button ion-button color="secondary"  block (click)="openBacheca" >
+    <button ion-button color="primary"  block (click)="openBacheca" >
       {{'BACHECA' | translate }}
     </button>
   </div>
 
   <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-    <button ion-button color="secondary" block (click)="leavePartita" >
+    <button ion-button color="danger" block (click)="leavePartita" >
       {{'LASCIA_PARTITA' | translate }}
     </button>
   </div>

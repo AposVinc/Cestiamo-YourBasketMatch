@@ -24,12 +24,15 @@
         <Span style="text-transform:none;">{{partita.tipologia.nome}}</Span>
       </button>
           <div >
-            <ion-row>{{partita.campo.citta}}</ion-row>
-            <ion-row>{{partita.campo.via}}</ion-row>
-            <ion-row>{{partita.campo.telefono}}</ion-row>
+            <ion-row class="mt_5">{{partita.campo.citta + ', ' + partita.campo.via}} </ion-row>
+            <ion-row class="mt_5 mb_10">{{partita.campo.telefono}}</ion-row>
             <ion-row style="display: inline">
-              <p style="text-align: left">{{partita.data | date:'dd MMM yyyy'}}</p>
-              <p style="text-align: right">{{partita.data | date:'hh:mm'}}</p>
+              <p style="text-align:left;">
+                {{partita.data | date:'dd MMM yyyy'}}
+                <span style="float:right;">
+                      {{partita.data | date:'hh:mm'}}
+                  </span>
+              </p>
             </ion-row>
           </div>
     </div>

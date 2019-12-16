@@ -8,9 +8,9 @@
 
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>{{'PARTITA' | translate }}</ion-title>
   </ion-navbar>
 
@@ -23,20 +23,20 @@
       <button ion-button class="circle-btn center">
         <Span style="text-transform:none;">{{partita.tipologia.nome}}</Span>
       </button>
-          <div >
-            <ion-row class="mt_5">{{partita.campo.citta + ', ' + partita.campo.via}} </ion-row>
-            <ion-row class="mt_5 mb_10">{{partita.campo.telefono}}</ion-row>
-            <ion-row style="display: inline">
-              <p style="text-align:left;">
-                {{partita.data | date:'dd MMM yyyy'}}
-                <span style="float:right;">
+      <div >
+        <ion-row class="mt_5">{{partita.campo.citta + ', ' + partita.campo.via}} </ion-row>
+        <ion-row class="mt_5 mb_10">{{partita.campo.telefono}}</ion-row>
+        <ion-row style="display: inline">
+          <p style="text-align:left;">
+            {{partita.data | date:'dd MMM yyyy'}}
+            <span style="float:right;">
                       {{partita.data | date:'hh:mm'}}
                   </span>
-              </p>
-            </ion-row>
-          </div>
+          </p>
+        </ion-row>
+      </div>
     </div>
-</ion-card>
+  </ion-card>
   <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
     <button ion-button color="primary"  block (click)="openBacheca" >
       {{'BACHECA' | translate }}
@@ -49,11 +49,19 @@
     </button>
   </div>
 
-  <ion-item style="position: fixed">
-    <ion-avatar item-start>
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar>
-    <ion-label>Item Avatar</ion-label>
-  </ion-item>
+  <ion-list>
+    <ion-list-header>
+      Partecipanti:
+    </ion-list-header>
+
+    <ion-item *ngFor="let utente of partecipanti" (click)="openProfilo(utente)">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/avatar.png">
+      </ion-avatar>
+      <ion-label>{{utente.nome}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+
 
 </ion-content>

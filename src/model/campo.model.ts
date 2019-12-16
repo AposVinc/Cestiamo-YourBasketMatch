@@ -1,5 +1,5 @@
 export class Campo {
-  id: string;
+  id: number;
   citta: string;
   via: string;
   telefono: string;

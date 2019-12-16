@@ -4,12 +4,12 @@ import { Bacheca } from "./bacheca.model";
 import { Tipopartita } from "./tipopartita.model";
 
 export class Partita {
-    tipologia: Tipopartita;
     id: number;
+    tipologia: Tipopartita;
     campo: Campo;
     data: Date;
     personeMancanti: number;
-    partecipanti: Utente;
+    partecipanti: Array<Utente>;
     bacheca: Bacheca;
 }
 

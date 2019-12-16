@@ -3,9 +3,9 @@ export class Voto {
 }
 
 export const TIPO_VOTO_1 = '1';
-export const TIPO_VOTO_2 = '1';
-export const TIPO_VOTO_3 = '1';
-export const TIPO_VOTO_4 = '1';
-export const TIPO_VOTO_5 = '1';
+export const TIPO_VOTO_2 = '2';
+export const TIPO_VOTO_3 = '3';
+export const TIPO_VOTO_4 = '4';
+export const TIPO_VOTO_5 = '5';
 
 // va anche qui il fatto di enumerare dei voti preimpostati??????????

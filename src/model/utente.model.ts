@@ -1,6 +1,7 @@
 import { Voto } from './voto.model';
 
 export class Utente {
+  id: number;
   nome: string;
   cognome: string;
   email: string;

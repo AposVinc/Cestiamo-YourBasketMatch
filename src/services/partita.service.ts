@@ -16,7 +16,8 @@ export class PartitaService {
 
     create(p: Partita){
       this.utenteService.getUtente().subscribe((utente)=>{
-        p.partecipanti = utente;
+        //add utente a partita appena creata
+        //p.partecipanti = utente;
         return this.http.post<Partita>(URL.NUOVA_PARTITA,p).toPromise()
           .then((response: Partita) => {
             return response;

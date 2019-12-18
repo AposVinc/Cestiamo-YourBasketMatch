@@ -15,6 +15,9 @@ export const URL = {
     LISTA_TIPO_PARTITA: URL_BASE + '/getListaTipoPartita',
     NUOVA_PARTITA: URL_BASE + '/nuovaPartita',
 
+    UTENTE: URL_BASE + '/utente',
+
+
 };
 
 export const X_AUTH = "X-Auth";

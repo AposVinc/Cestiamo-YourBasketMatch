@@ -10,12 +10,13 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>profiloutente</ion-title>
+    <ion-title *ngIf="utente">
+      {{utente.nome}} {{utente.cognome}}
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding *ngIf="utente">
 </ion-content>

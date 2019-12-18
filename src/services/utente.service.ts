@@ -70,7 +70,12 @@ export class UtenteService {
       });
   }
 
+
+  getUtenteById(utenteId: number): Observable<Utente> {
+    let apiURL = `${URL.UTENTE}/${utenteId}`;
+    return this.http.get<Utente>(apiURL);  }
 }
+
 export interface Account {
   username: string;
   password: string;

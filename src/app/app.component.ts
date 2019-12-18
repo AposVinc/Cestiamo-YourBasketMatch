@@ -27,7 +27,6 @@ import {Utente} from "../model/utente.model";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  id = 1;
   utente: Utente;
   isLogged: boolean = false;
 
@@ -134,8 +133,8 @@ export class MyApp {
     this.isLogged = false;
   }
 
-  openProfile() {
-    this.nav.push(PROFILO_PERSONALE_PAGE, this.id);
-    //per entrare nel profilo dal menu laterale
+  openProfile() {//per entrare nel profilo dal menu laterale
+    this.nav.push(PROFILO_PERSONALE_PAGE, { utenteId: this.utente.id});
+    console.log('profilo utente', this.utente.nome, this.utente.cognome)
   }
 }

@@ -4,6 +4,8 @@ import {BACHECA_PARTITA_PAGE, MIE_PARTITE_PAGE, PROFILO_UTENTE_PAGE} from "../pa
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
 import {Utente} from "../../model/utente.model";
+import {LinguaService} from "../../services/lingua.service";
+import {UtenteService} from "../../services/utente.service";
 
 /**
  * Generated class for the PartitaPage page.
@@ -18,18 +20,83 @@ import {Utente} from "../../model/utente.model";
   templateUrl: 'partita.html',
 })
 export class PartitaPage {
-partita: Partita;
-partecipanti: Array<Utente>;
+  utente: Utente;
+  partita: Partita;
+  partecipanti: Utente[];
+  loggedUserIsPartecipant: boolean = false;
 
-constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService:PartitaService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService:PartitaService, public utenteService: UtenteService) {
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartitaPage');
+
+    this.utenteService.getUtente().subscribe((utente: Utente) => {
+      if (utente != null) {
+        this.utente = utente;
+        console.log(this.utente.id_utente);
+      } else {
+        console.log('a');
+      }
+    });
+
     this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
       this.partita = data;
       this.partecipanti = data.partecipanti;
+
+      for(let i=0 ; i < this.partecipanti.length; i++){
+        if (this.partecipanti[i].id === this.utente.id_utente){
+          this.loggedUserIsPartecipant = true;
+          console.log(this.loggedUserIsPartecipant);
+          break;
+        } else {
+          this.loggedUserIsPartecipant = false;
+          console.log(this.loggedUserIsPartecipant);
+        }
+      }
     });
+
+
+
+    /*
+        this.utenteService.getUtente().subscribe((utente: Utente) => {
+          if (utente != null) {
+            for(var i=0 ; i < (this.partecipanti).length ; i++){
+              if (this.partecipanti[i].id === utente.id){
+                this.loggedUserIsPartecipant = true;
+                break;
+              } else {
+                this.loggedUserIsPartecipant = false;
+              }
+            }
+          } else {
+            this.loggedUserIsPartecipant = false;
+          }
+        });
+     */
+    /*
+        this.utenteService.getUtente().subscribe((utente: Utente) => {
+          if (utente != null) {
+            this.utente = utente;
+            console.log('utente')
+            //console.log(this.partecipanti);
+          } else {
+            console.log('a');
+          }
+          for (let i=0; i<this.partecipanti.length; i++){
+            if (this.partecipanti[i].id === this.utente.id){
+              this.loggedUserIsPartecipant = true;
+              console.log('true');
+              break;
+            } else {
+              console.log('false');
+              this.loggedUserIsPartecipant = false;
+            }
+          }
+        });
+
+     */
   }
 
   openBacheca() {
@@ -44,5 +111,16 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public p
     this.navCtrl.setRoot(MIE_PARTITE_PAGE);
   }
 
+  joinPartita() {
+    console.log('partecipa');
+  }
 
+  logRatingChange(rating){
+    console.log("changed rating: ",rating);
+    // do your stuff
+  }
+
+  //mostra i voti medi di ogni utente
+  //se partecipo alla partita devo mostrare leave e bacheca, altrimenti permettimi di entrare
+  //op di leave, op partecipa
 }

@@ -18,13 +18,13 @@
             </button>
           </ion-col>
           <ion-col no-padding class="column">
-            <div *ngIf="!isLogged" >
+            <div *ngIf="!isLogged">
               <button ion-button icon-left small full color="light" menuClose (click)="openLoginPage()">
                 <ion-icon name="log-in"></ion-icon>
                 {{'LOGIN' | translate}}
               </button>
             </div>
-            <div *ngIf="isLogged" >
+            <div *ngIf="isLogged">
               <button ion-button icon-left small full color="light" menuClose (click)="logout()">
                 <ion-icon name="log-out"></ion-icon>
                 {{'LOGOUT' | translate}}

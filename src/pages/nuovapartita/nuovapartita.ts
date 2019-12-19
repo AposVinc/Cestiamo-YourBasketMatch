@@ -48,13 +48,10 @@ export class NuovapartitaPage {
 
   createMatch(partitaForm: NgForm) {
     this.partita.campo = partitaForm.value.campo;
-    this.partita.data = new Date(partitaForm.value.data.year,
-                                  partitaForm.value.data.month,
-                                  partitaForm.value.data.day,
-                                  partitaForm.value.orario.hour,
-                                  partitaForm.value.orario.minute);
+    this.partita.data = partitaForm.value.data;
     this.partita.tipologia = partitaForm.value.tipologia;
-
+  console.log(this.partita);
+  console.log("partita creata correttamente");
     this.partitaService.create(this.partita);
     this.openMyMatch();
   }

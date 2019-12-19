@@ -11,6 +11,7 @@ export class Partita {
     personeMancanti: number;
     partecipanti: Array<Utente>;
     bacheca: Bacheca;
+    utente:Utente;
 }
 
 

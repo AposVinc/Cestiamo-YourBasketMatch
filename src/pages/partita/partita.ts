@@ -35,9 +35,9 @@ export class PartitaPage {
     this.utenteService.getUtente().subscribe((utente: Utente) => {
       if (utente != null) {
         this.utente = utente;
-        console.log(this.utente.id_utente);
+        console.log(this.utente);
       } else {
-        console.log('a');
+        console.log('nessun utente loggato');
       }
     });
 
@@ -45,15 +45,17 @@ export class PartitaPage {
       this.partita = data;
       this.partecipanti = data.partecipanti;
 
-      for(let i=0 ; i < this.partecipanti.length; i++){
-        if (this.partecipanti[i].id === this.utente.id_utente){
-          this.loggedUserIsPartecipant = true;
-          console.log(this.loggedUserIsPartecipant);
-          break;
-        } else {
-          this.loggedUserIsPartecipant = false;
-          console.log(this.loggedUserIsPartecipant);
+      if (this.utente != null) {
+        for (let i = 0; i < this.partecipanti.length; i++) {
+          if (this.partecipanti[i].id === this.utente.id) {
+            this.loggedUserIsPartecipant = true;
+            break;
+          } else {
+            this.loggedUserIsPartecipant = false;
+          }
         }
+      } else {
+        this.loggedUserIsPartecipant = false;
       }
     });
 
@@ -121,6 +123,5 @@ export class PartitaPage {
   }
 
   //mostra i voti medi di ogni utente
-  //se partecipo alla partita devo mostrare leave e bacheca, altrimenti permettimi di entrare
   //op di leave, op partecipa
 }

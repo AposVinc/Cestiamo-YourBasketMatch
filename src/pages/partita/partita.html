@@ -30,23 +30,33 @@
           <p style="text-align:left;">
             {{partita.data | date:'dd MMM yyyy'}}
             <span style="float:right;">
-                      {{partita.data | date:'hh:mm'}}
-                  </span>
+              {{partita.data | date:'hh:mm'}}
+            </span>
           </p>
         </ion-row>
       </div>
     </div>
   </ion-card>
-  <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-    <button ion-button color="primary"  block (click)="openBacheca" >
-      {{'BACHECA' | translate }}
-    </button>
+
+  <div *ngIf="loggedUserIsPartecipant">
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+      <button ion-button color="primary"  block (click)="openBacheca" >
+        {{'BACHECA' | translate }}
+      </button>
+    </div>
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+      <button ion-button color="danger" block (click)="leavePartita" >
+        {{'LASCIA_PARTITA' | translate }}
+      </button>
+    </div>
   </div>
 
-  <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-    <button ion-button color="danger" block (click)="leavePartita" >
-      {{'LASCIA_PARTITA' | translate }}
-    </button>
+  <div *ngIf="!loggedUserIsPartecipant">
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+      <button ion-button color="success" block (click)="joinPartita" >
+        {{'PARTECIPA_PARTITA' | translate }}
+      </button>
+    </div>
   </div>
 
   <ion-list>
@@ -58,7 +68,20 @@
       <ion-avatar item-start>
         <img src="../../assets/imgs/avatar.png">
       </ion-avatar>
-      <ion-label>{{utente.nome}}</ion-label>
+      <ion-row>{{utente.nome}} {{utente.cognome}}</ion-row>
+      <ion-row>
+        <ionic3-star-rating #rating
+                            activeIcon = "ios-star"
+                            defaultIcon = "ios-star-outline"
+                            activeColor = "#ffff07"
+                            defaultColor = "#f4f4f4"
+                            readonly="true"
+                            rating="5"
+                            fontSize = "20px"
+                            (ratingChanged)="logRatingChange($event)">
+        </ionic3-star-rating>
+      </ion-row>
+
     </ion-item>
 
   </ion-list>

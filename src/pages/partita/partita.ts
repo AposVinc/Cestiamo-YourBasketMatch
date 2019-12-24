@@ -23,7 +23,7 @@ export class PartitaPage {
   utente: Utente;
   partita: Partita;
   partecipanti: Utente[];
-  loggedUserIsPartecipant: boolean = false;
+  canJoin: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService:PartitaService, public utenteService: UtenteService) {
 
@@ -35,7 +35,7 @@ export class PartitaPage {
     this.utenteService.getUtente().subscribe((utente: Utente) => {
       if (utente != null) {
         this.utente = utente;
-        console.log(this.utente);
+        console.log('utente loggato');
       } else {
         console.log('nessun utente loggato');
       }
@@ -48,57 +48,17 @@ export class PartitaPage {
       if (this.utente != null) {
         for (let i = 0; i < this.partecipanti.length; i++) {
           if (this.partecipanti[i].id === this.utente.id) {
-            this.loggedUserIsPartecipant = true;
+            this.canJoin = true;
             break;
           } else {
-            this.loggedUserIsPartecipant = false;
+            this.canJoin = false;
           }
         }
       } else {
-        this.loggedUserIsPartecipant = false;
+        this.canJoin = false;
       }
     });
 
-
-
-    /*
-        this.utenteService.getUtente().subscribe((utente: Utente) => {
-          if (utente != null) {
-            for(var i=0 ; i < (this.partecipanti).length ; i++){
-              if (this.partecipanti[i].id === utente.id){
-                this.loggedUserIsPartecipant = true;
-                break;
-              } else {
-                this.loggedUserIsPartecipant = false;
-              }
-            }
-          } else {
-            this.loggedUserIsPartecipant = false;
-          }
-        });
-     */
-    /*
-        this.utenteService.getUtente().subscribe((utente: Utente) => {
-          if (utente != null) {
-            this.utente = utente;
-            console.log('utente')
-            //console.log(this.partecipanti);
-          } else {
-            console.log('a');
-          }
-          for (let i=0; i<this.partecipanti.length; i++){
-            if (this.partecipanti[i].id === this.utente.id){
-              this.loggedUserIsPartecipant = true;
-              console.log('true');
-              break;
-            } else {
-              console.log('false');
-              this.loggedUserIsPartecipant = false;
-            }
-          }
-        });
-
-     */
   }
 
   openBacheca() {

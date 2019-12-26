@@ -23,7 +23,7 @@ utente: Utente;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfiloutentePage');
-    this.utenteService.getUtenteById(this.navParams.data.utenteId).subscribe((data: Utente) => {
+    this.utenteService.getUtenteByEmail(this.navParams.data.utenteId).subscribe((data: Utente) => {
       this.utente = data;
     });
   }

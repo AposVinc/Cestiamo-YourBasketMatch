@@ -1,4 +1,5 @@
 import { Voto } from './voto.model';
+import {Partita} from "./partita.model";
 
 export class Utente {
   id: number;
@@ -8,7 +9,7 @@ export class Utente {
   password: string;
   citta: string;
   datanascita: Date;
-  partitegiocate: number;
+  n_partite: number;
   mediavoto: Voto;
   img: string;
 

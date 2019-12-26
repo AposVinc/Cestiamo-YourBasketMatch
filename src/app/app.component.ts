@@ -134,7 +134,7 @@ export class MyApp {
   }
 
   openProfile() {//per entrare nel profilo dal menu laterale
-    this.nav.push(PROFILO_PERSONALE_PAGE, { utenteId: this.utente.id});
+    this.nav.push(PROFILO_PERSONALE_PAGE, { utenteEmail: this.utente.email});
     console.log('profilo utente', this.utente.nome, this.utente.cognome)
   }
 }

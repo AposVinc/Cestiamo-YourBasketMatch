@@ -71,8 +71,8 @@ export class UtenteService {
   }
 
 
-  getUtenteById(utenteId: number): Observable<Utente> {
-    let apiURL = `${URL.UTENTE}/${utenteId}`;
+  getUtenteByEmail(utenteEmail: string): Observable<Utente> {
+    let apiURL = `${URL.UTENTE}/${utenteEmail}`;
     return this.http.get<Utente>(apiURL);  }
 }
 

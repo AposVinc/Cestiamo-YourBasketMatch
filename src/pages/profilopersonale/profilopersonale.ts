@@ -24,7 +24,7 @@ export class ProfilopersonalePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilopersonalePage');
-    this.utenteService.getUtenteById(this.navParams.data.utenteId).subscribe((data: Utente) => {
+    this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
       this.utente = data;
     });
   }

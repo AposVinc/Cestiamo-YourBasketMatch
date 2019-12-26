@@ -47,10 +47,13 @@ export class PartitaPage {
 
       if (this.utente != null) {
         for (let i = 0; i < this.partecipanti.length; i++) {
-          if (this.partecipanti[i].id === this.utente.id) {
+          if (this.partecipanti[i].email === this.utente.email) {
+            console.log('true');
             this.canJoin = true;
             break;
           } else {
+            console.log('false');
+
             this.canJoin = false;
           }
         }
@@ -66,7 +69,7 @@ export class PartitaPage {
   }
 
   openProfilo(utente: Utente) {
-    this.navCtrl.push(PROFILO_UTENTE_PAGE, { utenteId: utente.id});
+    this.navCtrl.push(PROFILO_UTENTE_PAGE, { utenteEmail: utente.email});
   }
 
   leavePartita() {

@@ -8,6 +8,7 @@ import {PartitaService} from "../../services/partita.service";
 import {NgForm} from "@angular/forms";
 import {Tipopartita} from "../../model/tipopartita.model";
 import {a} from "@angular/core/src/render3";
+import {Utente} from "../../model/utente.model";
 
 
 /**
@@ -25,11 +26,13 @@ import {a} from "@angular/core/src/render3";
 })
 export class NuovapartitaPage {
   listaCampi: Array<Campo>;
-  partita :Partita = new Partita();
-  listaTipologia : Array<Tipopartita>;
+  partita: Partita = new Partita();
+  listaTipologia: Array<Tipopartita>;
   today = new Date();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public partitaService: PartitaService,) {
+  partecipanti: Utente[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService,) {
   }
 
   ionViewDidLoad() {
@@ -50,11 +53,12 @@ export class NuovapartitaPage {
     this.partita.campo = partitaForm.value.campo;
     this.partita.data = partitaForm.value.data;
     this.partita.tipologia = partitaForm.value.tipologia;
-  console.log(this.partita);
-  console.log("partita creata correttamente");
+   // this.partita.partecipanti.push(this.partita);
+    console.log(this.partita);
+    console.log("partita creata correttamente");
     this.partitaService.create(this.partita);
     this.openMyMatch();
   }
 
-}
 
+}

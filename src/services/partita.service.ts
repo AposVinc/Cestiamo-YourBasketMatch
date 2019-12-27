@@ -14,17 +14,20 @@ export class PartitaService {
     constructor(private http: HttpClient, public storage: Storage, public utenteService: UtenteService) {
     }
 
-    create(p: Partita){
-      this.utenteService.getUtente().subscribe((utente)=>{
+    create(p: Partita) {
+      this.utenteService.getUtente().subscribe((utente) => {
         //add utente a partita appena creata
         //p.partecipanti = utente;
-        return this.http.post<Partita>(URL.NUOVA_PARTITA,p).toPromise()
+        return this.http.post<Partita>(URL.NUOVA_PARTITA, p).toPromise()
           .then((response: Partita) => {
             return response;
-          }).catch(error => { console.error() }
+          }).catch(error => {
+              console.error()
+            }
           );
       });
     }
+
 
 
     list(): Observable<Array<Partita>> {

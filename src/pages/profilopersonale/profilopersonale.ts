@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {MODIFICA_PROFILO_PAGE} from "../pages";
+import {MODIFICA_PROFILO_PAGE, PROFILO_PERSONALE_PAGE} from "../pages";
 import {Utente} from "../../model/utente.model";
 import {UtenteService} from "../../services/utente.service";
 
@@ -34,5 +34,8 @@ export class ProfilopersonalePage {
     //modifica profilo
   }
 
+  openProfile(u: Utente){
+    this.navCtrl.push(PROFILO_PERSONALE_PAGE, {uenteId: u.id});
+  } //visualizzare i dati del profilo
 
 }

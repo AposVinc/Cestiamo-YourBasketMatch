@@ -12,5 +12,6 @@ export class Utente {
   n_partite: number;
   mediavoto: Voto;
   img: string;
+  via: string;
 
 }

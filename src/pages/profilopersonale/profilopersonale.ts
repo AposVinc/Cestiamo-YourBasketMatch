@@ -34,8 +34,4 @@ export class ProfilopersonalePage {
     //modifica profilo
   }
 
-  openProfile(u: Utente){
-    this.navCtrl.push(PROFILO_PERSONALE_PAGE, {uenteId: u.id});
-  } //visualizzare i dati del profilo
-
 }

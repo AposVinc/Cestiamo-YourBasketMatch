@@ -131,7 +131,6 @@ export class MyApp {
 
   logout() {
     this.utenteService.logout();
-    this.global.isLogged = false;
   }
 
   openProfile() {//per entrare nel profilo dal menu laterale

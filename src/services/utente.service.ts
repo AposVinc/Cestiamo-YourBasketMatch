@@ -51,6 +51,7 @@ export class UtenteService {
     this.tokenUtente = "";
     this.storage.remove(AUTH_TOKEN);
     this.storage.remove(UTENTE_STORAGE);
+    this.global.isLogged = false;
   }
 
   getUtente(): Observable<Utente> {

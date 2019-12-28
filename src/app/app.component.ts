@@ -20,6 +20,8 @@ import {
 } from '../pages/pages';
 import {UtenteService} from "../services/utente.service";
 import {Utente} from "../model/utente.model";
+import {Storage} from "@ionic/storage";
+import {GlobalProvider} from "../providers/global/global";
 
 
 @Component({
@@ -28,12 +30,11 @@ import {Utente} from "../model/utente.model";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   utente: Utente;
-  isLogged: boolean = false;
 
   rootPage: any = LISTA_PARTITE_PAGE;
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public global: GlobalProvider,
               private translate: TranslateService, public events: Events, private linguaService: LinguaService, public utenteService: UtenteService) {
 
     this.initTranslate();
@@ -56,9 +57,9 @@ export class MyApp {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
           this.utente = utente;
-          this.isLogged = true;
+          this.global.isLogged = true;
         } else {
-          this.isLogged = false;
+          this.global.isLogged = false;
         }
       });
       statusBar.styleDefault();
@@ -94,7 +95,7 @@ export class MyApp {
   subscribeToEvents() {
     this.events.subscribe('login', (utente: Utente) => {
       this.utente = utente;
-      this.isLogged=true;
+      this.global.isLogged=true;
     });
     this.events.subscribe('server-error', (err: HttpErrorResponse) => {
       this.showMessageServerError(err);
@@ -130,11 +131,11 @@ export class MyApp {
 
   logout() {
     this.utenteService.logout();
-    this.isLogged = false;
+    this.global.isLogged = false;
   }
 
   openProfile() {//per entrare nel profilo dal menu laterale
-    if (this.utente != null){
+    if (this.global.isLogged){
       this.nav.push(PROFILO_PERSONALE_PAGE, { utenteEmail: this.utente.email});
       console.log('profilo utente', this.utente.nome, this.utente.cognome);
     } else {

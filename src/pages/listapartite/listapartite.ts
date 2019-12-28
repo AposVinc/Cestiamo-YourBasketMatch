@@ -3,9 +3,10 @@ import { IonicPage, NavController, NavParams, Refresher } from 'ionic-angular';
 
 import { Partita } from '../../model/partita.model';
 import { PartitaService } from '../../services/partita.service';
-import { NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
+import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 
 import { Nav } from 'ionic-angular';
+import {GlobalProvider} from "../../providers/global/global";
 
 
 /**
@@ -24,7 +25,7 @@ export class ListapartitePage {
 
   listaPartite: Array<Partita>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, public global: GlobalProvider ) {
   }
 
   ionViewDidLoad() {
@@ -46,7 +47,11 @@ export class ListapartitePage {
   }
 
   openNuovaPartita() {
-    this.navCtrl.push(NUOVA_PARTITA_PAGE);
+    if (this.global.isLogged){
+      this.navCtrl.push(NUOVA_PARTITA_PAGE);
+    } else {
+      this.navCtrl.push(LOGIN_PAGE);
+    }
   }
 
 }

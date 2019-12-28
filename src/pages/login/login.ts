@@ -48,7 +48,6 @@ export class LoginPage {
     this.utenteService.login(this.account)
       .subscribe((utente: Utente) => {
           this.events.publish('login', utente);
-
           this.navCtrl.pop();
         },
         (err: HttpErrorResponse) => {

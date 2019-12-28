@@ -38,22 +38,22 @@
     </div>
   </ion-card>
 
-  <div *ngIf="canJoin">
+  <div *ngIf="canJoin && global.isLogged">
     <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-      <button ion-button color="primary"  block (click)="openBacheca" >
+      <button ion-button color="primary"  block (click)="openBacheca()" >
         {{'BACHECA' | translate }}
       </button>
     </div>
     <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-      <button ion-button color="danger" block (click)="leavePartita" >
+      <button ion-button color="danger" block (click)="leavePartita()" >
         {{'LASCIA_PARTITA' | translate }}
       </button>
     </div>
   </div>
 
-  <div *ngIf="!canJoin">
+  <div *ngIf="!canJoin || !global.isLogged">
     <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-      <button ion-button color="success" block (click)="joinPartita" >
+      <button ion-button color="success" block (click)="joinPartita()" >
         {{'PARTECIPA_PARTITA' | translate }}
       </button>
     </div>

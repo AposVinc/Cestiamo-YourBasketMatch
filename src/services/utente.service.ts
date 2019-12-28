@@ -6,13 +6,14 @@ import {Utente} from '../model/utente.model';
 import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Storage} from '@ionic/storage';
 import {fromPromise} from 'rxjs/observable/fromPromise';
+import {GlobalProvider} from "../providers/global/global";
 
 
 @Injectable()
 export class UtenteService {
   private tokenUtente: string;
 
-  constructor(public http: HttpClient, public storage: Storage) {
+  constructor(public http: HttpClient, public storage: Storage, public global: GlobalProvider) {
     this.storage.get(AUTH_TOKEN).then((token) => {
       this.tokenUtente = token;
     });
@@ -33,6 +34,7 @@ export class UtenteService {
         this.storage.set(AUTH_TOKEN, token);
         this.tokenUtente = token;
         this.storage.set(UTENTE_STORAGE, resp.body);
+        this.global.isLogged=true;
         return resp.body;
       });
   }
@@ -49,6 +51,7 @@ export class UtenteService {
     this.tokenUtente = "";
     this.storage.remove(AUTH_TOKEN);
     this.storage.remove(UTENTE_STORAGE);
+    this.global.isLogged = false;
   }
 
   getUtente(): Observable<Utente> {

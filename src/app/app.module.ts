@@ -17,6 +17,7 @@ import { LinguaService } from '../services/lingua.service';
 import {IonicStorageModule} from '@ionic/storage';  //storage
 import {PartitaService} from '../services/partita.service';
 import {UtenteService} from "../services/utente.service";
+import { GlobalProvider } from '../providers/global/global';
 
 
 
@@ -59,6 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
     LinguaService,
     PartitaService,
     UtenteService,
+    GlobalProvider,
 
 
   ]

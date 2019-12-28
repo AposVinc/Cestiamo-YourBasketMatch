@@ -28,12 +28,15 @@ export class ModificaprofiloPage {
   }
 
   saveProfile(profileForm: NgForm){
+    console.log("metodo salva profilo")
     if(profileForm.valid){
       this.utenteService.updateProfilo(this.utente).subscribe((nuovoUtente: Utente) =>{
         this.utente = nuovoUtente;
+        console.log(this.utente);
       });
+
     }
   }
-  
+
 
 }

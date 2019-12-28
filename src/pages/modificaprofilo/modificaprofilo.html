@@ -67,17 +67,14 @@
         <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
       </ion-item>
 
-
-
       <ion-list no-lines padding >
           <ion-item>
             <ion-label style="color:black">{{'Nome'|translate}}: </ion-label>
           </ion-item>
-      </ion-list>
-      -->
+      </ion-list> -->
 
   <div padding class="buttonCenter buttonBottom" >
-    <button ion-button color="secondary" block (click)="openEditProfile()" >  <!-- definire openEditProfile()  -->
+    <button ion-button color="secondary" block (click)="saveProfile(profileForm)" >  <!-- definire openEditProfile()  -->
       {{'SALVA_MODIFICHE' | translate }}
     </button>
   </div>

@@ -35,7 +35,7 @@ export class ProfilopersonalePage {
   }
 
   openProfile(u: Utente){
-    this.navCtrl.push(PROFILO_PERSONALE_PAGE, {uenteId: u.id});
-  } //visualizzare i dati del profilo
+    this.navCtrl.push(PROFILO_PERSONALE_PAGE, {uenteId: u.email});
+  } //visualizzare i dati del profilo NON SERVE
 
 }

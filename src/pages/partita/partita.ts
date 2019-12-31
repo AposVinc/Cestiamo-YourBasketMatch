@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {BACHECA_PARTITA_PAGE, LISTA_PARTITE_PAGE, LOGIN_PAGE, MIE_PARTITE_PAGE, PROFILO_UTENTE_PAGE} from "../pages";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {BACHECA_PARTITA_PAGE, LISTA_PARTITE_PAGE, LOGIN_PAGE, PROFILO_UTENTE_PAGE} from "../pages";
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
 import {Utente} from "../../model/utente.model";
-import {LinguaService} from "../../services/lingua.service";
 import {UtenteService} from "../../services/utente.service";
 import {GlobalProvider} from "../../providers/global/global";
 
@@ -74,7 +73,12 @@ export class PartitaPage {
 
   leavePartita() {
     //logica
-    this.navCtrl.setRoot(LISTA_PARTITE_PAGE);
+    this.partitaService.removeUtente(this.partita.id, this.utente.email).subscribe(() => {
+      //console.log(this.partita.partecipanti)
+    });
+
+    //this.navCtrl.setRoot(LISTA_PARTITE_PAGE);
+
   }
 
   joinPartita() {

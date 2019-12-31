@@ -7,6 +7,7 @@ import { URL } from '../constants';
 import { Partita } from '../model/partita.model';
 import { Campo } from "../model/campo.model";
 import {Tipopartita } from "../model/tipopartita.model";
+import {Utente} from "../model/utente.model";
 
 @Injectable()
 export class PartitaService {
@@ -29,7 +30,6 @@ export class PartitaService {
     }
 
 
-
     list(): Observable<Array<Partita>> {
       return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
     }
@@ -47,7 +47,10 @@ export class PartitaService {
       return this.http.get<Array<Tipopartita>> (URL.LISTA_TIPO_PARTITA)
     }
 
-
+    removeUtente(partitaId: number, utenteEmail: string){
+      let deleteUrl = `${URL.REMOVE_PARTECIPANTE}/partita=${partitaId}/utente=${utenteEmail}`;
+      return this.http.delete<Partita>(deleteUrl);
+    }
 
 }
 

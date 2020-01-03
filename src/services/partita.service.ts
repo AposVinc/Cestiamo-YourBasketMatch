@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
@@ -45,6 +45,15 @@ export class PartitaService {
 
     ListTypeMatch(): Observable<Array<Tipopartita>>{
       return this.http.get<Array<Tipopartita>> (URL.LISTA_TIPO_PARTITA)
+    }
+
+    addUtente(partitaId: number, utenteEmail: string){
+      let url =  `${URL.ADD_PARTECIPANTE}/partita=${partitaId}/utente=${utenteEmail}`;
+      let body={"id_p": partitaId, "mail_u" :utenteEmail};
+      return this.http.put<Partita>(url,null,{ observe: 'response' })
+        .map((resp :HttpResponse<Partita>)=> {
+          return resp.body;
+        });
     }
 
     removeUtente(partitaId: number, utenteEmail: string){

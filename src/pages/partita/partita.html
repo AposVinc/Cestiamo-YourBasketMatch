@@ -38,7 +38,7 @@
     </div>
   </ion-card>
 
-  <div *ngIf="canJoin && global.isLogged">
+  <div *ngIf="global.isLogged && isPartecipant">
     <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
       <button ion-button color="primary"  block (click)="openBacheca()" >
         {{'BACHECA' | translate }}
@@ -51,9 +51,12 @@
     </div>
   </div>
 
-  <div *ngIf="!canJoin || !global.isLogged">
+  <div *ngIf="!global.isLogged || canJoin || soldOut">
     <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-      <button ion-button color="success" block (click)="joinPartita()" >
+      <button *ngIf="this.soldOut" ion-button color="success" block (click)="joinPartita()" disabled>
+        {{'PARTECIPA_PARTITA' | translate }}
+      </button>
+      <button *ngIf="!this.soldOut" ion-button color="success" block (click)="joinPartita()">
         {{'PARTECIPA_PARTITA' | translate }}
       </button>
     </div>

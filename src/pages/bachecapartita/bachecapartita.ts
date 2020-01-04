@@ -26,16 +26,23 @@ export class BachecapartitaPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private bachecaService: BachecaService) {
 
+    // Get the navParams toUserId parameter
     this.toUser = {
       id: navParams.get('toUserId'),
       name: navParams.get('toUserName')
     };
     // Get mock user information
-    this.chatService.getUserInfo()
+    this.bachecaService.getUserInfo()
       .then((res) => {
         this.user = res
       });
+
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad BachecapartitaPage');
+  }
+
 
   ionViewWillLeave() {
     // unsubscribe
@@ -53,21 +60,10 @@ export class BachecapartitaPage {
   }
 
   onFocus() {
-    this.showEmojiPicker = false;
     this.content.resize();
     this.scrollToBottom();
   }
 
-  switchEmojiPicker() {
-    this.showEmojiPicker = !this.showEmojiPicker;
-    if (!this.showEmojiPicker) {
-      this.focus();
-    } else {
-      this.setTextareaScroll();
-    }
-    this.content.resize();
-    this.scrollToBottom();
-  }
 
   /**
    * @name getMsg
@@ -75,7 +71,7 @@ export class BachecapartitaPage {
    */
   getMsg() {
     // Get mock message list
-    return this.chatService
+    return this.bachecaService
       .getMsgList()
       .subscribe(res => {
         this.msgList = res;
@@ -105,11 +101,8 @@ export class BachecapartitaPage {
     this.pushNewMsg(newMsg);
     this.editorMsg = '';
 
-    if (!this.showEmojiPicker) {
-      this.focus();
-    }
 
-    this.chatService.sendMsg(newMsg)
+    this.bachecaService.sendMsg(newMsg)
       .then(() => {
         let index = this.getMsgIndexById(id);
         if (index !== -1) {
@@ -156,5 +149,5 @@ export class BachecapartitaPage {
     const textarea =this.messageInput.nativeElement;
     textarea.scrollTop = textarea.scrollHeight;
   }
-}
 
+}

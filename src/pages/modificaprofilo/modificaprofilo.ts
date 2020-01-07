@@ -27,16 +27,17 @@ export class ModificaprofiloPage {
     console.log('ionViewDidLoad ModificaprofiloPage');
   }
 
-  saveProfile(profileForm: NgForm){
-    console.log("metodo salva profilo")
+  /*saveProfile(profileForm: NgForm){
+    console.log("entra metodo salva profilo")
     if(profileForm.valid){
       this.utenteService.updateProfilo(this.utente).subscribe((nuovoUtente: Utente) =>{
         this.utente = nuovoUtente;
         console.log(this.utente);
+        console.log("esce, profilo salvato")
       });
 
     }
-  }
+  }*/
 
 
 }

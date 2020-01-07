@@ -19,6 +19,7 @@ export class PartitaService {
       this.utenteService.getUtente().subscribe((utente) => {
         //add utente a partita appena creata
         //p.partecipanti = utente;
+        p.utente = utente;
         return this.http.post<Partita>(URL.NUOVA_PARTITA, p).toPromise()
           .then((response: Partita) => {
             return response;
@@ -28,6 +29,19 @@ export class PartitaService {
           );
       });
     }
+    /*
+    create(veicolo: Veicolo) {
+        this.utenteService.getUtente().subscribe((utente)=>{
+          utente.img=null;
+          veicolo.utente=utente;
+          return this.http.post<Veicolo>(URL.URL_VEICOLO, veicolo).toPromise()
+            .then((response: Veicolo) => {
+              return response;
+            }).catch(error => { console.error() }
+            );
+        });
+    }
+     */
 
 
     list(): Observable<Array<Partita>> {

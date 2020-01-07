@@ -14,47 +14,46 @@
 </ion-header>
 
 <ion-content padding>
+  <!--
+    <ion-avatar class="avatars" (click)="modifica()">
+      <img src="assets/imgs/logo1.png">
+    </ion-avatar>
 
-  <ion-avatar class="avatars" (click)="modifica()">
-    <img src="assets/imgs/logo1.png">
-  </ion-avatar>
+    <form #profileForm="ngForm" >
 
-  <form #profileForm="ngForm">
+      <ion-list>
+        <ion-item>
+          <ion-label>{{'NOME' | translate}}</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="utente.nome" #nome="ngModel" required></ion-input>
+        </ion-item>
 
-    <ion-list>
-      <ion-item>
-        <ion-label>{{ 'NOME' | translate }}</ion-label>
-        <ion-input type="text" name="title" [(ngModel)]="utente.nome" #nome="ngModel" required></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>{{ 'COGNOME' | translate }}</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="utente.cognome"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>{{ 'COGNOME' | translate }}</ion-label>
-        <ion-input type="text" name="title" [(ngModel)]="utente.cognome"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>{{'DATA_DI_NASCITA' | translate }}</ion-label>
+          <ion-datetime name="dataNascita" displayFormat="MMM DD, YYYY" required [(ngModel)]="utente.dataNascita" #data="ngModel"></ion-datetime>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>{{'DATA_DI_NASCITA' | translate }}</ion-label>
-        <ion-input type="text" name="title" [(ngModel)]="utente.dataNascita"></ion-input>
-       <!-- <ion-datetime display-format="MM/YYYY" picker-format="MMMM YYYY" ></ion-datetime> -->
-      </ion-item>
+        <ion-item>
+          <ion-label>{{ 'INDIRIZZO' | translate }}</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="utente.via"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>{{ 'INDIRIZZO' | translate }}</ion-label>
-        <ion-input type="text" name="title" [(ngModel)]="utente.via"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>{{ 'CITTA' | translate }}</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="utente.citta"></ion-input>
+        </ion-item>
+      </ion-list>
 
-      <ion-item>
-        <ion-label>{{ 'CITTA' | translate }}</ion-label>
-        <ion-input type="text" name="title" [(ngModel)]="utente.citta"></ion-input>
-      </ion-item>
-    </ion-list>
+      <div padding class="buttonCenter buttonBottom">
+        <button ion-button color="secondary" block (click)="saveProfile(profileForm)">
+          &lt;!&ndash; definire openEditProfile()  &ndash;&gt;
+          {{'SALVA_MODIFICHE' | translate }}
+        </button>
+      </div>
 
-    <div padding class="buttonCenter buttonBottom">
-      <button ion-button color="secondary" block (click)="saveProfile(profileForm)">
-        <!-- definire openEditProfile()  -->
-        {{'SALVA_MODIFICHE' | translate }}
-      </button>
-    </div>
-
-  </form>
+    </form>-->
 </ion-content>

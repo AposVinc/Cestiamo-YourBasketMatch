@@ -1,6 +1,9 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Content, Events, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {BachecaService, ChatMessage, UserInfo} from "../../services/bacheca.service";
+import {Partita} from "../../model/partita.model";
+import {Messaggio} from "../../model/messaggio.model";
+import {Utente} from "../../model/utente.model";
 
 /**
  * Generated class for the BachecapartitaPage page.
@@ -23,6 +26,8 @@ export class BachecapartitaPage {
   toUser: UserInfo;
   editorMsg = '';
 
+  listaMessaggi: Array<Messaggio>;
+  utente: Utente;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private bachecaService: BachecaService) {
 
@@ -41,6 +46,11 @@ export class BachecapartitaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BachecapartitaPage');
+    this.bachecaService.listMessaggi(this.navParams.data.partitaId).subscribe((data: Array<Messaggio>) => {
+      this.listaMessaggi = data;
+      //console.log(this.listaMessaggi)
+      mettere a video
+    });
   }
 
 
@@ -63,7 +73,6 @@ export class BachecapartitaPage {
     this.content.resize();
     this.scrollToBottom();
   }
-
 
   /**
    * @name getMsg
@@ -101,7 +110,6 @@ export class BachecapartitaPage {
     this.pushNewMsg(newMsg);
     this.editorMsg = '';
 
-
     this.bachecaService.sendMsg(newMsg)
       .then(() => {
         let index = this.getMsgIndexById(id);
@@ -137,12 +145,6 @@ export class BachecapartitaPage {
         this.content.scrollToBottom();
       }
     }, 400)
-  }
-
-  private focus() {
-    if (this.messageInput && this.messageInput.nativeElement) {
-      this.messageInput.nativeElement.focus();
-    }
   }
 
   private setTextareaScroll() {

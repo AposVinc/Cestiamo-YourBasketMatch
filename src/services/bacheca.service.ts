@@ -3,6 +3,9 @@ import { Events } from 'ionic-angular';
 import { map } from 'rxjs/operators/map';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import {Campo} from "../model/campo.model";
+import {URL} from "../constants";
+import {Messaggio} from "../model/messaggio.model";
 
 export class ChatMessage {
   messageId: string;
@@ -63,6 +66,12 @@ export class BachecaService {
       avatar: './assets/user.jpg'
     };
     return new Promise(resolve => resolve(userInfo));
+  }
+
+
+  listMessaggi(partitaId: number): Observable<Array<Messaggio>>{
+    let apiURL = `${URL.PARTITA}/${partitaId}/bacheca`;
+    return this.http.get<Array<Messaggio>> (apiURL);
   }
 
 }

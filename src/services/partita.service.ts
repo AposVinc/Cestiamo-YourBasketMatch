@@ -29,20 +29,6 @@ export class PartitaService {
           );
       });
     }
-    /*
-    create(veicolo: Veicolo) {
-        this.utenteService.getUtente().subscribe((utente)=>{
-          utente.img=null;
-          veicolo.utente=utente;
-          return this.http.post<Veicolo>(URL.URL_VEICOLO, veicolo).toPromise()
-            .then((response: Veicolo) => {
-              return response;
-            }).catch(error => { console.error() }
-            );
-        });
-    }
-     */
-
 
     list(): Observable<Array<Partita>> {
       return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);

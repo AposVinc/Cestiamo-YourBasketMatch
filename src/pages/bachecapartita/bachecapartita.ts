@@ -4,6 +4,8 @@ import {BachecaService, ChatMessage, UserInfo} from "../../services/bacheca.serv
 import {Partita} from "../../model/partita.model";
 import {Messaggio} from "../../model/messaggio.model";
 import {Utente} from "../../model/utente.model";
+import {PartitaService} from "../../services/partita.service";
+import {UtenteService} from "../../services/utente.service";
 
 /**
  * Generated class for the BachecapartitaPage page.
@@ -27,9 +29,10 @@ export class BachecapartitaPage {
   editorMsg = '';
 
   listaMessaggi: Array<Messaggio>;
-  utente: Utente;
+  utente: Utente = null;
+  partita: Partita = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private bachecaService: BachecaService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private bachecaService: BachecaService, private utenteService: UtenteService, private partitaService: PartitaService) {
 
     // Get the navParams toUserId parameter
     this.toUser = {
@@ -48,8 +51,17 @@ export class BachecapartitaPage {
     console.log('ionViewDidLoad BachecapartitaPage');
     this.bachecaService.listMessaggi(this.navParams.data.partitaId).subscribe((data: Array<Messaggio>) => {
       this.listaMessaggi = data;
-      //console.log(this.listaMessaggi)
-      mettere a video
+      console.log(this.listaMessaggi);
+    });
+
+    this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
+      this.partita = data;
+    });
+
+    this.utenteService.getUtente().subscribe((utente: Utente) => {
+      if (utente != null) {
+        this.utente = utente;
+      }
     });
   }
 
@@ -107,6 +119,14 @@ export class BachecapartitaPage {
       status: 'pending'
     };
 
+    /*
+    let newMsg: Messaggio;
+    newMsg.data = new Date();
+    newMsg.testo = this.editorMsg;
+    newMsg.mittente = this.utente;
+    newMsg.partita = this.partita;
+    newMsg.status = "pending";
+*/
     this.pushNewMsg(newMsg);
     this.editorMsg = '';
 

@@ -3,7 +3,6 @@ import { Events } from 'ionic-angular';
 import { map } from 'rxjs/operators/map';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import {Campo} from "../model/campo.model";
 import {URL} from "../constants";
 import {Messaggio} from "../model/messaggio.model";
 

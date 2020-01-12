@@ -4,8 +4,8 @@ import {Partita} from "./partita.model";
 
 export class Messaggio {
   id: number;
-  data: Date;
   mittente: Utente;
+  data: Date;
   testo: string;
   partita: Partita;
 

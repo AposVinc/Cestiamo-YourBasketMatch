@@ -1,6 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Content, Events, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {BachecaService, ChatMessage, UserInfo} from "../../services/bacheca.service";
+import {BachecaService} from "../../services/bacheca.service";
 import {Partita} from "../../model/partita.model";
 import {Messaggio} from "../../model/messaggio.model";
 import {Utente} from "../../model/utente.model";
@@ -23,35 +23,20 @@ export class BachecapartitaPage {
 
   @ViewChild(Content) content: Content;
   @ViewChild('chat_input') messageInput: ElementRef;
-  msgList: ChatMessage[] = [];
-  user: UserInfo;
-  toUser: UserInfo;
-  editorMsg = '';
 
   listaMessaggi: Array<Messaggio>;
   utente: Utente = null;
   partita: Partita = null;
+  editorMsg = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private bachecaService: BachecaService, private utenteService: UtenteService, private partitaService: PartitaService) {
-
-    // Get the navParams toUserId parameter
-    this.toUser = {
-      id: navParams.get('toUserId'),
-      name: navParams.get('toUserName')
-    };
-    // Get mock user information
-    this.bachecaService.getUserInfo()
-      .then((res) => {
-        this.user = res
-      });
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events,
+              private bachecaService: BachecaService, private utenteService: UtenteService, private partitaService: PartitaService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BachecapartitaPage');
     this.bachecaService.listMessaggi(this.navParams.data.partitaId).subscribe((data: Array<Messaggio>) => {
       this.listaMessaggi = data;
-      console.log(this.listaMessaggi);
     });
 
     this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
@@ -66,97 +51,32 @@ export class BachecapartitaPage {
   }
 
 
-  ionViewWillLeave() {
-    // unsubscribe
-    this.events.unsubscribe('chat:received');
-  }
-
-  ionViewDidEnter() {
-    //get message list
-    this.getMsg();
-
-    // Subscribe to received  new message events
-    this.events.subscribe('chat:received', msg => {
-      this.pushNewMsg(msg);
-    })
-  }
-
   onFocus() {
     this.content.resize();
     this.scrollToBottom();
   }
 
-  /**
-   * @name getMsg
-   * @returns {Promise<ChatMessage[]>}
-   */
-  getMsg() {
-    // Get mock message list
-    return this.bachecaService
-      .getMsgList()
-      .subscribe(res => {
-        this.msgList = res;
-        this.scrollToBottom();
-      });
-  }
 
-  /**
-   * @name sendMsg
-   */
   sendMsg() {
     if (!this.editorMsg.trim()) return;
 
-    // Mock message
-    const id = Date.now().toString();
-    let newMsg: ChatMessage = {
-      messageId: Date.now().toString(),
-      userId: this.user.id,
-      userName: this.user.name,
-      userAvatar: this.user.avatar,
-      toUserId: this.toUser.id,
-      time: Date.now(),
-      message: this.editorMsg,
-      status: 'pending'
-    };
-
-    /*
-    let newMsg: Messaggio;
+    let newMsg: Messaggio = new Messaggio();
+    newMsg.mittente = this.utente;
     newMsg.data = new Date();
     newMsg.testo = this.editorMsg;
-    newMsg.mittente = this.utente;
     newMsg.partita = this.partita;
     newMsg.status = "pending";
-*/
-    this.pushNewMsg(newMsg);
+
     this.editorMsg = '';
-
-    this.bachecaService.sendMsg(newMsg)
-      .then(() => {
-        let index = this.getMsgIndexById(id);
-        if (index !== -1) {
-          this.msgList[index].status = 'success';
-        }
-      })
-  }
-
-  /**
-   * @name pushNewMsg
-   * @param msg
-   */
-  pushNewMsg(msg: ChatMessage) {
-    const userId = this.user.id,
-      toUserId = this.toUser.id;
-    // Verify user relationships
-    if (msg.userId === userId && msg.toUserId === toUserId) {
-      this.msgList.push(msg);
-    } else if (msg.toUserId === userId && msg.userId === toUserId) {
-      this.msgList.push(msg);
+    if (this.bachecaService.sendMsg(newMsg)) {
+      newMsg.status = "success";
+      this.pushNewMsg(newMsg);
     }
-    this.scrollToBottom();
   }
 
-  getMsgIndexById(id: string) {
-    return this.msgList.findIndex(e => e.messageId === id)
+  pushNewMsg(msg: Messaggio) {
+    this.listaMessaggi.push(msg);
+    this.scrollToBottom();
   }
 
   scrollToBottom() {
@@ -167,9 +87,5 @@ export class BachecapartitaPage {
     }, 400)
   }
 
-  private setTextareaScroll() {
-    const textarea =this.messageInput.nativeElement;
-    textarea.scrollTop = textarea.scrollHeight;
-  }
 
 }

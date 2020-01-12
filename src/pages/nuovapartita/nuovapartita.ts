@@ -9,6 +9,7 @@ import {NgForm} from "@angular/forms";
 import {Tipopartita} from "../../model/tipopartita.model";
 import {a} from "@angular/core/src/render3";
 import {Utente} from "../../model/utente.model";
+import {ListapartitePage} from "../listapartite/listapartite";
 
 
 /**
@@ -55,8 +56,9 @@ export class NuovapartitaPage {
     this.partita.tipologia = partitaForm.value.tipologia;
    // this.partita.partecipanti.push(this.partita);
     console.log(this.partita);
-    console.log("partita creata correttamente");
     this.partitaService.create(this.partita);
+    console.log("partita creata correttamente");
+    //this.navCtrl.push(ListapartitePage); da vedere
     this.openMyMatch();
   }
 

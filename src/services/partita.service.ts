@@ -19,6 +19,7 @@ export class PartitaService {
       this.utenteService.getUtente().subscribe((utente) => {
         //add utente a partita appena creata
         //p.partecipanti = utente;
+        p.utente = utente;
         return this.http.post<Partita>(URL.NUOVA_PARTITA, p).toPromise()
           .then((response: Partita) => {
             return response;
@@ -28,7 +29,6 @@ export class PartitaService {
           );
       });
     }
-
 
     list(): Observable<Array<Partita>> {
       return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);

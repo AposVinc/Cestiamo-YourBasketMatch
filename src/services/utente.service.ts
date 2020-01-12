@@ -65,13 +65,15 @@ export class UtenteService {
   updateProfilo(nuovoUtente: Utente): Observable<Utente> {
     return this.http.post<Utente>(URL.UPDATE_USER, nuovoUtente, { observe: 'response' })
       .map((resp: HttpResponse<Utente>) => {
-        if(resp.body.img.length===0) {
+       /* if(resp.body.img.length===0) {
           resp.body.img = "../../assets/imgs/default.png";
-        }
+        }*/
         this.storage.set(UTENTE_STORAGE, resp.body);
         return resp.body;
       });
   }
+
+
 
 
   getUtenteByEmail(utenteEmail: string): Observable<Utente> {

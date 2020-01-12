@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
-import {NUOVA_PARTITA_PAGE} from "../pages";
+import {NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 
 /**
  * Generated class for the StoricopartitePage page.
@@ -17,6 +17,7 @@ import {NUOVA_PARTITA_PAGE} from "../pages";
   templateUrl: 'storicopartite.html',
 })
 export class StoricopartitePage {
+
   listaPartite: Array<Partita>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService) {
@@ -29,8 +30,8 @@ export class StoricopartitePage {
     });
   }
 
-  openPartita(n: Partita) {
-    this.navCtrl.push('PatitaPage', { partitaId: n.id });
+  openPartita(p: Partita) {
+    this.navCtrl.push(PARTITA_PAGE, { partitaId: p.id });
   }
 
   doRefresh(refresher: Refresher) {

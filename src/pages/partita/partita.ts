@@ -72,7 +72,7 @@ export class PartitaPage {
   }
 
   openBacheca() {
-    this.navCtrl.push(BACHECA_PARTITA_PAGE);
+    this.navCtrl.push(BACHECA_PARTITA_PAGE, {partitaId: this.partita.id});
   }
 
   openProfilo(utente: Utente) {

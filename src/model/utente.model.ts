@@ -1,5 +1,4 @@
 import { Voto } from './voto.model';
-import {Partita} from "./partita.model";
 
 export class Utente {
   nome: string;

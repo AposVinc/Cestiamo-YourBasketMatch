@@ -27,8 +27,8 @@ export class PartitaPage {
   canJoin: boolean = false;
   soldOut: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider, public partitaService:PartitaService, public utenteService: UtenteService) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider,
+              public partitaService:PartitaService, public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
@@ -37,7 +37,6 @@ export class PartitaPage {
     this.utenteService.getUtente().subscribe((utente: Utente) => {
       if (utente != null) {
         this.utente = utente;
-        console.log('utente loggato');
       } else {
         console.log('nessun utente loggato');
       }
@@ -88,9 +87,9 @@ export class PartitaPage {
   joinPartita() {
     if (this.global.isLogged){
       this.partitaService.addUtente(this.partita.id, this.utente.email).subscribe( () => {
-        this.navCtrl.pop();
-        this.navCtrl.push(PARTITA_PAGE, {partitaId: this.partita.id});
-        //location.reload();
+        this.partecipanti.push(this.utente);
+        this.isPartecipant = true;
+        this.canJoin = false;
       });
     } else {
       this.navCtrl.push(LOGIN_PAGE);
@@ -103,6 +102,4 @@ export class PartitaPage {
     // do your stuff
   }
 
-  //mostra i voti medi di ogni utente
-  //op di leave, op partecipa
 }

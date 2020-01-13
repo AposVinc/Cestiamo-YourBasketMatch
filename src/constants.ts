@@ -10,6 +10,8 @@ export const URL = {
     URL_IMG:URL_BASE+'/updateImage',
 
     LISTA_PARTITE: URL_BASE + '/getListaPartite',
+    MIE_PARTITE: URL_BASE + '/getListaMiePartite',
+    PARTITE_GIOCATE: URL_BASE + '/getListaPartiteGiocate',
     PARTITA: URL_BASE + '/partita',
     REMOVE_PARTECIPANTE: URL_BASE + '/removePartecipante',
     ADD_PARTECIPANTE: URL_BASE + '/addPartecipante',

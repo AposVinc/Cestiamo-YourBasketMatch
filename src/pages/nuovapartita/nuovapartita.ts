@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import {DateTime, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LOGIN_PAGE, MIE_PARTITE_PAGE} from "../pages";
-import {LoginPage} from "../login/login";
 import {Campo} from "../../model/campo.model";
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
 import {NgForm} from "@angular/forms";
 import {Tipopartita} from "../../model/tipopartita.model";
-import {a} from "@angular/core/src/render3";
 import {Utente} from "../../model/utente.model";
-import {ListapartitePage} from "../listapartite/listapartite";
+import {GlobalProvider} from "../../providers/global/global";
+import {UtenteService} from "../../services/utente.service";
 
 
 /**
@@ -26,18 +25,36 @@ import {ListapartitePage} from "../listapartite/listapartite";
 
 })
 export class NuovapartitaPage {
+  utente: Utente = null;
+
   listaCampi: Array<Campo>;
   partita: Partita = new Partita();
   listaTipologia: Array<Tipopartita>;
   today = new Date();
 
-  partecipanti: Utente[];
+  data: Date;
+  orario: Date;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService,) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider,
+              public partitaService: PartitaService, public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NuovapartitaPage');
+
+    if (this.global.isLogged) {
+      this.utenteService.getUtente().subscribe((utente: Utente) => {
+        if (utente != null) {
+          this.utente = utente;
+        } else {
+          console.log('nessun utente loggato');
+        }
+      });
+    } else {
+      this.navCtrl.push(LOGIN_PAGE);
+    }
+
     this.partitaService.listCampi().subscribe((data: Array<Campo>) => {
       this.listaCampi = data;
     });
@@ -51,14 +68,15 @@ export class NuovapartitaPage {
   }
 
   createMatch(partitaForm: NgForm) {
-    this.partita.campo = partitaForm.value.campo;
-    this.partita.data = partitaForm.value.data;
-    this.partita.tipologia = partitaForm.value.tipologia;
-   // this.partita.partecipanti.push(this.partita);
-    console.log(this.partita);
-    this.partitaService.create(this.partita);
-    console.log("partita creata correttamente");
-    //this.navCtrl.push(ListapartitePage); da vedere
+    console.log(this.orario);    //21:00
+    console.log(this.data);    // 2020-01-12
+    //console.log(datatime);
+    //2020-01-12T20:54:00Z
+    //"2020-03-25T19:30:00"  da lista partita
+
+    this.partita.data = new Date(this.data.getFullYear(), this.data.getMonth(), this.data.getDate(), this.orario.getHours(), this.orario.getMinutes());
+
+    this.partitaService.create(this.partita, this.utente);
     this.openMyMatch();
   }
 

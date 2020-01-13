@@ -27,12 +27,13 @@
 
           <ion-item>
               <ion-label>{{'DATA' | translate }}</ion-label>
-              <ion-datetime name="data" displayFormat="MMM DD, YYYY" min="{{today.toISOString()}}" max="{{today.getFullYear()+20}}" required [(ngModel)]="partita.data" #data="ngModel"></ion-datetime>
+              <ion-datetime name="data" displayFormat="MMM DD, YYYY" min="{{today.toISOString()}}" max="{{today.getFullYear()+20}}" required [(ngModel)]="data"></ion-datetime>
           </ion-item>
 
           <ion-item>
               <ion-label>{{'ORARIO' | translate}}</ion-label>
-              <ion-datetime name="orario" displayFormat="HH:mm" pickerFormat="HH: mm" required [(ngModel)]="partita.data" #orario="ngModel"></ion-datetime>
+
+              <ion-datetime name="orario" displayFormat="HH:mm" pickerFormat="HH: mm" required [(ngModel)]="orario"></ion-datetime>
           </ion-item>
 
           <ion-item>

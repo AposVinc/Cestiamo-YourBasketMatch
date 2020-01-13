@@ -34,13 +34,15 @@ export class PartitaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartitaPage');
 
-    this.utenteService.getUtente().subscribe((utente: Utente) => {
-      if (utente != null) {
-        this.utente = utente;
-      } else {
-        console.log('nessun utente loggato');
-      }
-    });
+    if (this.global.isLogged) {
+      this.utenteService.getUtente().subscribe((utente: Utente) => {
+        if (utente != null) {
+          this.utente = utente;
+        } else {
+          console.log('nessun utente loggato');
+        }
+      });
+    };
 
     this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
       this.partita = data;

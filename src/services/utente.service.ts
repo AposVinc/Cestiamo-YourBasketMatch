@@ -72,10 +72,7 @@ export class UtenteService {
         return resp.body;
       });
   }
-
-
-
-
+  
   getUtenteByEmail(utenteEmail: string): Observable<Utente> {
     let apiURL = `${URL.UTENTE}/${utenteEmail}`;
     return this.http.get<Utente>(apiURL);  }

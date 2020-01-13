@@ -57,5 +57,14 @@ export class PartitaService {
     return this.http.delete<Partita>(deleteUrl);
   }
 
+  /*matchForUser(partitaId: number, utenteEmail: string){
+      let url =  `${URL.UTENTE}/partita=${partitaId}/utente=${utenteEmail}`;
+      let body={"id_P": partitaId, "mail_U" :utenteEmail};
+      return this.http.get<Partita>(url,   { observe:'response' })
+        .map((resp : HttpResponse<Partita>)=>{
+          return resp.body;
+      })
+  }*/
+
 }
 

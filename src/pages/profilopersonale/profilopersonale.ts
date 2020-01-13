@@ -36,10 +36,6 @@ export class ProfilopersonalePage {
     //modifica profilo
   }
 
-  openProfile(u: Utente){
-    this.navCtrl.push(PROFILO_PERSONALE_PAGE, {uenteId: u.email});
-  } //visualizzare i dati del profilo NON SERVE
-
   saveProfile(profileForm: NgForm){
     console.log("entra metodo salva profilo")
     if(profileForm.valid){

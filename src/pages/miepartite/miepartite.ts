@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 
 import {Partita} from "../../model/partita.model";
-import {NUOVA_PARTITA_PAGE} from "../pages";
+import {NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 import {PartitaService} from "../../services/partita.service";
 
 /**
@@ -30,8 +30,8 @@ export class MiepartitePage {
     });
   }
 
-  openPartita(n: Partita) {
-    this.navCtrl.push('PatitaPage', { partitaId: n.id }); //this.navCtrl.push(PARTITA_PAGE, p);
+  openPartita(p: Partita) {
+    this.navCtrl.push(PARTITA_PAGE, { partitaId: p.id });
   }
 
   doRefresh(refresher: Refresher) {

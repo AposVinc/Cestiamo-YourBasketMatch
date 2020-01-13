@@ -19,7 +19,7 @@ export class PartitaService {
       this.utenteService.getUtente().subscribe((utente) => {
         //add utente a partita appena creata
         //p.partecipanti = utente;
-        p.utente = utente;
+       // p.utente = utente;
         return this.http.post<Partita>(URL.NUOVA_PARTITA, p).toPromise()
           .then((response: Partita) => {
             return response;
@@ -33,6 +33,7 @@ export class PartitaService {
     list(): Observable<Array<Partita>> {
       return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
     }
+
 
     findById(partitaId: number): Observable<Partita> {
       let apiURL = `${URL.PARTITA}/${partitaId}`;
@@ -60,6 +61,15 @@ export class PartitaService {
       let deleteUrl = `${URL.REMOVE_PARTECIPANTE}/partita=${partitaId}/utente=${utenteEmail}`;
       return this.http.delete<Partita>(deleteUrl);
     }
+
+  /*matchForUser(partitaId: number, utenteEmail: string){
+      let url =  `${URL.UTENTE}/partita=${partitaId}/utente=${utenteEmail}`;
+      let body={"id_P": partitaId, "mail_U" :utenteEmail};
+      return this.http.get<Partita>(url,   { observe:'response' })
+        .map((resp : HttpResponse<Partita>)=>{
+          return resp.body;
+      })
+  }*/
 
 }
 

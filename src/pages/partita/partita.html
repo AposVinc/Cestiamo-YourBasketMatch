@@ -23,7 +23,7 @@
       <button ion-button class="circle-btn center">
         <Span style="text-transform:none;">{{partita.tipologia.nome}}</Span>
       </button>
-      <div >
+      <div>
         <ion-row class="mt_5">{{partita.campo.citta + ', ' + partita.campo.via}} </ion-row>
         <ion-row class="mt_5 mb_10">{{partita.campo.telefono}}</ion-row>
         <ion-row style="display: inline">
@@ -39,20 +39,20 @@
   </ion-card>
 
   <div *ngIf="global.isLogged && isPartecipant">
-    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-      <button ion-button color="primary"  block (click)="openBacheca()" >
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px">
+      <button ion-button color="primary" block (click)="openBacheca()">
         {{'BACHECA' | translate }}
       </button>
     </div>
-    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
-      <button ion-button color="danger" block (click)="leavePartita()" >
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px">
+      <button ion-button color="danger" block (click)="leavePartita()">
         {{'LASCIA_PARTITA' | translate }}
       </button>
     </div>
   </div>
 
   <div *ngIf="!global.isLogged || canJoin || soldOut">
-    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px" >
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px">
       <button *ngIf="this.soldOut" ion-button color="success" block (click)="joinPartita()" disabled>
         {{'PARTECIPA_PARTITA' | translate }}
       </button>
@@ -74,20 +74,17 @@
       <ion-row>{{utente.nome}} {{utente.cognome}}</ion-row>
       <ion-row>
         <ionic3-star-rating #rating
-                            activeIcon = "ios-star"
-                            defaultIcon = "ios-star-outline"
-                            activeColor = "#ffff07"
-                            defaultColor = "#f4f4f4"
+                            activeIcon="ios-star"
+                            defaultIcon="ios-star-outline"
+                            activeColor="#ffff07"
+                            defaultColor="#f4f4f4"
                             readonly="true"
                             rating="{{utente.mediaVoto}}"
-                            fontSize = "20px"
+                            fontSize="20px"
                             (ratingChanged)="logRatingChange($event)">
         </ionic3-star-rating>
       </ion-row>
-
     </ion-item>
-
   </ion-list>
-
 
 </ion-content>

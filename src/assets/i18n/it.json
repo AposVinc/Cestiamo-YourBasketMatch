@@ -4,21 +4,18 @@
   "LOGOUT_MENU": "Esci",
   "LOGIN": "Login",
   "REGISTRATI": "Registrati",
-
   "MODIFICA_PROFILO": "Modifica Profilo",
-  "SALVA_MODIFICHE" : "Salva Modifiche",
-  "NOME" : "Nome",
-  "COGNOME":"Cognome",
+  "SALVA_MODIFICHE": "Salva Modifiche",
+  "EMAIL": "Email",
+  "NOME": "Nome",
+  "COGNOME": "Cognome",
   "DATA_DI_NASCITA": "Data di Nascita",
-  "INDIRIZZO":"Indirizzo",
-  "CITTA":"Città",
+  "INDIRIZZO": "Indirizzo",
+  "CITTA": "Città",
   "PARTITE_GIOCATE": "Partite giocate",
   "VOTO": "Voto",
-
-
-
+  "VOTA_UTENTE": "Vota",
   "CREA_ACCOUNT": "Crea Profilo",
-
   "LISTA_PARTITE": "Lista Partite",
   "PARTITA": "Partita",
   "MIE_PARTITE": "Mie Partite",
@@ -26,30 +23,20 @@
   "CONTATTACI": "Contattaci",
   "INFO_APP": "Info",
   "NUOVA_PARTITA": "Nuova Partita",
-
-  "CAMPO" : "Campo",
-  "DATA" : "Data",
+  "CAMPO": "Campo",
+  "DATA": "Data",
   "ORARIO": "Orario",
   "TIPOLOGIA": "Tipologia",
   "SELEZIONA": "Seleziona",
   "CREA_PARTITA": "Crea partita",
-
-  "LINGUA": "Lingua" ,
+  "LINGUA": "Lingua",
   "ITALIANO": "Italiano",
   "INGLESE": "Inglese",
-
   "BACHECA": "Bacheca",
   "BACHECA_PARTITA": "Bacheca Partita",
   "SCRIVI_QUI": "Scrivi qui..",
   "LASCIA_PARTITA": "Lascia Partita",
   "PARTECIPA_PARTITA": "Partecipa",
-
   "PASSWORD_DIMENTICATA": "Reimposta la Password",
   "LOGIN_FACEBOOK": "Accedi con Facebook"
-
-
-
-
-
-
 }

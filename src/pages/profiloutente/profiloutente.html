@@ -60,5 +60,22 @@
         </ionic3-star-rating>
       </ion-label>
     </ion-item>
+
+    <ion-row padding class="buttonRight buttonBottom">
+
+      <ionic3-star-rating #rating
+                          activeIcon = "ios-star"
+                          defaultIcon = "ios-star-outline"
+                          activeColor = "#ffff07"
+                          defaultColor = "#f4f4f4"
+                          readonly="false"
+                          rating="{{utente.mediaVoto}}"
+                          fontSize = "20px"
+                          (ratingChanged)="logRatingChange($event)">
+      </ionic3-star-rating>
+      <button ion-button color="secondary" block (click)="votaUser()">
+        {{'VOTA_UTENTE' | translate }}
+      </button>
+    </ion-row>
   </ion-list>
 </ion-content>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
-import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE, STORICO_PARTITE_PAGE} from "../pages";
+import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 import {UtenteService} from "../../services/utente.service";
 import {Utente} from "../../model/utente.model";
 import {GlobalProvider} from "../../providers/global/global";
@@ -20,19 +20,30 @@ import {GlobalProvider} from "../../providers/global/global";
   templateUrl: 'storicopartite.html',
 })
 export class StoricopartitePage {
-  partita :Partita;
+
   utente:Utente;
   listaPartite: Array<Partita>;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService,public global: GlobalProvider, public utenteService: UtenteService ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StoricopartitePage');
-    this.partitaService.list().subscribe((data: Array<Partita>) => {
-      this.listaPartite = data;
-    });
+    if (this.global.isLogged) {
+      this.utenteService.getUtente().subscribe((utente: Utente) => {
+        if (utente != null) {
+          this.utente = utente;
+
+          this.partitaService.listMiePartiteGiocate(this.utente.email).subscribe((data: Array<Partita>) => {
+            this.listaPartite = data;
+          });
+        } else {
+          console.log('nessun utente loggato');
+          this.navCtrl.push(LOGIN_PAGE);
+        }
+      });
+    };
   }
 
   openPartita(p: Partita) {
@@ -51,10 +62,4 @@ export class StoricopartitePage {
     this.navCtrl.push(NUOVA_PARTITA_PAGE);
   }
 
-  /*listPartiteUser(){
-    this.partitaService.matchForUser(this.partita.id, this.utente.email).subscribe(() =>{
-      this.navCtrl.push(STORICO_PARTITE_PAGE, {partitaId: this.partita.id});
-    })
-  }
-*/
 }

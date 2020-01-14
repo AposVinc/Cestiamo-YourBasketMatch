@@ -31,6 +31,15 @@ export class PartitaService {
     return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
   }
 
+  listMiePartite(utenteEmail : String): Observable<Array<Partita>> {
+    let Url = `${URL.MIE_PARTITE}/utente=${utenteEmail}`;
+    return this.http.get<Array<Partita>>(Url);
+  }
+  listMiePartiteGiocate(utenteEmail : String): Observable<Array<Partita>> {
+    let Url = `${URL.PARTITE_GIOCATE}/utente=${utenteEmail}`;
+    return this.http.get<Array<Partita>>(Url);
+  }
+
   findById(partitaId: number): Observable<Partita> {
     let apiURL = `${URL.PARTITA}/${partitaId}`;
     return this.http.get<Partita>(apiURL);
@@ -57,14 +66,6 @@ export class PartitaService {
     return this.http.delete<Partita>(deleteUrl);
   }
 
-  /*matchForUser(partitaId: number, utenteEmail: string){
-      let url =  `${URL.UTENTE}/partita=${partitaId}/utente=${utenteEmail}`;
-      let body={"id_P": partitaId, "mail_U" :utenteEmail};
-      return this.http.get<Partita>(url,   { observe:'response' })
-        .map((resp : HttpResponse<Partita>)=>{
-          return resp.body;
-      })
-  }*/
 
 }
 

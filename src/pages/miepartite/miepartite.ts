@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 
 import {Partita} from "../../model/partita.model";
-import {NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
+import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 import {PartitaService} from "../../services/partita.service";
+import {Utente} from "../../model/utente.model";
+import {GlobalProvider} from "../../providers/global/global";
+import {UtenteService} from "../../services/utente.service";
 
 /**
  * Generated class for the MiepartitePage page.
@@ -19,15 +22,27 @@ import {PartitaService} from "../../services/partita.service";
 })
 export class MiepartitePage {
   listaPartite: Array<Partita>;
+  utente:Utente;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, public global: GlobalProvider, public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListapartitePage');
-    this.partitaService.list().subscribe((data: Array<Partita>) => {
-      this.listaPartite = data;
-    });
+    console.log('ionViewDidLoad MiePartitePage');
+    if (this.global.isLogged) {
+      this.utenteService.getUtente().subscribe((utente: Utente) => {
+        if (utente != null) {
+          this.utente = utente;
+
+          this.partitaService.listMiePartite(this.utente.email).subscribe((data: Array<Partita>) => {
+            this.listaPartite = data;
+          });
+        } else {
+          console.log('nessun utente loggato');
+          this.navCtrl.push(LOGIN_PAGE);
+        }
+      });
+    };
   }
 
   openPartita(p: Partita) {

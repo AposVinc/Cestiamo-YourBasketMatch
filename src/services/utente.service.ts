@@ -72,11 +72,20 @@ export class UtenteService {
         return resp.body;
       });
   }
-  
+
   getUtenteByEmail(utenteEmail: string): Observable<Utente> {
     let apiURL = `${URL.UTENTE}/${utenteEmail}`;
     return this.http.get<Utente>(apiURL);  }
+
+  votaUtente(utente:Utente): Observable<Utente> {
+  return this.http.post<Utente>(URL.VOTA_UTENTE, utente, {observe: 'response'})
+    .map((resp:HttpResponse<Utente>)=>{
+      this.storage.set(UTENTE_STORAGE, resp.body);
+      return resp.body;
+    })
+  }
 }
+
 
 export interface Account {
   username: string;

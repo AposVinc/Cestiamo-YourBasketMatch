@@ -30,12 +30,13 @@ export class ProfiloutentePage {
     });
   }
 
-  votaUser(){
 
-  }
   logRatingChange(rating) {
     console.log("changed rating: ", rating);
     // do your stuff
+    this.utenteService.votaUtente(this.utente).subscribe((utente:Utente) =>{
+      this.utente=utente;
+    });
   }
 
 }

@@ -20,6 +20,7 @@ export const URL = {
   NUOVA_PARTITA: URL_BASE + '/nuovaPartita',
 
   UTENTE: URL_BASE + '/utente',
+  VOTA_UTENTE: URL_BASE + '/votaUtente',
 
 
 };

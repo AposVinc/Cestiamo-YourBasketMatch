@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {MODIFICA_PROFILO_PAGE, PROFILO_PERSONALE_PAGE} from "../pages";
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Utente} from "../../model/utente.model";
 import {UtenteService} from "../../services/utente.service";
 import {NgForm} from "@angular/forms";
@@ -21,7 +20,7 @@ export class ProfilopersonalePage {
 
   utente: Utente = new Utente();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public utenteService:UtenteService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
@@ -31,10 +30,10 @@ export class ProfilopersonalePage {
     });
   }
 
-  saveProfile(profileForm: NgForm){
+  saveProfile(profileForm: NgForm) {
     console.log("entra metodo salva profilo")
-    if(profileForm.valid){
-      this.utenteService.updateProfilo(this.utente).subscribe((nuovoUtente: Utente) =>{
+    if (profileForm.valid) {
+      this.utenteService.updateProfilo(this.utente).subscribe((nuovoUtente: Utente) => {
         this.utente = nuovoUtente;
         console.log(this.utente);
         console.log("esce, profilo salvato")

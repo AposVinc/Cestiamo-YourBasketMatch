@@ -19,39 +19,37 @@ export class UtenteService {
     });
   }
 
-  /*create(user: Utente) {                            QUELLO VECCHIO
+  create(user: Utente) {
     return this.http.post<Utente>(URL.CREATE_USER, user).toPromise()
       .then((response: Utente) => {
         return response;
-      }).catch(error => { console.error() }
+      }).catch(error => {
+          console.error()
+        }
       );
-  }*/
-  /*create(nuovoUtente: Utente): Observable<Utente> {           QUELLO ADATTATO
-    return this.http.post<Utente>(URL.CREATE_USER, nuovoUtente,{ observe: 'response' })
-      .map((resp : HttpResponse<Utente>) => {
-        return resp.body;
-      });
-  }*/
+  }
 
 
   login(account: Account): Observable<Utente> {
-    return this.http.post<Utente>(URL.LOGIN, account, { observe: 'response' })
+    return this.http.post<Utente>(URL.LOGIN, account, {observe: 'response'})
       .map((resp: HttpResponse<Utente>) => {
         const token = resp.headers.get(X_AUTH);
         this.storage.set(AUTH_TOKEN, token);
         this.tokenUtente = token;
         this.storage.set(UTENTE_STORAGE, resp.body);
-        this.global.isLogged=true;
+        this.global.isLogged = true;
         return resp.body;
       });
   }
 
-  updateImage(image){
-    return this.http.post(URL.URL_IMG,image,{ observe: 'response' }).toPromise()
-      .then((response: HttpResponse<Utente>)=>{
+  updateImage(image) {
+    return this.http.post(URL.URL_IMG, image, {observe: 'response'}).toPromise()
+      .then((response: HttpResponse<Utente>) => {
         this.storage.set(UTENTE_STORAGE, response.body);
         return response;
-      }).catch(error=> {console.log(error)});
+      }).catch(error => {
+        console.log(error)
+      });
   }
 
   logout() {
@@ -70,11 +68,11 @@ export class UtenteService {
   }
 
   updateProfilo(nuovoUtente: Utente): Observable<Utente> {
-    return this.http.post<Utente>(URL.UPDATE_USER, nuovoUtente, { observe: 'response' })
+    return this.http.post<Utente>(URL.UPDATE_USER, nuovoUtente, {observe: 'response'})
       .map((resp: HttpResponse<Utente>) => {
-       /* if(resp.body.img.length===0) {
-          resp.body.img = "../../assets/imgs/default.png";
-        }*/
+        /* if(resp.body.img.length===0) {
+           resp.body.img = "../../assets/imgs/default.png";
+         }*/
         this.storage.set(UTENTE_STORAGE, resp.body);
         return resp.body;
       });
@@ -82,17 +80,18 @@ export class UtenteService {
 
   getUtenteByEmail(utenteEmail: string): Observable<Utente> {
     let apiURL = `${URL.UTENTE}/${utenteEmail}`;
-    return this.http.get<Utente>(apiURL);  }
-
-  votaUtente(utente:Utente): Observable<Utente> {
-  return this.http.post<Utente>(URL.VOTA_UTENTE, utente, {observe: 'response'})
-    .map((resp:HttpResponse<Utente>)=>{
-      this.storage.set(UTENTE_STORAGE, resp.body);
-      return resp.body;
-    })
+    return this.http.get<Utente>(apiURL);
   }
-}
 
+  votaUtente(utente: Utente): Observable<Utente> {
+    return this.http.post<Utente>(URL.VOTA_UTENTE, utente, {observe: 'response'})
+      .map((resp: HttpResponse<Utente>) => {
+        this.storage.set(UTENTE_STORAGE, resp.body);
+        return resp.body;
+      })
+  }
+
+}
 
 export interface Account {
   username: string;

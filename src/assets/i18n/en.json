@@ -39,5 +39,10 @@
   "LASCIA_PARTITA": "Leave Match",
   "PARTECIPA_PARTITA": "Join Match",
   "PASSWORD_DIMENTICATA": "Reset Your Password",
-  "LOGIN_FACEBOOK": "Sign in With Facebook"
+  "INVIA": "Send",
+  "OGGETTO": "Object",
+  "MESSAGGIO": "Message",
+  "LOGIN_FACEBOOK": "Sign in With Facebook",
+  "REGISTRAZIONE_TITLE": "Registrazione Completata",
+  "RREGISTRAZIONE_SUBTITLE": "Registrazione completata con successo. Procedere con il Login!"
 }

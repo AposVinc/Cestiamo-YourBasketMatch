@@ -17,5 +17,25 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="ios-person" item-start></ion-icon>
+      <ion-input placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-mail" item-start></ion-icon>
+      <ion-input placeholder="Email"></ion-input>
+    </ion-item>
+  </ion-list>
 
+  <ion-card>
+    <ion-input placeholder="{{'OGGETTO' | translate}}" class="oggetto"></ion-input>
+    <ion-textarea class="my_text_area" placeholder="{{'MESSAGGIO' | translate}}"></ion-textarea>
+  </ion-card>
+
+  <ion-item class="center_button">
+    <button ion-button class="login_button"icon-end>{{'INVIA'|translate}}
+      <ion-icon name="ios-send"></ion-icon>
+    </button>
+  </ion-item>
 </ion-content>

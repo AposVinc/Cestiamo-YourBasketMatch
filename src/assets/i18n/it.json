@@ -39,5 +39,10 @@
   "LASCIA_PARTITA": "Lascia Partita",
   "PARTECIPA_PARTITA": "Partecipa",
   "PASSWORD_DIMENTICATA": "Reimposta la Password",
-  "LOGIN_FACEBOOK": "Accedi con Facebook"
+  "INVIA": "Invia",
+  "OGGETTO": "Ogetto",
+  "MESSAGGIO": "Messaggio",
+  "LOGIN_FACEBOOK": "Accedi con Facebook",
+  "REGISTRAZIONE_TITLE": "Registrazione Completata",
+  "RREGISTRAZIONE_SUBTITLE": "Registrazione completata con successo. Procedere con il Login!"
 }

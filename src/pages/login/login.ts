@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { AlertController, Events, IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LISTA_PARTITE_PAGE, RECUPERA_PASSWORD_PAGE, REGISTRAZIONE_PAGE} from "../pages";
-import { Account, UtenteService } from "../../services/utente.service";
-import { TranslateService } from "@ngx-translate/core";
-import { HttpErrorResponse } from "@angular/common/http";
-import { Utente } from "../../model/utente.model";
+import {Component} from '@angular/core';
+import {AlertController, Events, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {LISTA_PARTITE_PAGE, RECUPERA_PASSWORD_PAGE, REGISTRAZIONE_PAGE} from "../pages";
+import {Account, UtenteService} from "../../services/utente.service";
+import {TranslateService} from "@ngx-translate/core";
+import {HttpErrorResponse} from "@angular/common/http";
+import {Utente} from "../../model/utente.model";
 
 /**
  * Generated class for the LoginPage page.
@@ -21,9 +21,14 @@ import { Utente } from "../../model/utente.model";
 export class LoginPage {
   loginTitle: string;
   loginSubTitle: string;
-  account: Account = { username:"mario.rossi@mail.it", password:"123456789" };
+  account: Account = {username: "mario.rossi@mail.it", password: "123456789"};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public events: Events, public translateService: TranslateService, public utenteService: UtenteService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              public events: Events,
+              public translateService: TranslateService,
+              public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
@@ -44,7 +49,7 @@ export class LoginPage {
     this.navCtrl.push(RECUPERA_PASSWORD_PAGE);
   }
 
-  login(){
+  login() {
     this.utenteService.login(this.account)
       .subscribe((utente: Utente) => {
           this.events.publish('login', utente);

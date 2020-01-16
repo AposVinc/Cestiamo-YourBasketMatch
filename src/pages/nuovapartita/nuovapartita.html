@@ -20,35 +20,37 @@
   <form #partitaForm="ngForm">
     <ion-item>
       <ion-label>{{'CAMPO' | translate }}</ion-label>
-      <ion-select name="campo" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required [(ngModel)]="partita.campo" #campo="ngModel">
+      <ion-select name="campo" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required
+                  [(ngModel)]="partita.campo" #campo="ngModel">
         <ion-option *ngFor="let c of listaCampi" [value]="c">{{c.citta}},&nbsp;&nbsp;{{c.via}}</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>{{'DATA' | translate }}</ion-label>
-      <ion-datetime name="data" displayFormat="DD MMM YYYY" min="{{today.toISOString()}}" max="{{today.getFullYear()+20}}" required [(ngModel)]="data"></ion-datetime>
+      <ion-datetime name="data" displayFormat="DD/MM/YYYY" min="{{today.toISOString()}}"
+                    max="{{today.getFullYear()+20}}" required [(ngModel)]="data"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>{{'ORARIO' | translate}}</ion-label>
-      <ion-datetime name="orario" displayFormat="HH:mm" pickerFormat="HH: mm" required [(ngModel)]="orario"></ion-datetime>
+      <ion-datetime name="orario" displayFormat="HH:mm" pickerFormat="HH: mm" required
+                    [(ngModel)]="orario"></ion-datetime>
     </ion-item>
 
     <ion-item>
       <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
-      <ion-select name="tipologia" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required [(ngModel)]="partita.tipologia" #tipologia="ngModel">
+      <ion-select name="tipologia" interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" required
+                  [(ngModel)]="partita.tipologia" #tipologia="ngModel">
         <ion-option *ngFor="let t of listaTipologia" [value]="t">{{t.nome}}</ion-option>
       </ion-select>
     </ion-item>
 
     <div padding class="buttonCenter buttonBottom">
-      <button ion-button color="secondary" block type="submit" [disabled]="!partitaForm.form.valid" (click)="createMatch(partitaForm)">
+      <button ion-button color="secondary" block type="submit" [disabled]="!partitaForm.form.valid"
+              (click)="createMatch(partitaForm)">
         {{'CREA_PARTITA' | translate }}
       </button>
     </div>
-
   </form>
-
 </ion-content>
-

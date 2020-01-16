@@ -19,13 +19,20 @@ export class UtenteService {
     });
   }
 
-  create(user: Utente) {
+  /*create(user: Utente) {                            QUELLO VECCHIO
     return this.http.post<Utente>(URL.CREATE_USER, user).toPromise()
       .then((response: Utente) => {
         return response;
       }).catch(error => { console.error() }
       );
-  }
+  }*/
+  /*create(nuovoUtente: Utente): Observable<Utente> {           QUELLO ADATTATO
+    return this.http.post<Utente>(URL.CREATE_USER, nuovoUtente,{ observe: 'response' })
+      .map((resp : HttpResponse<Utente>) => {
+        return resp.body;
+      });
+  }*/
+
 
   login(account: Account): Observable<Utente> {
     return this.http.post<Utente>(URL.LOGIN, account, { observe: 'response' })

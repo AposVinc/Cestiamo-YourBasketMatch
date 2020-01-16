@@ -9,7 +9,6 @@ export class Partita {
     data: Date;
     personeMancanti: number;
     partecipanti: Array<Utente>;
-    //utente:Utente;
 }
 
 

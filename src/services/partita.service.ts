@@ -14,17 +14,15 @@ export class PartitaService {
   constructor(private http: HttpClient, public storage: Storage) {
   }
 
-  create(p: Partita, creatore: Utente) {
-    let body = {p, creatore};
-    console.log(body);
-    /*return this.http.post<Partita>(URL.NUOVA_PARTITA, p).toPromise()
+  create(partita: Partita, creatore: Utente) {
+    let body = {partita, creatore};
+    return this.http.post<Partita>(URL.NUOVA_PARTITA, body).toPromise()
       .then((response: Partita) => {
         return response;
       }).catch(error => {
           console.error()
         }
       );
-     */
   }
 
   list(): Observable<Array<Partita>> {

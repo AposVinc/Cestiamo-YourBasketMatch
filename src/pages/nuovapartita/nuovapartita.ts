@@ -35,7 +35,6 @@ export class NuovapartitaPage {
   data: Date;
   orario: Date;
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider,
               public partitaService: PartitaService, public utenteService: UtenteService) {
   }
@@ -63,22 +62,20 @@ export class NuovapartitaPage {
     });
   }
 
-  openMyMatch() {
+  openMiePartite() {
     this.navCtrl.setRoot(MIE_PARTITE_PAGE);
   }
 
   createMatch(partitaForm: NgForm) {
-    console.log(this.orario);    //21:00
-    console.log(this.data);    // 2020-01-12
-    //console.log(datatime);
-    //2020-01-12T20:54:00Z
-    //"2020-03-25T19:30:00"  da lista partita
 
-    this.partita.data = new Date(this.data.getFullYear(), this.data.getMonth(), this.data.getDate(), this.orario.getHours(), this.orario.getMinutes());
-
-    this.partitaService.create(this.partita, this.utente);
-    this.openMyMatch();
+    var d = this.data.toString().split("-");
+    var o = this.orario.toString().split(":");
+    this.partita.data = new Date(Number(d[0]), Number(d[1]), Number(d[2]), Number(o[0]) ,Number(o[1]));
+    if (this.partitaService.create(this.partita, this.utente)){
+      this.openMiePartite();
+    } else {
+      console.log('errore');
+    }
   }
-
 
 }

@@ -7,14 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>{{ 'STORICO_PARTITE' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content padding>
 
@@ -24,7 +23,6 @@
 
   <ion-list>
     <ion-card *ngFor="let p of listaPartite" (click)="openPartita(p)">
-    <!--<ion-card (click)="openPartita()">-->
       <ion-card-content>
         <ion-row>
           <ion-col col-3 class="heightcentre">
@@ -37,12 +35,12 @@
               <ion-row>{{p.campo.citta}}</ion-row>
               <ion-row style="display: inline">
                 <p style="text-align: left">{{p.campo.via}}</p>
-                  <p style="text-align:left;">
-                    {{p.data | date:'dd MMM yyyy'}}
-                    <span style="float:right;">
-                      {{p.data | date:'hh:mm'}}
-                    </span>
-                  </p>
+                <p style="text-align:left;">
+                  {{p.data | date:'dd MMM yyyy'}}
+                  <span style="float:right;">
+                      {{p.data | date:'HH:mm'}}
+                  </span>
+                </p>
               </ion-row>
             </div>
           </ion-col>

@@ -25,15 +25,10 @@ export class ProfilopersonalePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilopersonalePage');
+    console.log('ionViewDidLoad ProfiloPersonalePage');
     this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
       this.utente = data;
     });
-  }
-
-  openEditProfile(page) {
-    this.navCtrl.push(MODIFICA_PROFILO_PAGE);
-    //modifica profilo
   }
 
   saveProfile(profileForm: NgForm){

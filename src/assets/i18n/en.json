@@ -4,24 +4,19 @@
   "LOGOUT_MENU": "Logout",
   "LOGIN": "Login",
   "REGISTRATI": "Sign In",
-
   "MODIFICA_PROFILO": "Edit Profile",
-  "SALVA_MODIFICHE" : "Save Modify",
-  "NOME" : "Name",
-  "COGNOME":"Surname",
+  "SALVA_MODIFICHE": "Save Modify",
+  "EMAIL": "Email",
+  "NOME": "Name",
+  "PASSWORD": "Password",
+  "COGNOME": "Surname",
   "DATA_DI_NASCITA": "Birthday",
   "INDIRIZZO": "Address",
   "CITTA": "City",
   "PARTITE_GIOCATE": "Matches Complete",
   "VOTO": "Voto",
-
-
-
-
-
-
+  "VOTA_UTENTE": "Vote",
   "CREA_ACCOUNT": "Create Account",
-
   "LISTA_PARTITE": "Matches List",
   "PARTITA": "Match",
   "MIE_PARTITE": "My Matches",
@@ -29,29 +24,20 @@
   "CONTATTACI": "Contact us",
   "INFO_APP": "Info",
   "NUOVA_PARTITA": "New Matches",
-
-  "CAMPO" : "Basketball Field",
-  "DATA" : "Date",
+  "CAMPO": "Basketball Field",
+  "DATA": "Date",
   "ORARIO": "Time",
   "TIPOLOGIA": "Type",
   "SELEZIONA": "Select",
   "CREA_PARTITA": "Create Match",
-
-
-  "LINGUA": "Language" ,
+  "LINGUA": "Language",
   "ITALIANO": "Italian",
   "INGLESE": "English",
-
   "BACHECA": "Message Board",
   "BACHECA_PARTITA": "Board MatchS",
   "SCRIVI_QUI": "Text here..",
   "LASCIA_PARTITA": "Leave Match",
   "PARTECIPA_PARTITA": "Join Match",
-
-
   "PASSWORD_DIMENTICATA": "Reset Your Password",
   "LOGIN_FACEBOOK": "Sign in With Facebook"
-
-
-
 }

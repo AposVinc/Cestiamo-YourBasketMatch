@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LOGIN_PAGE} from "../pages";
+import {Utente} from "../../model/utente.model";
+import {NgForm} from "@angular/forms";
+import {UtenteService} from "../../services/utente.service";
 
 /**
  * Generated class for the RegistrazionePage page.
@@ -16,15 +19,24 @@ import {LOGIN_PAGE} from "../pages";
 })
 export class RegistrazionePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  utente: Utente = new Utente();
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistrazionePage');
   }
 
-  createAccount() {
-    this.navCtrl.setRoot(LOGIN_PAGE);
-  }
-
+ /* createAccount( registrazioneForm : NgForm) {
+    console.log("entra metodo creaUtente")
+      if(registrazioneForm.valid){
+        this.utenteService.create(this.utente).subscribe((nuovoUtente: Utente) => {
+          this.utente = nuovoUtente;
+          console.log(this.utente);
+          console.log("esce, profilo salvato")
+        });
+      this.navCtrl.setRoot(LOGIN_PAGE);
+    }
+  }*/
 }

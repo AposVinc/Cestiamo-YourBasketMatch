@@ -19,13 +19,20 @@ export class UtenteService {
     });
   }
 
-  create(user: Utente) {
+  /*create(user: Utente) {                            QUELLO VECCHIO
     return this.http.post<Utente>(URL.CREATE_USER, user).toPromise()
       .then((response: Utente) => {
         return response;
       }).catch(error => { console.error() }
       );
-  }
+  }*/
+  /*create(nuovoUtente: Utente): Observable<Utente> {           QUELLO ADATTATO
+    return this.http.post<Utente>(URL.CREATE_USER, nuovoUtente,{ observe: 'response' })
+      .map((resp : HttpResponse<Utente>) => {
+        return resp.body;
+      });
+  }*/
+
 
   login(account: Account): Observable<Utente> {
     return this.http.post<Utente>(URL.LOGIN, account, { observe: 'response' })
@@ -72,11 +79,20 @@ export class UtenteService {
         return resp.body;
       });
   }
-  
+
   getUtenteByEmail(utenteEmail: string): Observable<Utente> {
     let apiURL = `${URL.UTENTE}/${utenteEmail}`;
     return this.http.get<Utente>(apiURL);  }
+
+  votaUtente(utente:Utente): Observable<Utente> {
+  return this.http.post<Utente>(URL.VOTA_UTENTE, utente, {observe: 'response'})
+    .map((resp:HttpResponse<Utente>)=>{
+      this.storage.set(UTENTE_STORAGE, resp.body);
+      return resp.body;
+    })
+  }
 }
+
 
 export interface Account {
   username: string;

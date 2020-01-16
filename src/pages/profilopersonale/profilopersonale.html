@@ -25,34 +25,32 @@
     <ion-list>
       <ion-item>
         <ion-label>{{ 'NOME' | translate }}</ion-label>
-        <!--<ion-label>{{utente.nome}}</ion-label>-->
         <ion-input type="text" name="nome" [(ngModel)]="utente.nome"></ion-input>
       </ion-item>
 
-
       <ion-item>
         <ion-label>{{ 'COGNOME' | translate }}</ion-label>
-        <!--<ion-label>{{utente.cognome}}</ion-label>-->
         <ion-input type="text" name="cognome" [(ngModel)]="utente.cognome"></ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label>{{ 'EMAIL' | translate}}</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="utente.email"></ion-input>
+      </ion-item>
 
       <ion-item>
         <ion-label>{{'DATA_DI_NASCITA' | translate }}</ion-label>
-        <!-- <ion-label>{{utente.dataNascita}}</ion-label>-->
         <ion-datetime name="dataNascita" displayFormat="MMM DD, YYYY" required [(ngModel)]="utente.dataNascita"
                       #data="ngModel"></ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label>{{ 'INDIRIZZO' | translate }}</ion-label>
-        <!-- <ion-label>{{utente.via}}</ion-label>-->
         <ion-input type="text" name="indirizzo" [(ngModel)]="utente.via"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>{{ 'CITTA' | translate }}</ion-label>
-        <!--<ion-label>{{utente.citta}}</ion-label>-->
         <ion-input type="text" name="citta" [(ngModel)]="utente.citta"></ion-input>
       </ion-item>
 
@@ -67,12 +65,10 @@
       </ion-item>
     </ion-list>
 
-
     <div padding class="buttonCenter buttonBottom">
       <button ion-button color="secondary" block (click)="saveProfile(profileForm)">
         {{'SALVA_MODIFICHE' | translate }}
       </button>
     </div>
-
   </form>
 </ion-content>

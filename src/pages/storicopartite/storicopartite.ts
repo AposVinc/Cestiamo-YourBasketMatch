@@ -52,7 +52,7 @@ export class StoricopartitePage {
 
 
   doRefresh(refresher: Refresher) {
-    this.partitaService.list().subscribe((data: Array<Partita>) => {
+    this.partitaService.listMiePartiteGiocate(this.utente.email).subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
       refresher.complete();
     });

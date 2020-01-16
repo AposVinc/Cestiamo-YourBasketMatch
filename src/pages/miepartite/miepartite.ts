@@ -33,7 +33,6 @@ export class MiepartitePage {
       this.utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
           this.utente = utente;
-
           this.partitaService.listMiePartite(this.utente.email).subscribe((data: Array<Partita>) => {
             this.listaPartite = data;
           });
@@ -50,7 +49,7 @@ export class MiepartitePage {
   }
 
   doRefresh(refresher: Refresher) {
-    this.partitaService.list().subscribe((data: Array<Partita>) => {
+    this.partitaService.listMiePartite(this.utente.email).subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
       refresher.complete();
     });

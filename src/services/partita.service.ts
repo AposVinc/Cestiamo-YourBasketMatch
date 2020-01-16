@@ -7,7 +7,6 @@ import { Partita } from '../model/partita.model';
 import { Campo } from "../model/campo.model";
 import {Tipopartita } from "../model/tipopartita.model";
 import {Utente} from "../model/utente.model";
-import {b} from "@angular/core/src/render3";
 
 @Injectable()
 export class PartitaService {
@@ -15,10 +14,9 @@ export class PartitaService {
   constructor(private http: HttpClient, public storage: Storage) {
   }
 
-  create(p: Partita, creatore: Utente) {//
-    let body={p};//, creatore
-    console.log(this.http.post<Partita>(URL.NUOVA_PARTITA, p));
-    return this.http.post<Partita>(URL.NUOVA_PARTITA, p).toPromise()
+  create(partita: Partita, creatore: Utente) {
+    let body = {partita, creatore};
+    return this.http.post<Partita>(URL.NUOVA_PARTITA, body).toPromise()
       .then((response: Partita) => {
         return response;
       }).catch(error => {

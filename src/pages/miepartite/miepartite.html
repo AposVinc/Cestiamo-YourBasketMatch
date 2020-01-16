@@ -22,7 +22,6 @@
   </ion-refresher>
 
   <ion-list>
-    <!-- <ion-card (click)="openPartita()"> -->
     <ion-card *ngFor="let p of listaPartite" (click)="openPartita(p)">
       <ion-card-content>
         <ion-row>
@@ -38,7 +37,7 @@
                 <p style="text-align:left;">
                   {{p.data | date:'dd MMM yyyy'}}
                   <span style="float:right;">
-                      {{p.data | date:'hh:mm'}}
+                      {{p.data | date:'HH:mm'}}
                   </span>
                 </p>
               </ion-row>

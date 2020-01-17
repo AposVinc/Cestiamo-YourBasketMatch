@@ -31,7 +31,7 @@ export class ProfilopersonalePage {
   }
 
   saveProfile(profileForm: NgForm) {
-    console.log("entra metodo salva profilo")
+    console.log("entra metodo salva profilo");
     if (profileForm.valid) {
       this.utenteService.updateProfilo(this.utente).subscribe((nuovoUtente: Utente) => {
         this.utente = nuovoUtente;

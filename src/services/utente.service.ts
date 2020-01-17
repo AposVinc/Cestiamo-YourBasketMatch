@@ -83,12 +83,16 @@ export class UtenteService {
     return this.http.get<Utente>(apiURL);
   }
 
-  votaUtente(utente: Utente): Observable<Utente> {
-    return this.http.post<Utente>(URL.VOTA_UTENTE, utente, {observe: 'response'})
-      .map((resp: HttpResponse<Utente>) => {
-        this.storage.set(UTENTE_STORAGE, resp.body);
-        return resp.body;
-      })
+  votaUtente(votante: Utente, votato: Utente, voto: number){
+    let body = { votante, votato, voto };
+    console.log(body);
+    return this.http.post<Utente>(URL.VOTA_UTENTE, body).toPromise()
+      .then((response: Utente) => {
+        return response;
+      }).catch(error => {
+          console.error()
+        }
+      );
   }
 
 }

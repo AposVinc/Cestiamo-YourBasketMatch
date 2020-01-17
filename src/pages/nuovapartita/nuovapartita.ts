@@ -67,15 +67,11 @@ export class NuovapartitaPage {
   }
 
   createMatch(partitaForm: NgForm) {
-
     var d = this.data.toString().split("-");
     var o = this.orario.toString().split(":");
     this.partita.data = new Date(Number(d[0]), Number(d[1]), Number(d[2]), Number(o[0]) ,Number(o[1]));
-    if (this.partitaService.create(this.partita, this.utente)){
-      this.openMiePartite();
-    } else {
-      console.log('errore');
-    }
+    this.partitaService.create(this.partita, this.utente);
+    this.openMiePartite();
   }
 
 }

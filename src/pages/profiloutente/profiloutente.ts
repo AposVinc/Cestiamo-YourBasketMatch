@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Utente} from "../../model/utente.model";
 import {UtenteService} from "../../services/utente.service";
+import {GlobalProvider} from "../../providers/global/global";
+import {LOGIN_PAGE} from "../pages";
 
 /**
  * Generated class for the ProfiloutentePage page.
@@ -17,26 +19,45 @@ import {UtenteService} from "../../services/utente.service";
 })
 export class ProfiloutentePage {
 
-  utente: Utente=new Utente();
+  votante: Utente;  //utente loggato all'app
+  utente: Utente;   //utente del quale stiamo viitando il profilo
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public utenteService: UtenteService) {
+  votazioneGiaPresente: number = 5;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider, public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfiloUtentePage');
-    this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
-      this.utente = data;
-      console.log(this.utente);
-    });
+
+    if (this.global.isLogged) {
+      this.utenteService.getUtente().subscribe((utente: Utente) => {
+        if (utente != null) {
+          this.votante = utente;
+        } else {
+          console.log('nessun utente loggato');
+          this.navCtrl.push(LOGIN_PAGE);
+        }
+
+        this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
+          this.utente = data;
+
+          this.utenteService.getVoto(this.votante.email, this.utente.email).subscribe((data: number) => {
+            this.votazioneGiaPresente = data;
+          });
+
+        });
+
+      });
+
+    } else {
+      console.log('nessun utente loggato');
+      this.navCtrl.push(LOGIN_PAGE);
+    }
   }
 
-
-  logRatingChange(rating) {
-    console.log("changed rating: ", rating);
-    // do your stuff
-    this.utenteService.votaUtente(this.utente).subscribe((utente:Utente) =>{
-      this.utente=utente;
-    });
+  Votazione(rating){
+    this.utenteService.votaUtente(this.votante, this.utente, rating.rating).then((data: Utente) => this.utente = data);
   }
 
 }

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {BACHECA_PARTITA_PAGE, LISTA_PARTITE_PAGE, LOGIN_PAGE, PARTITA_PAGE, PROFILO_UTENTE_PAGE} from "../pages";
+import {BACHECA_PARTITA_PAGE, LISTA_PARTITE_PAGE, LOGIN_PAGE, PROFILO_UTENTE_PAGE} from "../pages";
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
 import {Utente} from "../../model/utente.model";
@@ -77,7 +77,12 @@ export class PartitaPage {
   }
 
   openProfilo(utente: Utente) {
-    this.navCtrl.push(PROFILO_UTENTE_PAGE, { utenteEmail: utente.email});
+    if (this.global.isLogged) {
+      this.navCtrl.push(PROFILO_UTENTE_PAGE, { utenteEmail: utente.email});
+    } else {
+      console.log('nessun utente loggato');
+      this.navCtrl.push(LOGIN_PAGE);
+    }
   }
 
   leavePartita() {

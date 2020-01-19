@@ -46,34 +46,31 @@
       <ion-label>{{utente.numPartite}}</ion-label>
     </ion-item>
     <ion-item>
-      <ion-label>{{ 'VOTO' | translate }}</ion-label>
+      <ion-label>{{ 'MEDIA_VOTO' | translate }}</ion-label>
       <ion-label>
-        <ionic3-star-rating #rating
+        <ionic3-star-rating
                           activeIcon = "ios-star"
                           defaultIcon = "ios-star-outline"
                           activeColor = "#ffff07"
                           defaultColor = "#f4f4f4"
                           readonly="true"
                           rating="{{utente.mediaVoto}}"
-                          fontSize = "20px"
-                          (ratingChanged)="logRatingChange($event)">
+                          fontSize = "20px">
         </ionic3-star-rating>
       </ion-label>
     </ion-item>
 
     <ion-row padding class="buttonRight buttonBottom">
-
       <ionic3-star-rating #rating
                           activeIcon = "ios-star"
                           defaultIcon = "ios-star-outline"
                           activeColor = "#ffff07"
                           defaultColor = "#f4f4f4"
                           readonly="false"
-                          rating="{{utente.mediaVoto}}"
-                          fontSize = "20px"
-                          (ratingChanged)="logRatingChange($event)">
+                          rating="{{votazioneGiaPresente}}"
+                          fontSize = "20px">
       </ionic3-star-rating>
-      <button ion-button color="secondary" block (click)="logRatingChange($event)">
+      <button ion-button color="secondary" block (click)="Votazione(rating)">
         {{'VOTA_UTENTE' | translate }}
       </button>
     </ion-row>

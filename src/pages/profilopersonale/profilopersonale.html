@@ -60,8 +60,18 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>{{ 'VOTO' | translate }}</ion-label>
-        <ion-label>{{utente.mediaVoto}}</ion-label>
+        <ion-label>{{ 'MEDIA_VOTO' | translate }}</ion-label>
+        <ion-label>
+          <ionic3-star-rating
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#ffff07"
+            defaultColor = "#f4f4f4"
+            readonly="true"
+            rating="{{utente.mediaVoto}}"
+            fontSize = "20px">
+          </ionic3-star-rating>
+        </ion-label>
       </ion-item>
     </ion-list>
 

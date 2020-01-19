@@ -14,7 +14,8 @@
   "INDIRIZZO": "Address",
   "CITTA": "City",
   "PARTITE_GIOCATE": "Matches Complete",
-  "VOTO": "Voto",
+  "VOTO": "Rating",
+  "MEDIA_VOTO": "Average Rating",
   "VOTA_UTENTE": "Vote",
   "CREA_ACCOUNT": "Create Account",
   "LISTA_PARTITE": "Matches List",
@@ -43,6 +44,6 @@
   "OGGETTO": "Object",
   "MESSAGGIO": "Message",
   "LOGIN_FACEBOOK": "Sign in With Facebook",
-  "REGISTRAZIONE_TITLE": "Registrazione Completata",
-  "RREGISTRAZIONE_SUBTITLE": "Registrazione completata con successo. Procedere con il Login!"
+  "REGISTRAZIONE_TITLE": "Registration Complete",
+  "RREGISTRAZIONE_SUBTITLE": "Registration successfully completed. Proceed with the Login!"
 }

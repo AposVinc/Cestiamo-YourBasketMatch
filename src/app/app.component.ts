@@ -4,23 +4,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TranslateService } from '@ngx-translate/core';//lingua
-import { LinguaService } from '../services/lingua.service';
+import {Lingua, LinguaService} from '../services/lingua.service';
 import { HttpErrorResponse } from "@angular/common/http";
-//import { ListapartitePage } from '../pages/listapartite/listapartite';
 import {
   LISTA_PARTITE_PAGE,
   MIE_PARTITE_PAGE,
   STORICO_PARTITE_PAGE,
   CONTATTACI_PAGE,
   INFO_APP_PAGE,
-  NUOVA_PARTITA_PAGE,
   LOGIN_PAGE,
   PROFILO_PERSONALE_PAGE,
-  BACHECA_PARTITA_PAGE,
 } from '../pages/pages';
 import {UtenteService} from "../services/utente.service";
 import {Utente} from "../model/utente.model";
-import {Storage} from "@ionic/storage";
 import {GlobalProvider} from "../providers/global/global";
 
 
@@ -30,6 +26,8 @@ import {GlobalProvider} from "../providers/global/global";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   utente: Utente;
+  lingue: Array<Lingua>;
+  linguaPreferita: string;
 
   rootPage: any = LISTA_PARTITE_PAGE;
   pages: Array<{title: string, component: any, menuenab: boolean}>;
@@ -50,7 +48,6 @@ export class MyApp {
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
     ];
 
-
     this.platform.ready().then(() => {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
@@ -67,27 +64,27 @@ export class MyApp {
   }
 
   initTranslate() {
-    /*  // Set the default language for translation strings, and the current language.
-      let linguaPreferita = this.linguaService.getLinguaPreferita();
-      this.translate.setDefaultLang(linguaPreferita);
-      this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {
-        if (lingua != null) {
-          this.translate.use(lingua);
-        } else {
-          this.translate.use(linguaPreferita);
-          this.linguaService.updateLingua(linguaPreferita);
-        }
-      });*/
-    this.translate.setDefaultLang('it');
-    this.translate.use('it');
+    this.lingue = this.linguaService.getLingue();
 
+    // Set the default language for translation strings, and the current language.
+    this.linguaPreferita = this.linguaService.getLinguaPreferita();
+    console.log(this.linguaPreferita);
 
-    //Bisognerebbe settarlo anche quando si cambia la lingua
-    /*
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+    this.translate.setDefaultLang(this.linguaPreferita);
+    this.linguaService.getLinguaAttuale().subscribe((lingua: string) => {
+      if (lingua != null) {
+        this.translate.use(lingua);
+      } else {
+        this.translate.use(this.linguaPreferita);
+        this.linguaService.updateLingua(this.linguaPreferita);
+      }
     });
-    */
+  }
+
+  changeLang(){
+    console.log(this.linguaPreferita);
+    this.translate.use(this.linguaPreferita);
+    this.linguaService.updateLingua(this.linguaPreferita);
   }
 
   subscribeToEvents() {

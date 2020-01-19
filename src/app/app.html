@@ -43,13 +43,11 @@
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" [hidden]="p.menuenab==false" >
         {{p.title | translate}}
       </button>
-
-
+      
       <ion-item>
         <ion-label>{{ 'LINGUA' | translate }}</ion-label>
-        <ion-select >
-          <ion-option value="it">{{ 'ITALIANO' | translate }}</ion-option>
-          <ion-option value="en">{{ 'INGLESE' | translate }}</ion-option>
+        <ion-select  [(ngModel)]="linguaPreferita" name="linguaPreferita" (ionChange)="changeLang()" >
+          <ion-option *ngFor="let l of lingue" [value]="l.valore">{{l.etichetta}}</ion-option>
         </ion-select>
       </ion-item>
 

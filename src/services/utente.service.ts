@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Utente} from '../model/utente.model';
 import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
@@ -85,14 +85,18 @@ export class UtenteService {
 
   votaUtente(votante: Utente, votato: Utente, voto: number){
     let body = { votante, votato, voto };
-    console.log(body);
-    return this.http.post<Utente>(URL.VOTA_UTENTE, body).toPromise()
+    return this.http.post<Utente>(URL.VOTAZIONE, body).toPromise()
       .then((response: Utente) => {
         return response;
       }).catch(error => {
           console.error()
         }
       );
+  }
+
+  getVoto(votanteEmail: string, votatoEmail: string){
+    let apiURL = `${URL.VOTAZIONE}/votante=${votanteEmail}/votato=${votatoEmail}`;
+    return this.http.get<number>(apiURL);
   }
 
 }

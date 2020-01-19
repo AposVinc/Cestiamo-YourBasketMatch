@@ -22,6 +22,8 @@ export class ProfiloutentePage {
   votante: Utente;  //utente loggato all'app
   utente: Utente;   //utente del quale stiamo viitando il profilo
 
+  votazioneGiaPresente: number = 5;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider, public utenteService: UtenteService) {
   }
 
@@ -32,27 +34,30 @@ export class ProfiloutentePage {
       this.utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
           this.votante = utente;
-
-          this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
-            this.utente = data;
-          });
-
         } else {
           console.log('nessun utente loggato');
           this.navCtrl.push(LOGIN_PAGE);
         }
+
+        this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
+          this.utente = data;
+
+          this.utenteService.getVoto(this.votante.email, this.utente.email).subscribe((data: number) => {
+            this.votazioneGiaPresente = data;
+          });
+
+        });
+
       });
-    };
-  }
 
-
-  logRatingChange(rating) {
-    console.log("changed rating: ", rating);
+    } else {
+      console.log('nessun utente loggato');
+      this.navCtrl.push(LOGIN_PAGE);
+    }
   }
 
   Votazione(rating){
-    this.utenteService.votaUtente(this.votante, this.utente, rating.rating); //.then(r => console.log(r) )
-
+    this.utenteService.votaUtente(this.votante, this.utente, rating.rating).then((data: Utente) => this.utente = data);
   }
 
 }

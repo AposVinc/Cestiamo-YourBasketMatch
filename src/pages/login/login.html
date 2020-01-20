@@ -7,9 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>{{ 'LOGIN' | translate }}</ion-title>
   </ion-navbar>
 
@@ -20,15 +20,15 @@
 <ion-content padding >
   <form #loginForm="ngForm" (ngSubmit)="login()">
     <div padding="2px"></div>
-  <ion-list>
-    <ion-item>
-      <!-- <ion-label color="primary" stacked> Inserisci la mail</ion-label> -->
-      <ion-input type="email" name="email" placeholder="Email Input" clearInput required [(ngModel)]="account.username"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" name="password" placeholder="Password Input" clearInput required [(ngModel)]="account.password"></ion-input>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+      <ion-item>
+        <!-- <ion-label color="primary" stacked> Inserisci la mail</ion-label> -->
+        <ion-input type="email" name="email" placeholder="Email Input" clearInput required [(ngModel)]="account.username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" name="password" placeholder="Password Input" clearInput required [(ngModel)]="account.password"></ion-input>
+      </ion-item>
+    </ion-list>
 
     <div padding class="buttonCenter" >
       <button ion-button color="primary" block  [disabled]="!loginForm.form.valid" >
@@ -36,14 +36,16 @@
       </button>
     </div>
   </form>
-    <ion-row class="icons-basic-page">
-      <ion-item text-center (click)="openRecoveryPassword()">
-        <a href="#"> {{'PASSWORD_DIMENTICATA' | translate}} </a></ion-item>
-      <ion-item>
+
+  <ion-row class="icons-basic-page">
+    <ion-item text-center (click)="openRecoveryPassword()">
+      <a> {{'PASSWORD_DIMENTICATA' | translate}} </a>
+    </ion-item>
+    <ion-item>
       <ion-col><ion-icon name="logo-facebook" ></ion-icon></ion-col>
-      <ion-col><a href="#" > {{'LOGIN_FACEBOOK' | translate}} </a></ion-col>
-      </ion-item>
-    </ion-row>
+      <ion-col><a> {{'LOGIN_FACEBOOK' | translate}} </a></ion-col>
+    </ion-item>
+  </ion-row>
 
 
   <div padding class=" buttonCenter buttonBottom">

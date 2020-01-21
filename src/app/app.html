@@ -2,10 +2,12 @@
   <ion-header>
     <ion-toolbar>
       <ion-grid>
+
         <ion-row>
           <ion-col padding-top col-12>
             <ion-avatar class="avatars">
-              <img src="assets/imgs/logo1.png">
+              <img src="../assets/imgs/avatar.png" *ngIf="image">
+              <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)" *ngIf="!image">
             </ion-avatar>
           </ion-col>
         </ion-row>
@@ -43,7 +45,7 @@
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" [hidden]="p.menuenab==false" >
         {{p.title | translate}}
       </button>
-      
+
       <ion-item>
         <ion-label>{{ 'LINGUA' | translate }}</ion-label>
         <ion-select  [(ngModel)]="linguaPreferita" name="linguaPreferita" (ionChange)="changeLang()" >

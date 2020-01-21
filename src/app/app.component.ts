@@ -18,6 +18,7 @@ import {
 import {UtenteService} from "../services/utente.service";
 import {Utente} from "../model/utente.model";
 import {GlobalProvider} from "../providers/global/global";
+import {DomSanitizer} from "@angular/platform-browser";
 
 
 @Component({
@@ -26,6 +27,7 @@ import {GlobalProvider} from "../providers/global/global";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   utente: Utente;
+  image:boolean;
   lingue: Array<Lingua>;
   linguaPreferita: string;
 
@@ -33,7 +35,7 @@ export class MyApp {
   pages: Array<{title: string, component: any, menuenab: boolean}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public global: GlobalProvider,
-              private translate: TranslateService, public events: Events, private linguaService: LinguaService, public utenteService: UtenteService) {
+              private translate: TranslateService, public events: Events, private linguaService: LinguaService, public utenteService: UtenteService, private _DomSanitizationService: DomSanitizer) {
 
     this.initTranslate();
     this.subscribeToEvents();
@@ -48,10 +50,13 @@ export class MyApp {
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
     ];
 
-    this.platform.ready().then(() => {
+    //this.platform.ready().then(() => {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
           this.utente = utente;
+          if (this.utente.img.length===0){
+            this.image=true;
+          }
           this.global.isLogged = true;
         } else {
           this.global.isLogged = false;
@@ -59,7 +64,7 @@ export class MyApp {
       });
       statusBar.styleDefault();
       splashScreen.hide();
-    });
+    //});
 
   }
 

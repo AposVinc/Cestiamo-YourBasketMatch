@@ -8,6 +8,10 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { File } from '@ionic-native/file/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { Camera } from '@ionic-native/camera';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'; //lingua
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';//lingua
@@ -63,7 +67,10 @@ export function createTranslateLoader(http: HttpClient) {
     GlobalProvider,
     BachecaService,
 
-
+    Camera,
+    FilePath,
+    FileTransfer,
+    File,
   ]
 })
 export class AppModule {}

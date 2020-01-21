@@ -50,7 +50,7 @@ export class MyApp {
       { title: 'INFO_APP', component: INFO_APP_PAGE, menuenab: false },
     ];
 
-    //this.platform.ready().then(() => {
+    this.platform.ready().then(() => {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
           this.utente = utente;
@@ -64,7 +64,7 @@ export class MyApp {
       });
       statusBar.styleDefault();
       splashScreen.hide();
-    //});
+    });
 
   }
 

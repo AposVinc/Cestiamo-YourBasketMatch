@@ -27,7 +27,6 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   utente: Utente;
-  image:boolean;
   lingue: Array<Lingua>;
   linguaPreferita: string;
 
@@ -55,7 +54,7 @@ export class MyApp {
         if (utente != null) {
           this.utente = utente;
           if (this.utente.img.length===0){
-            this.image=true;
+            this.utente.img = "../../assets/imgs/avatar.png";
           }
           this.global.isLogged = true;
         } else {
@@ -99,6 +98,9 @@ export class MyApp {
     });
     this.events.subscribe('server-error', (err: HttpErrorResponse) => {
       this.showMessageServerError(err);
+    });
+    this.events.subscribe("update-img",(img) => {
+      this.utente.img = img;
     });
   }
 

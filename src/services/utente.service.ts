@@ -7,13 +7,14 @@ import {AUTH_TOKEN, URL, UTENTE_STORAGE, X_AUTH} from '../constants';
 import {Storage} from '@ionic/storage';
 import {fromPromise} from 'rxjs/observable/fromPromise';
 import {GlobalProvider} from "../providers/global/global";
+import {Events} from "ionic-angular";
 
 
 @Injectable()
 export class UtenteService {
   private tokenUtente: string;
 
-  constructor(public http: HttpClient, public storage: Storage, public global: GlobalProvider) {
+  constructor(public http: HttpClient,public events: Events, public storage: Storage, public global: GlobalProvider) {
     this.storage.get(AUTH_TOKEN).then((token) => {
       this.tokenUtente = token;
     });
@@ -46,6 +47,7 @@ export class UtenteService {
     return this.http.post(URL.URL_IMG, image, {observe: 'response'}).toPromise()
       .then((response: HttpResponse<Utente>) => {
         this.storage.set(UTENTE_STORAGE, response.body);
+        this.events.publish('update-img', response.body.img);
         return response;
       }).catch(error => {
         console.log(error)

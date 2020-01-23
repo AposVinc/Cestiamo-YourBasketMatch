@@ -39,8 +39,8 @@ export class ProfilopersonalePage {
   }
 
   saveProfile(profileForm: NgForm) {
-    console.log("entra metodo salva profilo");
     if (profileForm.valid) {
+      delete this.utente.img;
       this.utenteService.updateProfilo(this.utente).subscribe((nuovoUtente: Utente) => {
         this.utente = nuovoUtente;
       });
@@ -86,7 +86,7 @@ export class ProfilopersonalePage {
     };
     this.camera.getPicture(options).then((imageURI) => {
       let base64Image = "data:image/jpeg;base64,"+ imageURI;
-      this.utenteService.updateImage(base64Image).then( u => console.log(u));
+      this.utenteService.updateImage(base64Image);
     }, (err) => {
       console.log(err)
     });

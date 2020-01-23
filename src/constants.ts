@@ -14,6 +14,7 @@ export const URL = {
   MIE_PARTITE: URL_BASE + '/getListaMiePartite',
   PARTITE_GIOCATE: URL_BASE + '/getListaPartiteGiocate',
   PARTITA: URL_BASE + '/partita',
+  BACHECA: URL_BASE + '/partita_bacheca',
   REMOVE_PARTECIPANTE: URL_BASE + '/removePartecipante',
   ADD_PARTECIPANTE: URL_BASE + '/addPartecipante',
   LISTA_TIPO_PARTITA: URL_BASE + '/getListaTipoPartita',

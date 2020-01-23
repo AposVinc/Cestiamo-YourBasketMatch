@@ -14,12 +14,12 @@ export class BachecaService {
   }
 
   listMessaggi(partitaId: number): Observable<Array<Messaggio>>{
-    let apiURL = `${URL.PARTITA}/${partitaId}/bacheca`;
+    let apiURL = `${URL.BACHECA}/${partitaId}`;
     return this.http.get<Array<Messaggio>> (apiURL);
   }
 
   sendMsg(msg: Messaggio) {
-    return this.http.post<Messaggio>(`${URL.PARTITA}/${msg.partita.id}/bacheca/addMessaggio`, msg).toPromise()
+    return this.http.post<Messaggio>(`${URL.BACHECA}/${msg.partita.id}/addMessaggio`, msg).toPromise()
       .then((response: Messaggio) => {
         return response;
       }).catch(error => { console.error() }

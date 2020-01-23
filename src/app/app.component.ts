@@ -135,7 +135,7 @@ export class MyApp {
 
   openProfile() {//per entrare nel profilo dal menu laterale
     if (this.global.isLogged){
-      this.nav.push(PROFILO_PERSONALE_PAGE, { utenteEmail: this.utente.email});
+      this.nav.push(PROFILO_PERSONALE_PAGE);
       console.log('profilo utente', this.utente.nome, this.utente.cognome);
     } else {
       this.nav.push(LOGIN_PAGE);

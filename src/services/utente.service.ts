@@ -42,8 +42,7 @@ export class UtenteService {
       });
   }
 
-  updateImage(utente, image) {
-    let body = { utente, image };
+  updateImage(image) {
     return this.http.post(URL.URL_IMG, image, {observe: 'response'}).toPromise()
       .then((response: HttpResponse<Utente>) => {
         this.storage.set(UTENTE_STORAGE, response.body);
@@ -84,8 +83,8 @@ export class UtenteService {
     return this.http.get<Utente>(apiURL);
   }
 
-  votaUtente(votante: Utente, votato: Utente, voto: number){
-    let body = { votante, votato, voto };
+  votaUtente(votato: Utente, voto: number){
+    let body = { votato, voto };
     return this.http.post<Utente>(URL.VOTAZIONE, body).toPromise()
       .then((response: Utente) => {
         return response;
@@ -95,8 +94,8 @@ export class UtenteService {
       );
   }
 
-  getVoto(votanteEmail: string, votatoEmail: string){
-    let apiURL = `${URL.VOTAZIONE}/votante=${votanteEmail}/votato=${votatoEmail}`;
+  getVoto(votatoEmail: string){
+    let apiURL = `${URL.VOTAZIONE}/votato=${votatoEmail}`;
     return this.http.get<number>(apiURL);
   }
 

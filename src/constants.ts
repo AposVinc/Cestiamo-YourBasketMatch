@@ -23,7 +23,6 @@ export const URL = {
   UTENTE: URL_BASE + '/utente',
   VOTAZIONE: URL_BASE + '/votazione',
 
-
 };
 
 export const X_AUTH = "X-Auth";

@@ -19,7 +19,6 @@ import {LOGIN_PAGE} from "../pages";
 })
 export class ProfiloutentePage {
 
-  votante: Utente;  //utente loggato all'app
   utente: Utente;   //utente del quale stiamo viitando il profilo
 
   votazioneGiaPresente: number = 5;
@@ -31,24 +30,15 @@ export class ProfiloutentePage {
     console.log('ionViewDidLoad ProfiloUtentePage');
 
     if (this.global.isLogged) {
-      this.utenteService.getUtente().subscribe((utente: Utente) => {
-        if (utente != null) {
-          this.votante = utente;
-        } else {
-          console.log('nessun utente loggato');
-          this.navCtrl.push(LOGIN_PAGE);
-        }
 
         this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
           this.utente = data;
 
-          this.utenteService.getVoto(this.votante.email, this.utente.email).subscribe((data: number) => {
+          this.utenteService.getVoto(this.utente.email).subscribe((data: number) => {
             this.votazioneGiaPresente = data;
           });
 
         });
-
-      });
 
     } else {
       console.log('nessun utente loggato');
@@ -57,7 +47,7 @@ export class ProfiloutentePage {
   }
 
   Votazione(rating){
-    this.utenteService.votaUtente(this.votante, this.utente, rating.rating).then((data: Utente) => this.utente = data);
+    this.utenteService.votaUtente(this.utente, rating.rating).then((data: Utente) => this.utente = data);
   }
 
 }

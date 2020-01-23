@@ -35,7 +35,7 @@ export class StoricopartitePage {
         if (utente != null) {
           this.utente = utente;
 
-          this.partitaService.listMiePartiteGiocate(this.utente.email).subscribe((data: Array<Partita>) => {
+          this.partitaService.listMiePartiteGiocate().subscribe((data: Array<Partita>) => {
             this.listaPartite = data;
           });
         } else {
@@ -52,14 +52,18 @@ export class StoricopartitePage {
 
 
   doRefresh(refresher: Refresher) {
-    this.partitaService.listMiePartiteGiocate(this.utente.email).subscribe((data: Array<Partita>) => {
+    this.partitaService.listMiePartiteGiocate().subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
       refresher.complete();
     });
   }
 
   openNuovaPartita() {
-    this.navCtrl.push(NUOVA_PARTITA_PAGE);
+    if (this.global.isLogged){
+      this.navCtrl.push(NUOVA_PARTITA_PAGE);
+    } else {
+      this.navCtrl.push(LOGIN_PAGE);
+    }
   }
 
 }

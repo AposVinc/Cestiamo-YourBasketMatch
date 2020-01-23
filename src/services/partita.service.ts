@@ -6,7 +6,6 @@ import {URL} from '../constants';
 import {Partita} from '../model/partita.model';
 import {Campo} from "../model/campo.model";
 import {Tipopartita} from "../model/tipopartita.model";
-import {Utente} from "../model/utente.model";
 
 @Injectable()
 export class PartitaService {
@@ -14,9 +13,8 @@ export class PartitaService {
   constructor(private http: HttpClient, public storage: Storage) {
   }
 
-  create(partita: Partita, creatore: Utente) {
-    let body = {partita, creatore};
-    return this.http.post<Partita>(URL.NUOVA_PARTITA, body).toPromise()
+  create(partita: Partita) {
+    return this.http.post<Partita>(URL.NUOVA_PARTITA, partita).toPromise()
       .then((response: Partita) => {
         return response;
       }).catch(error => {
@@ -29,13 +27,13 @@ export class PartitaService {
     return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
   }
 
-  listMiePartite(utenteEmail: String): Observable<Array<Partita>> {
-    let Url = `${URL.MIE_PARTITE}/utente=${utenteEmail}`;
+  listMiePartite(): Observable<Array<Partita>> {
+    let Url = `${URL.MIE_PARTITE}`;
     return this.http.get<Array<Partita>>(Url);
   }
 
-  listMiePartiteGiocate(utenteEmail: String): Observable<Array<Partita>> {
-    let Url = `${URL.PARTITE_GIOCATE}/utente=${utenteEmail}`;
+  listMiePartiteGiocate(): Observable<Array<Partita>> {
+    let Url = `${URL.PARTITE_GIOCATE}`;
     return this.http.get<Array<Partita>>(Url);
   }
 
@@ -52,16 +50,16 @@ export class PartitaService {
     return this.http.get<Array<Tipopartita>>(URL.LISTA_TIPO_PARTITA)
   }
 
-  addUtente(partitaId: number, utenteEmail: string) {
-    let url = `${URL.ADD_PARTECIPANTE}/partita=${partitaId}/utente=${utenteEmail}`;
+  addUtente(partitaId: number) {
+    let url = `${URL.ADD_PARTECIPANTE}/partita=${partitaId}`;
     return this.http.put<Partita>(url, null, {observe: 'response'})
       .map((resp: HttpResponse<Partita>) => {
         return resp.body;
       });
   }
 
-  removeUtente(partitaId: number, utenteEmail: string) {
-    let deleteUrl = `${URL.REMOVE_PARTECIPANTE}/partita=${partitaId}/utente=${utenteEmail}`;
+  removeUtente(partitaId: number) {
+    let deleteUrl = `${URL.REMOVE_PARTECIPANTE}/partita=${partitaId}`;
     return this.http.delete<Partita>(deleteUrl);
   }
 

@@ -86,7 +86,7 @@ export class ProfilopersonalePage {
     };
     this.camera.getPicture(options).then((imageURI) => {
       let base64Image = "data:image/jpeg;base64,"+ imageURI;
-      this.utenteService.updateImage(this.utente, base64Image).then( u => console.log(u));
+      this.utenteService.updateImage(base64Image).then( u => console.log(u));
     }, (err) => {
       console.log(err)
     });

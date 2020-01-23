@@ -51,7 +51,6 @@ export class RegistrazionePage {
     this.utente.email = loginForm.value.email;
     this.utente.password = loginForm.value.password;
     this.utenteService.create(this.utente);
-    console.log(this.utente);
     this.registrazioneOk();
   }
 

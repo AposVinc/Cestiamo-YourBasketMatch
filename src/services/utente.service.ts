@@ -70,9 +70,9 @@ export class UtenteService {
   updateProfilo(nuovoUtente: Utente): Observable<Utente> {
     return this.http.post<Utente>(URL.UPDATE_USER, nuovoUtente, {observe: 'response'})
       .map((resp: HttpResponse<Utente>) => {
-        /* if(resp.body.img.length===0) {
-           resp.body.img = "../../assets/imgs/default.png";
-         }*/
+         if(resp.body.img.length===0) {
+           resp.body.img = "../../assets/imgs/avatar.png";
+         }
         this.storage.set(UTENTE_STORAGE, resp.body);
         return resp.body;
       });
@@ -83,8 +83,8 @@ export class UtenteService {
     return this.http.get<Utente>(apiURL);
   }
 
-  votaUtente(votante: Utente, votato: Utente, voto: number){
-    let body = { votante, votato, voto };
+  votaUtente(votato: Utente, voto: number){
+    let body = { votato, voto };
     return this.http.post<Utente>(URL.VOTAZIONE, body).toPromise()
       .then((response: Utente) => {
         return response;
@@ -94,8 +94,8 @@ export class UtenteService {
       );
   }
 
-  getVoto(votanteEmail: string, votatoEmail: string){
-    let apiURL = `${URL.VOTAZIONE}/votante=${votanteEmail}/votato=${votatoEmail}`;
+  getVoto(votatoEmail: string){
+    let apiURL = `${URL.VOTAZIONE}/votato=${votatoEmail}`;
     return this.http.get<number>(apiURL);
   }
 

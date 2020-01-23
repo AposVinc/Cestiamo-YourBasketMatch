@@ -86,14 +86,14 @@ export class PartitaPage {
   }
 
   leavePartita() {
-    this.partitaService.removeUtente(this.partita.id, this.utente.email).subscribe(() => {
+    this.partitaService.removeUtente(this.partita.id).subscribe(() => {
       this.navCtrl.setRoot(LISTA_PARTITE_PAGE);
     });
   }
 
   joinPartita() {
     if (this.global.isLogged){
-      this.partitaService.addUtente(this.partita.id, this.utente.email).subscribe( () => {
+      this.partitaService.addUtente(this.partita.id).subscribe( () => {
         this.partecipanti.push(this.utente);
         this.isPartecipant = true;
         this.canJoin = false;

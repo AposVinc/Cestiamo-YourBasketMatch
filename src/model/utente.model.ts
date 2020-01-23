@@ -9,7 +9,7 @@ export class Utente {
   dataNascita: Date;
   numPartite: number;
   mediaVoto: Voto;
-  img: string;
+  img: string = "";
   via: string;
 
 }

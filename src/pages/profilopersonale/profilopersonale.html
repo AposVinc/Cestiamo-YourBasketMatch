@@ -17,8 +17,8 @@
 
 <ion-content padding>
 
-  <ion-avatar class="avatars">
-    <img src="assets/imgs/logo1.png">
+  <ion-avatar class="avatars" (click)="changePhoto()">
+    <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
   </ion-avatar>
 
   <form #profileForm="ngForm">

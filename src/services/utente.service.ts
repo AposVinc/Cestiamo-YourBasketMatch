@@ -42,7 +42,8 @@ export class UtenteService {
       });
   }
 
-  updateImage(image) {
+  updateImage(utente, image) {
+    let body = { utente, image };
     return this.http.post(URL.URL_IMG, image, {observe: 'response'}).toPromise()
       .then((response: HttpResponse<Utente>) => {
         this.storage.set(UTENTE_STORAGE, response.body);
@@ -70,9 +71,9 @@ export class UtenteService {
   updateProfilo(nuovoUtente: Utente): Observable<Utente> {
     return this.http.post<Utente>(URL.UPDATE_USER, nuovoUtente, {observe: 'response'})
       .map((resp: HttpResponse<Utente>) => {
-        /* if(resp.body.img.length===0) {
-           resp.body.img = "../../assets/imgs/default.png";
-         }*/
+         if(resp.body.img.length===0) {
+           resp.body.img = "../../assets/imgs/avatar.png";
+         }
         this.storage.set(UTENTE_STORAGE, resp.body);
         return resp.body;
       });

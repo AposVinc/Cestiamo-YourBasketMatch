@@ -45,5 +45,9 @@
   "MESSAGGIO": "Messaggio",
   "LOGIN_FACEBOOK": "Accedi con Facebook",
   "REGISTRAZIONE_TITLE": "Registrazione Completata",
-  "RREGISTRAZIONE_SUBTITLE": "Registrazione completata con successo. Procedere con il Login!"
+  "RREGISTRAZIONE_SUBTITLE": "Registrazione completata con successo. Procedere con il Login!",
+  "SAVE_USER_TITLE": "Profilo Salvato",
+  "SAVE_USER_SUBTITLE": "Profilo Salvato con successo!",
+  "VOTE_USER_TITLE": "Votazione Effettuata",
+  "VOTE_USER_SUBTITLE": "Votazione Effettuata con successo!"
 }

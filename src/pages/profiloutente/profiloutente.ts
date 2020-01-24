@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Utente} from "../../model/utente.model";
 import {UtenteService} from "../../services/utente.service";
 import {GlobalProvider} from "../../providers/global/global";
 import {LOGIN_PAGE} from "../pages";
 import {DomSanitizer} from "@angular/platform-browser";
+import {TranslateService} from "@ngx-translate/core";
 
 /**
  * Generated class for the ProfiloutentePage page.
@@ -22,12 +23,27 @@ export class ProfiloutentePage {
 
   utente: Utente;   //utente del quale stiamo viitando il profilo
   votazioneGiaPresente: number = 5;
+  voteUserSubTitle: string;
+  voteUserTitle: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider, public utenteService: UtenteService,private _DomSanitizationService: DomSanitizer) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public global: GlobalProvider,
+              public utenteService: UtenteService,
+              private _DomSanitizationService: DomSanitizer,
+              public alertCtrl: AlertController,
+              public translateService: TranslateService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfiloUtentePage');
+
+    this.translateService.get('VOTE_USER_TITLE').subscribe((data) => {
+      this.voteUserSubTitle = data;
+    });
+    this.translateService.get('VOTE_USER_SUBTITLE').subscribe((data) => {
+      this.voteUserTitle = data;
+    });
 
     if (this.global.isLogged) {
 
@@ -36,7 +52,6 @@ export class ProfiloutentePage {
           data.img = "../../assets/imgs/avatar.png";
         }
         this.utente = data;
-
       });
 
       this.utenteService.getVoto(this.navParams.data.utenteEmail).subscribe((data: number) => {
@@ -51,6 +66,16 @@ export class ProfiloutentePage {
 
   Votazione(rating){
     this.utenteService.votaUtente(this.utente, rating.rating).then((data: Utente) => this.utente = data);
+    this.registrazioneOk();
   }
 
+  registrazioneOk() {
+    let alert = this.alertCtrl.create({
+      title: this.voteUserSubTitle,
+      subTitle: this.voteUserTitle,
+      buttons: ['OK']
+    });
+    alert.present();
+    this.navCtrl.push('ProfiloutentePage');
+  }
 }

@@ -53,8 +53,8 @@ export class MyApp {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
           this.utente = utente;
-          if (this.utente.img.length===0){
-            this.utente.img = "../../assets/imgs/avatar.png";
+          if (this.utente.img.length!==0){
+            this.utente.imgIsSet=true;
           }
           this.global.isLogged = true;
         } else {

@@ -41,9 +41,6 @@ export class PartitaPage {
 
     this.setDatiPartita();
 
-    this.events.subscribe("update-img",(img) => {
-      this.utente.img = img;
-    });
   }
 
   setUtenteLoggato(){
@@ -85,6 +82,9 @@ export class PartitaPage {
     for (let i = 0; i < this.partecipanti.length; i++) {  //controllo se l'utente partecipa alla partita
       if (this.partecipanti[i].email === this.utente.email) { //se utente partecipante
         this.isPartecipant = true;
+        if (this.utente.img.length ===0) {
+          this.utente.img = "../../assets/imgs/avatar.png";
+        }
         break;
       }
     }

@@ -67,12 +67,15 @@
       Partecipanti:
     </ion-list-header>
 
-    <ion-item *ngFor="let utente of partecipanti" (click)="openProfilo(utente)">
-      <ion-avatar item-start>
+    <ion-item *ngFor="let u of partecipanti" (click)="openProfilo(u)">
+      <ion-avatar item-start *ngIf="u.email === utente.email">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
       </ion-avatar>
+      <ion-avatar item-start *ngIf="u.email !== utente.email">
+        <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(u.img)">
+      </ion-avatar>
 
-      <ion-row>{{utente.nome}} {{utente.cognome}}</ion-row>
+      <ion-row>{{u.nome}} {{u.cognome}}</ion-row>
       <ion-row>
         <ionic3-star-rating #rating
                             activeIcon="ios-star"
@@ -80,7 +83,7 @@
                             activeColor="#ffff07"
                             defaultColor="#878787"
                             readonly="true"
-                            rating="{{utente.mediaVoto}}"
+                            rating="{{u.mediaVoto}}"
                             fontSize="20px"
                             (ratingChanged)="logRatingChange($event)">
         </ionic3-star-rating>

@@ -52,10 +52,10 @@ export class MyApp {
     this.platform.ready().then(() => {
       utenteService.getUtente().subscribe((utente: Utente) => {
         if (utente != null) {
-          this.utente = utente;
-          if (this.utente.img.length!==0){
-            this.utente.imgIsSet=true;
+          if (utente.img.length ===0) {
+            utente.img = "../../assets/imgs/avatar.png";
           }
+          this.utente = utente;
           this.global.isLogged = true;
         } else {
           this.global.isLogged = false;

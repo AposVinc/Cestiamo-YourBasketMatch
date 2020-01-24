@@ -5,10 +5,10 @@
 
         <ion-row>
           <ion-col padding-top col-12>
-            <ion-avatar class="avatars" *ngIf="global.isLogged && utente.imgIsSet">
+            <ion-avatar class="avatars" *ngIf="global.isLogged">
               <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
             </ion-avatar>
-            <ion-avatar class="avatars" *ngIf="!global.isLogged || !utente.imgIsSet">
+            <ion-avatar class="avatars" *ngIf="!global.isLogged">
               <img src="../assets/imgs/avatar.png">
             </ion-avatar>
           </ion-col>

@@ -7,7 +7,6 @@ import {Utente} from "../../model/utente.model";
 import {UtenteService} from "../../services/utente.service";
 import {GlobalProvider} from "../../providers/global/global";
 import {DomSanitizer} from "@angular/platform-browser";
-import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 /**
  * Generated class for the PartitaPage page.
@@ -71,11 +70,9 @@ export class PartitaPage {
   setImmaginiDefault(){
     //se non è settato, mostra img di default
     this.partecipanti.forEach(function (utente) {
-
       if (utente.img.length ===0) {
         utente.img = "../../assets/imgs/avatar.png";
       }
-
     });
 
 }

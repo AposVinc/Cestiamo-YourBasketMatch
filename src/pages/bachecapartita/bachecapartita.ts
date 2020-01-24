@@ -6,6 +6,7 @@ import {Messaggio} from "../../model/messaggio.model";
 import {Utente} from "../../model/utente.model";
 import {PartitaService} from "../../services/partita.service";
 import {UtenteService} from "../../services/utente.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 /**
  * Generated class for the BachecapartitaPage page.
@@ -29,14 +30,21 @@ export class BachecapartitaPage {
   partita: Partita = null;
   editorMsg = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events,
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private _DomSanitizationService: DomSanitizer,
               private bachecaService: BachecaService, private utenteService: UtenteService, private partitaService: PartitaService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BachecapartitaPage');
     this.bachecaService.listMessaggi(this.navParams.data.partitaId).subscribe((data: Array<Messaggio>) => {
+
+      data.forEach(function (msg) {
+        if (msg.mittente.img.length ===0) {
+          msg.mittente.img = "../../assets/imgs/avatar.png";
+        }
+      });
       this.listaMessaggi = data;
+
     });
 
     this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
@@ -62,6 +70,9 @@ export class BachecapartitaPage {
 
     let newMsg: Messaggio = new Messaggio();
     newMsg.mittente = this.utente;
+    if (newMsg.mittente.img.length ===0) {
+      newMsg.mittente.img = "../../assets/imgs/avatar.png";
+    }
     newMsg.data = new Date();
     newMsg.testo = this.editorMsg;
     newMsg.partita = this.partita;

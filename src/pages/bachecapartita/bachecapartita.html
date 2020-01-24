@@ -24,7 +24,7 @@
          class="message"
          [class.left]=" msg.mittente.email !== utente.email "
          [class.right]=" msg.mittente.email === utente.email ">
-      <img class="user-img" [src]="msg.mittente.img" alt="" src="">
+      <img class="user-img" [src]="_DomSanitizationService.bypassSecurityTrustUrl(msg.mittente.img)">
       <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner>
       <div class="msg-detail">
         <div class="msg-info">

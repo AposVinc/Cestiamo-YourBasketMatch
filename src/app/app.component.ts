@@ -93,6 +93,9 @@ export class MyApp {
 
   subscribeToEvents() {
     this.events.subscribe('login', (utente: Utente) => {
+      if (utente.img.length ===0) {
+        utente.img = "../../assets/imgs/avatar.png";
+      }
       this.utente = utente;
       this.global.isLogged=true;
     });

@@ -11,5 +11,6 @@ export class Utente {
   numPartite: number;
   mediaVoto: Voto;
   img: string = "";
+  imgIsSet: boolean = false;
 
 }

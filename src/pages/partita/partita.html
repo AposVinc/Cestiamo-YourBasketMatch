@@ -68,9 +68,14 @@
     </ion-list-header>
 
     <ion-item *ngFor="let utente of partecipanti" (click)="openProfilo(utente)">
-      <ion-avatar item-start>
+
+      <ion-avatar item-start *ngIf="!utente.imgIsSet">
         <img src="../../assets/imgs/avatar.png">
       </ion-avatar>
+      <ion-avatar item-start *ngIf="utente.imgIsSet">
+        <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
+      </ion-avatar>
+
       <ion-row>{{utente.nome}} {{utente.cognome}}</ion-row>
       <ion-row>
         <ionic3-star-rating #rating

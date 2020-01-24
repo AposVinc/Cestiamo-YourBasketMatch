@@ -6,6 +6,8 @@ import {PartitaService} from "../../services/partita.service";
 import {Utente} from "../../model/utente.model";
 import {UtenteService} from "../../services/utente.service";
 import {GlobalProvider} from "../../providers/global/global";
+import {DomSanitizer} from "@angular/platform-browser";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 /**
  * Generated class for the PartitaPage page.
@@ -27,7 +29,7 @@ export class PartitaPage {
   canJoin: boolean = false;
   soldOut: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider, private _DomSanitizationService: DomSanitizer,
               public partitaService:PartitaService, public utenteService: UtenteService) {
   }
 
@@ -35,41 +37,72 @@ export class PartitaPage {
     console.log('ionViewDidLoad PartitaPage');
 
     if (this.global.isLogged) {
-      this.utenteService.getUtente().subscribe((utente: Utente) => {
-        if (utente != null) {
-          this.utente = utente;
-        } else {
-          console.log('nessun utente loggato');
-        }
-      });
+      this.setUtenteLoggato();
     };
 
+    this.setDatiPartita();
+  }
+
+  setUtenteLoggato(){
+    this.utenteService.getUtente().subscribe((utente: Utente) => {
+      if (utente != null) {
+        this.utente = utente;
+      } else {
+        console.log('nessun utente loggato');
+      }
+    });
+  }
+
+  setDatiPartita(){
     this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
       this.partita = data;
       this.partecipanti = data.partecipanti;
 
-      if (this.utente != null && this.global.isLogged) {  //utente loggato
+      this.setImmaginiDefault();
 
-        for (let i = 0; i < this.partecipanti.length; i++) {  //controllo se l'utente partecipa alla partita
-          if (this.partecipanti[i].email === this.utente.email) { //se utente partecipante
-            this.isPartecipant = true;
-            break;
-          }
-        }
-        //ho controllato tutti i partecipanti e l'utente non ne fa parte
-        if (!this.isPartecipant){
-          if (this.partita.personeMancanti !== 0){
-            this.canJoin = true;    //ci sono posti
-          } else {
-            this.soldOut = true;    //l'utente non puo partecipare perche non ci sono i posti
-            console.log('sold out');
-          }
-        }
+      if (this.utente != null && this.global.isLogged) {  //utente loggato
+        this.checkIfUtentePuoPartecipare();
       } else {  //l'utente non è loggato percio gli mostro sempre la possibilità di partecipare per invogliarlo a iscriversi
         this.canJoin = true;
       }
     });
+  }
 
+  setImmaginiDefault(){
+    //se non è settato, mostra img di default
+    this.partecipanti.forEach(function (utente) {
+      if (utente.img.length !==0) {
+        utente.imgIsSet = true;
+      } else {
+        utente.imgIsSet = false;
+      }
+    });
+    /*
+    this.partecipanti.forEach(function (utente) {
+      if (utente.img.length == 0) {
+        utente.img = "../../assets/imgs/avatar.png";
+      }
+    });
+    */
+
+}
+
+  checkIfUtentePuoPartecipare(){
+    for (let i = 0; i < this.partecipanti.length; i++) {  //controllo se l'utente partecipa alla partita
+      if (this.partecipanti[i].email === this.utente.email) { //se utente partecipante
+        this.isPartecipant = true;
+        break;
+      }
+    }
+    //ho controllato tutti i partecipanti e l'utente non ne fa parte
+    if (!this.isPartecipant){
+      if (this.partita.personeMancanti !== 0){
+        this.canJoin = true;    //ci sono posti
+      } else {
+        this.soldOut = true;    //l'utente non puo partecipare perche non ci sono i posti
+        console.log('sold out');
+      }
+    }
   }
 
   openBacheca() {

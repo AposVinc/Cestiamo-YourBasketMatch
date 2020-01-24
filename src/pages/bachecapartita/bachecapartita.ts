@@ -56,6 +56,10 @@ export class BachecapartitaPage {
         this.utente = utente;
       }
     });
+
+    this.events.subscribe("update-img",(img) => {
+      this.utente.img = img;
+    });
   }
 
 

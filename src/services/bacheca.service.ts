@@ -19,6 +19,7 @@ export class BachecaService {
   }
 
   sendMsg(msg: Messaggio) {
+    delete msg.mittente.img;
     return this.http.post<Messaggio>(`${URL.BACHECA}/${msg.partita.id}/addMessaggio`, msg).toPromise()
       .then((response: Messaggio) => {
         return response;

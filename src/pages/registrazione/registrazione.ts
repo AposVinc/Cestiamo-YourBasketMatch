@@ -4,7 +4,7 @@ import {Utente} from "../../model/utente.model";
 import {NgForm} from "@angular/forms";
 import {UtenteService} from "../../services/utente.service";
 import {TranslateService} from "@ngx-translate/core";
-import {LoginPage} from "../login/login";
+import {LOGIN_PAGE} from "../pages";
 
 /**
  * Generated class for the RegistrazionePage page.
@@ -61,7 +61,7 @@ export class RegistrazionePage {
       buttons: ['OK']
     });
     alert.present();
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.push(LOGIN_PAGE);
   }
 
 }

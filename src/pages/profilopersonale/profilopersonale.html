@@ -15,11 +15,13 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding-top>
 
-  <ion-avatar class="avatars" (click)="changePhoto()">
-    <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
-  </ion-avatar>
+  <ion-col>
+    <ion-avatar class="avatars" (click)="changePhoto()">
+      <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
+    </ion-avatar>
+  </ion-col>
 
   <form #profileForm="ngForm">
     <ion-list>

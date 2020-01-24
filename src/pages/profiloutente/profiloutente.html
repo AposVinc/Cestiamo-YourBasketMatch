@@ -18,12 +18,9 @@
 
 
 <ion-content>
-  <ion-col padding-top col-12>
-    <ion-avatar class="avatars" *ngIf="imgIsSet">
+  <ion-col padding-top col-12 *ngIf="utente">
+    <ion-avatar class="avatars">
       <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
-    </ion-avatar>
-    <ion-avatar class="avatars" *ngIf="!imgIsSet">
-      <img src="../../assets/imgs/avatar.png">
     </ion-avatar>
   </ion-col>
 

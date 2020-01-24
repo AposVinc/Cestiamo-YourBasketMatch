@@ -32,18 +32,11 @@ export class ProfiloutentePage {
     if (this.global.isLogged) {
 
       this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
+        if (data.img.length ===0) {
+          data.img = "../../assets/imgs/avatar.png";
+        }
         this.utente = data;
-        console.log(this.utente);
 
-        if (this.utente.img.length !==0) {
-          this.utente.imgIsSet = true;
-        }
-
-        /*
-        if (this.utente.img.length ===0) {
-          this.utente.img = "../../assets/imgs/avatar.png";
-        }
-         */
       });
 
       this.utenteService.getVoto(this.navParams.data.utenteEmail).subscribe((data: number) => {

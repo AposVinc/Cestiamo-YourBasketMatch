@@ -112,6 +112,7 @@ export class ProfilopersonalePage {
     this.camera.getPicture(options).then((imageURI) => {
       let base64Image = "data:image/jpeg;base64,"+ imageURI;
       this.utenteService.updateImage(base64Image);
+      this.utente.img = base64Image;
     }, (err) => {
       console.log(err)
     });

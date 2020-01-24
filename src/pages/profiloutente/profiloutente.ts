@@ -47,17 +47,28 @@ export class ProfiloutentePage {
 
     if (this.global.isLogged) {
 
-      this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
-        if (data.img.length ===0) {
-          data.img = "../../assets/imgs/avatar.png";
+      this.utenteService.getUtente().subscribe((utenteLoggato: Utente) => {
+        if (utenteLoggato != null && utenteLoggato.email === this.navParams.data.utenteEmail) {
+          if (utenteLoggato.img.length === 0){
+            utenteLoggato.img ="../../assets/imgs/avatar.png";
+          }
+          this.utente = utenteLoggato;
+
+        } else {
+
+          this.utenteService.getUtenteByEmail(this.navParams.data.utenteEmail).subscribe((data: Utente) => {
+            if (data.img.length ===0) {
+              data.img = "../../assets/imgs/avatar.png";
+            }
+            this.utente = data;
+          });
+
+          this.utenteService.getVoto(this.navParams.data.utenteEmail).subscribe((data: number) => {
+            this.votazioneGiaPresente = data;
+          });
         }
-        this.utente = data;
       });
-
-      this.utenteService.getVoto(this.navParams.data.utenteEmail).subscribe((data: number) => {
-        this.votazioneGiaPresente = data;
-      });
-
+      
     } else {
       console.log('nessun utente loggato');
       this.navCtrl.push(LOGIN_PAGE);

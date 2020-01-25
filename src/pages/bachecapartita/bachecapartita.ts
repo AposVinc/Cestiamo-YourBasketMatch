@@ -36,6 +36,16 @@ export class BachecapartitaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BachecapartitaPage');
+
+    this.utenteService.getUtente().subscribe((utente: Utente) => {
+      if (utente != null) {
+        if (utente.img.length ===0) {
+          utente.img = "../../assets/imgs/avatar.png";
+        }
+        this.utente = utente;
+      }
+    });
+
     this.bachecaService.listMessaggi(this.navParams.data.partitaId).subscribe((data: Array<Messaggio>) => {
 
       data.forEach(function (msg) {
@@ -49,12 +59,6 @@ export class BachecapartitaPage {
 
     this.partitaService.findById(this.navParams.data.partitaId).subscribe((data: Partita) => {
       this.partita = data;
-    });
-
-    this.utenteService.getUtente().subscribe((utente: Utente) => {
-      if (utente != null) {
-        this.utente = utente;
-      }
     });
 
     this.events.subscribe("update-img",(img) => {
@@ -74,25 +78,21 @@ export class BachecapartitaPage {
 
     let newMsg: Messaggio = new Messaggio();
     newMsg.mittente = this.utente;
-    if (newMsg.mittente.img.length ===0) {
-      newMsg.mittente.img = "../../assets/imgs/avatar.png";
-    }
     newMsg.data = new Date();
     newMsg.testo = this.editorMsg;
     newMsg.partita = this.partita;
-    newMsg.status = "pending";
 
     this.editorMsg = '';
-    if (this.bachecaService.sendMsg(newMsg)) {
-      newMsg.status = "success";
-      this.pushNewMsg(newMsg);
-    }
+    this.bachecaService.sendMsg(newMsg).then( (msg:Messaggio) => {
+      if (msg.mittente.img.length ===0) {
+        msg.mittente.img = "../../assets/imgs/avatar.png";
+      }
+      this.listaMessaggi.push(msg);
+      console.log(this.listaMessaggi);
+      this.scrollToBottom();
+    });
   }
 
-  pushNewMsg(msg: Messaggio) {
-    this.listaMessaggi.push(msg);
-    this.scrollToBottom();
-  }
 
   scrollToBottom() {
     setTimeout(() => {

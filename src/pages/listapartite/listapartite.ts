@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams, Refresher } from 'ionic-angular';
 
 import { Partita } from '../../model/partita.model';
@@ -7,6 +7,9 @@ import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 
 import { Nav } from 'ionic-angular';
 import {GlobalProvider} from "../../providers/global/global";
+import {SearchService} from "../../services/search.service";
+import {FormControl} from "@angular/forms";
+import {debounceTime} from "rxjs/operators";
 
 
 /**
@@ -21,11 +24,29 @@ import {GlobalProvider} from "../../providers/global/global";
   selector: 'page-listapartite',
   templateUrl: 'listapartite.html',
 })
-export class ListapartitePage {
+export class ListapartitePage implements OnInit {
+
+  public searchControl: FormControl;
+  public items: any;
 
   listaPartite: Array<Partita>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, public global: GlobalProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, public global: GlobalProvider, public  searchService: SearchService) {
+    this.searchControl = new FormControl();
+  }
+
+  ngOnInit() {
+    this.setFilteredItems("");
+
+    this.searchControl.valueChanges
+      .pipe(debounceTime(700))
+      .subscribe(search => {
+        this.setFilteredItems(search);
+      });
+  }
+
+  setFilteredItems(searchTerm) {
+    this.items = this.searchService.filterItems(searchTerm);
   }
 
   ionViewDidLoad() {

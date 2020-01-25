@@ -41,7 +41,10 @@ export class MiepartitePage {
           this.navCtrl.push(LOGIN_PAGE);
         }
       });
-    };
+    }else {
+      console.log('nessun utente loggato');
+      this.navCtrl.push(LOGIN_PAGE)
+    }
   }
 
   openPartita(p: Partita) {

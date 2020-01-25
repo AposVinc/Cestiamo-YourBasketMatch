@@ -43,7 +43,9 @@ export class StoricopartitePage {
           this.navCtrl.push(LOGIN_PAGE);
         }
       });
-    };
+    } else {
+        this.navCtrl.push(LOGIN_PAGE);
+    }
   }
 
   openPartita(p: Partita) {

@@ -34,6 +34,7 @@
   "LINGUA": "Language",
   "ITALIANO": "Italian",
   "INGLESE": "English",
+  "SELEZIONA_BY_CAMPO": "Find Match",
   "BACHECA": "Message Board",
   "BACHECA_PARTITA": "Board MatchS",
   "SCRIVI_QUI": "Text here..",
@@ -50,5 +51,5 @@
   "SAVE_USER_SUBTITLE": "Profile successfully saved!",
   "VOTE_USER_TITLE": "Voting made",
   "VOTE_USER_SUBTITLE": "Voting Successful!"
-}
+
 }

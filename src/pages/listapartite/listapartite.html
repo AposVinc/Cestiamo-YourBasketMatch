@@ -22,7 +22,7 @@
   </ion-refresher>
 
   <div>
-    <ion-searchbar [formControl]="searchControl"></ion-searchbar>
+    <ion-searchbar [formControl]="searchControl" placeholder="{{ 'SELEZIONA_BY_CAMPO' | translate }}"></ion-searchbar>
 
     <ion-list>
       <ion-item *ngFor="let item of items" (click)="getListaPartiteByCampo(item)">

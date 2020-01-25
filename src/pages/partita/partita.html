@@ -77,22 +77,22 @@
 
     <ion-item *ngFor="let u of partecipanti" (click)="openProfilo(u)">
       <!--utente loggato e partecipante-->
-      <ion-avatar item-start *ngIf="utente && u.email === utente.email">
+      <ion-avatar item-start *ngIf="global.isLogged && isPartecipant">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
       </ion-avatar>
 
       <!--utente loggato e non partecipante-->
-      <ion-avatar item-start *ngIf="utente && u.email !== utente.email">
+      <ion-avatar item-start *ngIf="global.isLogged && !isPartecipant">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(u.img)">
       </ion-avatar>
 
       <!--utente non loggato-->
-      <ion-avatar item-start *ngIf="!utente">
+      <ion-avatar item-start *ngIf="!global.isLogged">
         <img src="../../assets/imgs/avatar.png">
       </ion-avatar>
 
-      <ion-row *ngIf="utente">{{u.nome}} {{u.cognome}}</ion-row>
-      <ion-row *ngIf="!utente">{{u.nome}}</ion-row>
+      <ion-row *ngIf="global.isLogged">{{u.nome}} {{u.cognome}}</ion-row>
+      <ion-row *ngIf="!global.isLogged">{{u.nome}}</ion-row>
       <ion-row>
         <ionic3-star-rating #rating
                             activeIcon="ios-star"

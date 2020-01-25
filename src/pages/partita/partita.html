@@ -51,12 +51,20 @@
     </div>
   </div>
 
-  <div *ngIf="!global.isLogged || canJoin || soldOut">
+  <div *ngIf="global.isLogged && !isPartecipant">
     <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px">
-      <button *ngIf="this.soldOut" ion-button color="success" block (click)="joinPartita()" disabled>
+      <button *ngIf="this.soldOut" ion-button color="success" block disabled>
         {{'PARTECIPA_PARTITA' | translate }}
       </button>
       <button *ngIf="!this.soldOut" ion-button color="success" block (click)="joinPartita()">
+        {{'PARTECIPA_PARTITA' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!global.isLogged">
+    <div padding class="buttonCenter" style="padding-top: 5px; padding-bottom: 5px">
+      <button ion-button color="success" block (click)="openLogin()">
         {{'PARTECIPA_PARTITA' | translate }}
       </button>
     </div>
@@ -72,11 +80,12 @@
       <ion-avatar item-start *ngIf="utente && u.email === utente.email">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
       </ion-avatar>
-      <!--utente loggato e non partecipante-->
 
+      <!--utente loggato e non partecipante-->
       <ion-avatar item-start *ngIf="utente && u.email !== utente.email">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(u.img)">
       </ion-avatar>
+
       <!--utente non loggato-->
       <ion-avatar item-start *ngIf="!utente">
         <img src="../../assets/imgs/avatar.png">

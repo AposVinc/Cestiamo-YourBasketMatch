@@ -25,7 +25,6 @@ export class PartitaPage {
   partita: Partita;
   partecipanti: Utente[];
   isPartecipant: boolean = false;
-  canJoin: boolean = false;
   soldOut: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public global: GlobalProvider, private _DomSanitizationService: DomSanitizer,
@@ -62,9 +61,16 @@ export class PartitaPage {
 
       if (this.utente != null && this.global.isLogged) {  //utente loggato
         this.checkIfUtentePuoPartecipare();
-      } else {  //l'utente non è loggato percio gli mostro sempre la possibilità di partecipare per invogliarlo a iscriversi
-        this.canJoin = true;
       }
+
+      //ho controllato tutti i partecipanti e l'utente non ne fa parte
+        if (this.partita.personeMancanti !== 0){
+          this.soldOut = false;    //ci sono posti
+        } else {
+          this.soldOut = true;    //l'utente non puo partecipare perche non ci sono i posti
+          console.log('sold out');
+        }
+
     });
   }
 
@@ -88,15 +94,7 @@ export class PartitaPage {
         break;
       }
     }
-    //ho controllato tutti i partecipanti e l'utente non ne fa parte
-    if (!this.isPartecipant){
-      if (this.partita.personeMancanti !== 0){
-        this.canJoin = true;    //ci sono posti
-      } else {
-        this.soldOut = true;    //l'utente non puo partecipare perche non ci sono i posti
-        console.log('sold out');
-      }
-    }
+
   }
 
   openBacheca() {
@@ -112,6 +110,11 @@ export class PartitaPage {
     }
   }
 
+  openLogin(){
+    this.navCtrl.push(LOGIN_PAGE);
+    //iscriviti a evento e controlla se puo partecipare
+  }
+
   leavePartita() {
     this.partitaService.removeUtente(this.partita.id).subscribe(() => {
       this.navCtrl.setRoot(LISTA_PARTITE_PAGE);
@@ -123,7 +126,6 @@ export class PartitaPage {
       this.partitaService.addUtente(this.partita.id).subscribe( () => {
         this.partecipanti.push(this.utente);
         this.isPartecipant = true;
-        this.canJoin = false;
       });
     } else {
       this.navCtrl.push(LOGIN_PAGE);

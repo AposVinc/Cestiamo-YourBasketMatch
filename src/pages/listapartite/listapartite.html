@@ -25,7 +25,7 @@
     <ion-searchbar [formControl]="searchControl"></ion-searchbar>
 
     <ion-list>
-      <ion-item *ngFor="let item of items">
+      <ion-item *ngFor="let item of items" (click)="getListaPartiteByCampo(item)">
         {{ item.citta }}
       </ion-item>
     </ion-list>

@@ -10,6 +10,7 @@ import {GlobalProvider} from "../../providers/global/global";
 import {SearchService} from "../../services/search.service";
 import {FormControl} from "@angular/forms";
 import {debounceTime} from "rxjs/operators";
+import {Campo} from "../../model/campo.model";
 
 
 /**
@@ -46,7 +47,11 @@ export class ListapartitePage implements OnInit {
   }
 
   setFilteredItems(searchTerm) {
-    this.items = this.searchService.filterItems(searchTerm);
+    if (searchTerm !== ""){
+      this.items = this.searchService.filterItems(searchTerm);
+    } else {
+      this.items = [];
+    }
   }
 
   ionViewDidLoad() {
@@ -54,6 +59,13 @@ export class ListapartitePage implements OnInit {
     this.partitaService.list().subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
     });
+  }
+
+  getListaPartiteByCampo(campo: Campo){
+    this.partitaService.listPartiteByCampo(campo).subscribe(
+      (data: Array<Partita>) => {
+        this.listaPartite = data;
+      });
   }
 
   openPartita(p: Partita) {

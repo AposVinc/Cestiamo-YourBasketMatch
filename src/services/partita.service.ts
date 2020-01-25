@@ -27,6 +27,11 @@ export class PartitaService {
     return this.http.get<Array<Partita>>(URL.LISTA_PARTITE);
   }
 
+  listPartiteByCampo(campo: Campo): Observable<Array<Partita>> {
+    let Url = `${URL.LISTA_PARTITE}/campo=${campo.id}`;
+    return this.http.get<Array<Partita>>(Url);
+  }
+
   listMiePartite(): Observable<Array<Partita>> {
     let Url = `${URL.MIE_PARTITE}`;
     return this.http.get<Array<Partita>>(Url);

@@ -60,21 +60,31 @@
       </ion-label>
     </ion-item>
 
-    <ion-row padding>
+    <ion-row padding-top="10px">
+    </ion-row>
 
-      <ionic3-star-rating class="starRight"
-                          #rating
-                          activeIcon = "ios-star"
-                          defaultIcon = "ios-star-outline"
-                          activeColor = "#ffff07"
-                          defaultColor = "#878787"
-                          readonly="false"
-                          rating="{{votazioneGiaPresente}}"
-                          fontSize = "20px">
-      </ionic3-star-rating>
-      <button ion-button color="secondary"  (click)="Votazione(rating)">
-        {{'VOTA_UTENTE' | translate }}
-      </button>
+    <ion-item *ngIf="votaFlag">
+      <ion-label>{{ 'DAI_IL_TUO_VOTO' | translate }}</ion-label>
+      <ion-label>
+        <ionic3-star-rating #rating
+          activeIcon = "ios-star"
+          defaultIcon = "ios-star-outline"
+          activeColor = "#ffff07"
+          defaultColor = "#878787"
+          readonly="false"
+          rating="{{votazioneStored}}"
+          fontSize = "20px"
+          (ratingChanged)="logRatingChange($event)">
+        </ionic3-star-rating>
+      </ion-label>
+    </ion-item>
+    <ion-row *ngIf="votaFlag">
+      <ion-label></ion-label>
+      <ion-label>
+        <button ion-button color="secondary" class="buttonVotoCenter" (click)="Votazione()">
+          {{'VOTA_UTENTE' | translate }}
+        </button>
+      </ion-label>
     </ion-row>
 
 

@@ -86,7 +86,7 @@ export class UtenteService {
   }
 
   votaUtente(votato: Utente, voto: number){
-    delete votato.img;
+    votato.img = "";
     let body = { votato, voto };
     return this.http.post<Utente>(URL.VOTAZIONE, body).toPromise()
       .then((response: Utente) => {

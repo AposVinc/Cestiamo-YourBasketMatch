@@ -42,17 +42,23 @@ export class PartitaService {
     return this.http.get<Array<Partita>>(Url);
   }
 
-  findById(partitaId: number): Observable<Partita> {
-    let apiURL = `${URL.PARTITA}/${partitaId}`;
-    return this.http.get<Partita>(apiURL);
-  }
-
   listCampi(): Observable<Array<Campo>> {
     return this.http.get<Array<Campo>>(URL.LISTA_CAMPI)
   }
 
   ListTypeMatch(): Observable<Array<Tipopartita>> {
     return this.http.get<Array<Tipopartita>>(URL.LISTA_TIPO_PARTITA)
+  }
+
+
+  findById(partitaId: number): Observable<Partita> {
+    let apiURL = `${URL.PARTITA}/${partitaId}`;
+    return this.http.get<Partita>(apiURL);
+  }
+
+  checkIfUtenteLoggatoPartecipate(partitaId: number): Observable<boolean> {
+    let apiURL = `${URL.CHECK_IS_PARTECIPANTE}/${partitaId}`;
+    return this.http.get<boolean>(apiURL);
   }
 
   addUtente(partitaId: number) {

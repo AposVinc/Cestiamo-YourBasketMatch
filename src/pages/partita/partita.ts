@@ -33,13 +33,10 @@ export class PartitaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartitaPage');
-
     if (this.global.isLogged) {
       this.setUtenteLoggato();
     };
-
     this.setDatiPartita();
-
   }
 
   setUtenteLoggato(){
@@ -60,16 +57,24 @@ export class PartitaPage {
       this.setImmaginiDefault();
 
       if (this.utente != null && this.global.isLogged) {  //utente loggato
-        this.checkIfUtentePuoPartecipare();
+        this.partitaService.checkIfUtenteLoggatoPartecipate(this.navParams.data.partitaId).subscribe( (bool :boolean) => {
+          console.log("partecipa " + bool);
+          if (bool){
+            this.isPartecipant = true;
+            if (this.utente.img.length ===0) {
+              this.utente.img = "../../assets/imgs/avatar.png";
+            }
+          }
+        });
       }
 
       //ho controllato tutti i partecipanti e l'utente non ne fa parte
-        if (this.partita.personeMancanti !== 0){
-          this.soldOut = false;    //ci sono posti
-        } else {
-          this.soldOut = true;    //l'utente non puo partecipare perche non ci sono i posti
-          console.log('sold out');
-        }
+      if (this.partita.personeMancanti !== 0){
+        this.soldOut = false;    //ci sono posti
+      } else {
+        this.soldOut = true;    //l'utente non puo partecipare perche non ci sono i posti
+        console.log('sold out');
+      }
 
     });
   }
@@ -81,19 +86,6 @@ export class PartitaPage {
         utente.img = "../../assets/imgs/avatar.png";
       }
     });
-
-}
-
-  checkIfUtentePuoPartecipare(){
-    for (let i = 0; i < this.partecipanti.length; i++) {  //controllo se l'utente partecipa alla partita
-      if (this.partecipanti[i].email === this.utente.email) { //se utente partecipante
-        this.isPartecipant = true;
-        if (this.utente.img.length ===0) {
-          this.utente.img = "../../assets/imgs/avatar.png";
-        }
-        break;
-      }
-    }
 
   }
 

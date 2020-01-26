@@ -7,9 +7,9 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>{{ 'CONTATTACI' | translate }}</ion-title>
   </ion-navbar>
 
@@ -17,7 +17,7 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <div padding-right="10%">
     <ion-item>
       <ion-icon name="ios-person" item-start></ion-icon>
       <ion-input placeholder="Name"></ion-input>
@@ -26,15 +26,14 @@
       <ion-icon name="md-mail" item-start></ion-icon>
       <ion-input placeholder="Email"></ion-input>
     </ion-item>
-  </ion-list>
-
+  </div>
   <ion-card>
     <ion-input placeholder="{{'OGGETTO' | translate}}"></ion-input>
-    <ion-textarea  placeholder="{{'MESSAGGIO' | translate}}"></ion-textarea>
+    <ion-textarea placeholder="{{'MESSAGGIO' | translate}}" style="height: 50px"></ion-textarea>
   </ion-card>
-
+  <div padding-right>
     <button ion-button float-right>{{'INVIA'|translate}}
       <ion-icon name="ios-send"></ion-icon>
     </button>
-
+  </div>
 </ion-content>

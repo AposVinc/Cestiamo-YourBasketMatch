@@ -82,6 +82,7 @@ export class BachecapartitaPage {
     newMsg.testo = this.editorMsg;
     newMsg.partita = this.partita;
 
+
     this.editorMsg = '';
     this.bachecaService.sendMsg(newMsg).then( (msg:Messaggio) => {
       if (msg.mittente.img.length ===0) {

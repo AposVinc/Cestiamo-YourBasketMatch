@@ -56,10 +56,48 @@
       </ion-item>
 
       <button ion-item menuClose *ngFor="let p of pages" (click)="openPage2(p)" [hidden]="p.menuenab==true" >
-          {{p.title | translate}}
-        </button>
+        {{p.title | translate}}
+      </button>
 
     </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-menu side="right" [content]="content" id="filter">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{'RICERCA_PARTITE' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div padding-top >
+      <ion-searchbar [formControl]="searchControl" placeholder="{{ 'CERCA_CAMPO' | translate }}" ></ion-searchbar>
+      <ion-list>
+        <ion-item *ngFor="let item of items" (click)="getListaPartiteByCampo(item)">
+          {{ item.citta }}, {{ item.via }}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div padding-top>
+      <ion-item>
+        <ion-label>{{'TIPOLOGIA' | translate }}</ion-label>
+        <ion-select interface="action-sheet" placeholder="{{'SELEZIONA' | translate }}" [(ngModel)]="tipologiaSelected"
+                    (ngModelChange)="getListaPartiteByTip()">
+          <ion-option *ngFor="let t of listaTipologia" [value]="t">{{t.nome}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div padding-top >
+      <ion-item>
+        <ion-label>{{'DATA' | translate }}</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" min="{{today.toISOString()}}"
+                      max="{{today.getFullYear()+20}}" [(ngModel)]="dataSelected" (ngModelChange)="getListaPartitaByData()"></ion-datetime>
+      </ion-item>
+    </div>
   </ion-content>
 
 </ion-menu>

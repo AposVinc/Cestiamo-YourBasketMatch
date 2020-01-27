@@ -7,10 +7,16 @@
 <ion-header xmlns="http://www.w3.org/1999/html">
 
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle icon-only>
       <ion-icon name="menu"></ion-icon>
     </button>
+
     <ion-title>{{'LISTA_PARTITE' | translate }}</ion-title>
+
+    <button ion-button menuToggle="right" icon-only end>
+      <ion-icon name="funnel"></ion-icon>
+    </button>
+
   </ion-navbar>
 
 </ion-header>
@@ -21,15 +27,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <div>
-    <ion-searchbar [formControl]="searchControl" placeholder="{{ 'SELEZIONA_BY_CAMPO' | translate }}"></ion-searchbar>
 
-    <ion-list>
-      <ion-item *ngFor="let item of items" (click)="getListaPartiteByCampo(item)">
-        {{ item.citta }}
-      </ion-item>
-    </ion-list>
-  </div>
 
   <ion-list >
     <ion-card *ngFor="let p of listaPartite" (click)="openPartita(p)">

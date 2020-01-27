@@ -24,7 +24,6 @@ import { LinguaService } from '../services/lingua.service';
 import { PartitaService } from '../services/partita.service';
 import { UtenteService } from "../services/utente.service";
 import { BachecaService } from "../services/bacheca.service";
-import {SearchService} from "../services/search.service";
 
 import { GlobalProvider } from '../providers/global/global';
 import {ReactiveFormsModule} from "@angular/forms";
@@ -80,8 +79,6 @@ export function createTranslateLoader(http: HttpClient) {
     FilePath,
     FileTransfer,
     File,
-
-    SearchService,
   ]
 })
 export class AppModule {}

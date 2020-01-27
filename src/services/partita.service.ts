@@ -32,6 +32,16 @@ export class PartitaService {
     return this.http.get<Array<Partita>>(Url);
   }
 
+  listPartiteByTipologia(tipo: Tipopartita): Observable<Array<Partita>> {
+    let Url = `${URL.LISTA_PARTITE}/tipologia=${tipo.id}`;
+    return this.http.get<Array<Partita>>(Url);
+  }
+
+  listPartiteByData(data: Date): Observable<Array<Partita>> {
+    let Url = `${URL.LISTA_PARTITE}/data=${data}`;
+    return this.http.get<Array<Partita>>(Url);
+  }
+
   listMiePartite(): Observable<Array<Partita>> {
     let Url = `${URL.MIE_PARTITE}`;
     return this.http.get<Array<Partita>>(Url);
@@ -49,7 +59,6 @@ export class PartitaService {
   ListTypeMatch(): Observable<Array<Tipopartita>> {
     return this.http.get<Array<Tipopartita>>(URL.LISTA_TIPO_PARTITA)
   }
-
 
   findById(partitaId: number): Observable<Partita> {
     let apiURL = `${URL.PARTITA}/${partitaId}`;

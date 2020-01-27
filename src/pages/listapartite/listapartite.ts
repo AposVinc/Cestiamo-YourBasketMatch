@@ -1,16 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams, Refresher } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {Events, IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 
 import { Partita } from '../../model/partita.model';
 import { PartitaService } from '../../services/partita.service';
 import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 
-import { Nav } from 'ionic-angular';
 import {GlobalProvider} from "../../providers/global/global";
-import {SearchService} from "../../services/search.service";
-import {FormControl} from "@angular/forms";
-import {debounceTime} from "rxjs/operators";
-import {Campo} from "../../model/campo.model";
 
 
 /**
@@ -25,33 +20,13 @@ import {Campo} from "../../model/campo.model";
   selector: 'page-listapartite',
   templateUrl: 'listapartite.html',
 })
-export class ListapartitePage implements OnInit {
-
-  public searchControl: FormControl;
-  public items: any;
+export class ListapartitePage {
 
   listaPartite: Array<Partita>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, public global: GlobalProvider, public  searchService: SearchService) {
-    this.searchControl = new FormControl();
-  }
-
-  ngOnInit() {
-    this.setFilteredItems("");
-
-    this.searchControl.valueChanges
-      .pipe(debounceTime(700))
-      .subscribe(search => {
-        this.setFilteredItems(search);
-      });
-  }
-
-  setFilteredItems(searchTerm) {
-    if (searchTerm !== ""){
-      this.items = this.searchService.filterItems(searchTerm);
-    } else {
-      this.items = [];
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events,
+              public partitaService: PartitaService, public global: GlobalProvider) {
+    this.subscribeToEvents();
   }
 
   ionViewDidLoad() {
@@ -59,13 +34,6 @@ export class ListapartitePage implements OnInit {
     this.partitaService.list().subscribe((data: Array<Partita>) => {
       this.listaPartite = data;
     });
-  }
-
-  getListaPartiteByCampo(campo: Campo){
-    this.partitaService.listPartiteByCampo(campo).subscribe(
-      (data: Array<Partita>) => {
-        this.listaPartite = data;
-      });
   }
 
   openPartita(p: Partita) {
@@ -85,6 +53,28 @@ export class ListapartitePage implements OnInit {
     } else {
       this.navCtrl.push(LOGIN_PAGE);
     }
+  }
+
+
+
+  subscribeToEvents() {
+    this.events.subscribe("citta-selected",(campo) => {
+      this.partitaService.listPartiteByCampo(campo).subscribe((data: Array<Partita>) => {
+          this.listaPartite = data;
+        });
+    });
+
+    this.events.subscribe("tipologia-selected",(tipopartita) => {
+      this.partitaService.listPartiteByTipologia(tipopartita).subscribe((data: Array<Partita>) => {
+          this.listaPartite = data;
+        });
+    });
+
+    this.events.subscribe("data-selected",(data) => {
+      this.partitaService.listPartiteByData(data).subscribe((data: Array<Partita>) => {
+          this.listaPartite = data;
+        });
+    });
   }
 
 }

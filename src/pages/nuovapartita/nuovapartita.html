@@ -35,7 +35,7 @@
     <ion-item>
       <ion-label>{{'ORARIO' | translate}}</ion-label>
       <ion-datetime name="orario" displayFormat="HH:mm" pickerFormat="HH: mm" required
-                    [(ngModel)]="orario"></ion-datetime>
+                    [(ngModel)]="orario" minuteValues="0,30"></ion-datetime>
     </ion-item>
 
     <ion-item>

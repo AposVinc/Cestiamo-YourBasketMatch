@@ -13,7 +13,7 @@
 
     <ion-title>{{'LISTA_PARTITE' | translate }}</ion-title>
 
-    <button ion-button menuToggle="right" icon-only end>
+    <button ion-button menuToggle="right" icon-only end padding-right>
       <ion-icon name="funnel"></ion-icon>
     </button>
 
@@ -26,8 +26,6 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
-
 
   <ion-list >
     <ion-card *ngFor="let p of listaPartite" (click)="openPartita(p)">

@@ -24,19 +24,19 @@
 
 
 .toolbar-background {
-    background-color: color($colors, primary);
+  background-color: color($colors, primary);
 }
 
 .toolbar-title.toolbar-title-md,
 .toolbar-title.toolbar-title-ios,
 .toolbar-title.toolbar-title-wp {
-    color: black;
+  color: black;
 }
 
 .bar-button-default-md,
 .bar-button-default-ios,
 .bar-button-default-wp {
-    color:black;
+  color: black;
 }
 
 
@@ -45,20 +45,22 @@
   bottom: 70px;
 }
 
-.buttonCenter{
+.buttonCenter {
   left: 20px;
   right: 20px;
 }
-.buttonVotoCenter{
+
+.buttonVotoCenter {
   left: 25px;
   right: 20px;
 }
-.buttonRight{
+
+.buttonRight {
   left: 200px;
   right: 10px;
 }
 
-.buttonContact{
+.buttonContact {
   left: 270px;
 }
 
@@ -68,15 +70,16 @@
 }
 
 ion-avatar,
-ion-avatar > img{
-  border-radius:50%;
-  height:50px;
-  width:50px;
+ion-avatar > img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .avatars {
   margin: auto;
 }
+
 .icons-basic-page {
   ion-icon {
     font-size: 45px;
@@ -86,6 +89,7 @@ ion-avatar > img{
     height: 100%;
     flex-wrap: wrap;
   }
+
   ion-col {
     flex: 0 0 5%;
     max-width: 25%;
@@ -93,9 +97,6 @@ ion-avatar > img{
     padding: 15px 5px;
   }
 }
-
-
-
 
 
 .primary-bg {
@@ -141,36 +142,39 @@ ion-avatar > img{
 // Menu user profile
 .user-profile {
   .user-avatar {
-      width: 68px;
-      height: 68px;
-      display: inline-block;
+    width: 68px;
+    height: 68px;
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10rem rgba(0, 0, 0, .25), 0 0 4rem rgba(255, 255, 255, .45);
+
+    img {
       border-radius: 50%;
-      box-shadow: inset 0 0 10rem rgba(0,0,0,.25), 0 0 4rem rgba(255,255,255,.45);
-      img {
-          border-radius: 50%;
-      }
-  }
-  .toolbar-background {
-      background-image: linear-gradient(135deg, color($colors, secondary), color($colors, primary));
+    }
   }
 
-  .other-data {             //pulsanti nel menu laterale
-      .column {
-          &:first-child {
-              border-right: 1px solid rgba(36, 50, 157, .25);
-          }
+  .toolbar-background {
+    background-image: linear-gradient(135deg, color($colors, secondary), color($colors, primary));
+  }
+
+  .other-data { //pulsanti nel menu laterale
+    .column {
+      &:first-child {
+        border-right: 1px solid rgba(36, 50, 157, .25);
       }
+    }
   }
 }
 
 .user-list {
   .item {
-      &:last-child {
+    &:last-child {
       border-bottom: 0;
-      }
-      .item-inner {
+    }
+
+    .item-inner {
       border-color: rgba(86, 61, 124, .1);
-      }
+    }
   }
 }
 
@@ -179,14 +183,14 @@ ion-avatar > img{
   height: 60px;
   border-radius: 50%;
   padding: 1px;
- }
+}
 
-.heightcentre{
+.heightcentre {
   width: 50%;
   margin: auto;
 }
 
-.center{
+.center {
   //margin-left: 40%;
   //margin-right: 50%;
   margin-left: auto;
@@ -194,34 +198,90 @@ ion-avatar > img{
   display: block;
 }
 
-ion-card{
+ion-card {
   background-color: color($colors, secondary) !important;
 }
 
-ion-select{
+ion-select {
   max-width: 75% !important;
 }
 
-.mt_0{  margin-top: 0;  }
-.mt_5{  margin-top: 5px;  }
-.mt_10{  margin-top: 10px;  }
-.mt_15{  margin-top: 15px;  }
-.mt_20{  margin-top: 20px;  }
+.mt_0 {
+  margin-top: 0;
+}
 
-.mb_0{  margin-bottom: 0;  }
-.mb_5{  margin-bottom: 5px;  }
-.mb_10{  margin-bottom: 10px;  }
-.mb_15{  margin-bottom: 15px;  }
-.mb_20{  margin-bottom: 20px;  }
+.mt_5 {
+  margin-top: 5px;
+}
 
-.ml_0{  margin-left: 0;  }
-.ml_5{  margin-left: 5px;  }
-.ml_10{  margin-left: 10px;  }
-.ml_15{  margin-left: 15px;  }
-.ml_20{  margin-left: 20px;  }
+.mt_10 {
+  margin-top: 10px;
+}
 
-.mr_0{  margin-right: 0;  }
-.mr_5{  margin-right: 5px;  }
-.mr_10{  margin-right: 10px;  }
-.mr_15{  margin-right: 15px;  }
-.mr_20{  margin-right: 20px;  }
+.mt_15 {
+  margin-top: 15px;
+}
+
+.mt_20 {
+  margin-top: 20px;
+}
+
+.mb_0 {
+  margin-bottom: 0;
+}
+
+.mb_5 {
+  margin-bottom: 5px;
+}
+
+.mb_10 {
+  margin-bottom: 10px;
+}
+
+.mb_15 {
+  margin-bottom: 15px;
+}
+
+.mb_20 {
+  margin-bottom: 20px;
+}
+
+.ml_0 {
+  margin-left: 0;
+}
+
+.ml_5 {
+  margin-left: 5px;
+}
+
+.ml_10 {
+  margin-left: 10px;
+}
+
+.ml_15 {
+  margin-left: 15px;
+}
+
+.ml_20 {
+  margin-left: 20px;
+}
+
+.mr_0 {
+  margin-right: 0;
+}
+
+.mr_5 {
+  margin-right: 5px;
+}
+
+.mr_10 {
+  margin-right: 10px;
+}
+
+.mr_15 {
+  margin-right: 15px;
+}
+
+.mr_20 {
+  margin-right: 20px;
+}

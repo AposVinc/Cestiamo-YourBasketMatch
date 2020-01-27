@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { ProfilopersonalePage } from './profilopersonale';
-import { TranslateModule } from '@ngx-translate/core';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {ProfilopersonalePage} from './profilopersonale';
+import {TranslateModule} from '@ngx-translate/core';
 import {StarRatingModule} from "ionic3-star-rating";
 
 @NgModule({
@@ -14,4 +14,5 @@ import {StarRatingModule} from "ionic3-star-rating";
     StarRatingModule
   ],
 })
-export class ProfilopersonalePageModule {}
+export class ProfilopersonalePageModule {
+}

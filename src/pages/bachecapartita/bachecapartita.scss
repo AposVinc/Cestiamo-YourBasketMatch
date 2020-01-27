@@ -1,7 +1,6 @@
 page-bachecapartita {
 
 
-
   $userBackgroundColor: #387ef5;
   $toUserBackgroundColor: #fff;
 
@@ -22,6 +21,7 @@ page-bachecapartita {
   .input-wrap {
     padding: 5px;
     display: flex;
+
     textarea {
       flex: 1;
       border: 0;
@@ -32,9 +32,11 @@ page-bachecapartita {
 
   .message-wrap {
     padding: 0 10px;
+
     .message {
       position: relative;
       padding: 7px 0;
+
       .user-img {
         position: absolute;
         border-radius: 45px;
@@ -46,9 +48,11 @@ page-bachecapartita {
       .msg-detail {
         width: 100%;
         display: inline-block;
+
         p {
           margin: 0;
         }
+
         .msg-info {
           p {
             font-size: .8em;
@@ -65,6 +69,7 @@ page-bachecapartita {
           color: #fff;
           width: auto;
           max-width: 80%;
+
           span.triangle {
             background-color: #fff;
             border-radius: 2px;
@@ -89,14 +94,18 @@ page-bachecapartita {
         background-color: $toUserBackgroundColor;
         float: left;
       }
+
       .msg-detail {
         padding-left: 60px;
       }
+
       .user-img {
         left: 0;
       }
+
       .msg-content {
         color: #343434;
+
         span.triangle {
           border-top-width: 0;
           border-right-width: 0;
@@ -109,21 +118,26 @@ page-bachecapartita {
     .message.right {
       .msg-detail {
         padding-right: 60px;
+
         .msg-info {
           text-align: right;
         }
       }
+
       .user-img {
         right: 0;
       }
+
       ion-spinner {
         position: absolute;
         right: 10px;
         top: 50px;
       }
+
       .msg-content {
         background-color: $userBackgroundColor;
         float: right;
+
         span.triangle {
           background-color: $userBackgroundColor;
           border-bottom-width: 0;
@@ -135,7 +149,6 @@ page-bachecapartita {
     }
 
   }
-
 
 
 }

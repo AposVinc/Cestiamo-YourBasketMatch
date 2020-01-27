@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { MiepartitePage } from './miepartite';
-import { TranslateModule } from '@ngx-translate/core';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {MiepartitePage} from './miepartite';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -12,4 +12,5 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule.forChild()
   ],
 })
-export class MiepartitePageModule {}
+export class MiepartitePageModule {
+}

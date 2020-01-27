@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 import {Partita} from "../../model/partita.model";
 import {PartitaService} from "../../services/partita.service";
@@ -21,11 +21,15 @@ import {GlobalProvider} from "../../providers/global/global";
 })
 export class StoricopartitePage {
 
-  utente:Utente;
+  utente: Utente;
   listaPartite: Array<Partita>;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService,public global: GlobalProvider, public utenteService: UtenteService ) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public partitaService: PartitaService,
+              public global: GlobalProvider,
+              public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
@@ -44,12 +48,12 @@ export class StoricopartitePage {
         }
       });
     } else {
-        this.navCtrl.push(LOGIN_PAGE);
+      this.navCtrl.push(LOGIN_PAGE);
     }
   }
 
   openPartita(p: Partita) {
-    this.navCtrl.push(PARTITA_PAGE, { partitaId: p.id });
+    this.navCtrl.push(PARTITA_PAGE, {partitaId: p.id});
   }
 
 
@@ -61,7 +65,7 @@ export class StoricopartitePage {
   }
 
   openNuovaPartita() {
-    if (this.global.isLogged){
+    if (this.global.isLogged) {
       this.navCtrl.push(NUOVA_PARTITA_PAGE);
     } else {
       this.navCtrl.push(LOGIN_PAGE);

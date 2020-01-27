@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 
 /**
  * Generated class for the ContattaciPage page.
@@ -16,14 +15,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContattaciPage {
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams,) {
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContattaciPage');
   }
-
 
 }

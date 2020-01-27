@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 
 import {Partita} from "../../model/partita.model";
@@ -22,9 +22,13 @@ import {UtenteService} from "../../services/utente.service";
 })
 export class MiepartitePage {
   listaPartite: Array<Partita>;
-  utente:Utente;
+  utente: Utente;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public partitaService: PartitaService, public global: GlobalProvider, public utenteService: UtenteService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public partitaService: PartitaService,
+              public global: GlobalProvider,
+              public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
@@ -41,14 +45,14 @@ export class MiepartitePage {
           this.navCtrl.push(LOGIN_PAGE);
         }
       });
-    }else {
+    } else {
       console.log('nessun utente loggato');
       this.navCtrl.push(LOGIN_PAGE)
     }
   }
 
   openPartita(p: Partita) {
-    this.navCtrl.push(PARTITA_PAGE, { partitaId: p.id });
+    this.navCtrl.push(PARTITA_PAGE, {partitaId: p.id});
   }
 
   doRefresh(refresher: Refresher) {
@@ -59,7 +63,7 @@ export class MiepartitePage {
   }
 
   openNuovaPartita() {
-    if (this.global.isLogged){
+    if (this.global.isLogged) {
       this.navCtrl.push(NUOVA_PARTITA_PAGE);
     } else {
       this.navCtrl.push(LOGIN_PAGE);

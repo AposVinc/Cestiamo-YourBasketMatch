@@ -6,7 +6,6 @@
 -->
 <ion-header>
 
-
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -76,6 +75,7 @@
     </ion-list-header>
 
     <ion-item *ngFor="let u of partecipanti" (click)="openProfilo(u)">
+
       <!--utente loggato e partecipante-->
       <ion-avatar item-start *ngIf="global.isLogged && u.email === utente.email">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">

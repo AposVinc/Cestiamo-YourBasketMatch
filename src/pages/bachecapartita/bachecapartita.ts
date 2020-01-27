@@ -30,8 +30,13 @@ export class BachecapartitaPage {
   partita: Partita = null;
   editorMsg = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  events: Events, private _DomSanitizationService: DomSanitizer,
-              private bachecaService: BachecaService, private utenteService: UtenteService, private partitaService: PartitaService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private  events: Events,
+              private _DomSanitizationService: DomSanitizer,
+              private bachecaService: BachecaService,
+              private utenteService: UtenteService,
+              private partitaService: PartitaService) {
   }
 
   ionViewDidLoad() {
@@ -39,7 +44,7 @@ export class BachecapartitaPage {
 
     this.utenteService.getUtente().subscribe((utente: Utente) => {
       if (utente != null) {
-        if (utente.img.length ===0) {
+        if (utente.img.length === 0) {
           utente.img = "../../assets/imgs/avatar.png";
         }
         this.utente = utente;
@@ -49,7 +54,7 @@ export class BachecapartitaPage {
     this.bachecaService.listMessaggi(this.navParams.data.partitaId).subscribe((data: Array<Messaggio>) => {
 
       data.forEach(function (msg) {
-        if (msg.mittente.img.length ===0) {
+        if (msg.mittente.img.length === 0) {
           msg.mittente.img = "../../assets/imgs/avatar.png";
         }
       });
@@ -61,7 +66,7 @@ export class BachecapartitaPage {
       this.partita = data;
     });
 
-    this.events.subscribe("update-img",(img) => {
+    this.events.subscribe("update-img", (img) => {
       this.utente.img = img;
     });
   }
@@ -84,8 +89,8 @@ export class BachecapartitaPage {
 
 
     this.editorMsg = '';
-    this.bachecaService.sendMsg(newMsg).then( (msg:Messaggio) => {
-      if (msg.mittente.img.length ===0) {
+    this.bachecaService.sendMsg(newMsg).then((msg: Messaggio) => {
+      if (msg.mittente.img.length === 0) {
         msg.mittente.img = "../../assets/imgs/avatar.png";
       }
       this.listaMessaggi.push(msg);
@@ -93,7 +98,6 @@ export class BachecapartitaPage {
       this.scrollToBottom();
     });
   }
-
 
   scrollToBottom() {
     setTimeout(() => {

@@ -14,7 +14,7 @@ import {Events} from "ionic-angular";
 export class UtenteService {
   private tokenUtente: string;
 
-  constructor(public http: HttpClient,public events: Events, public storage: Storage, public global: GlobalProvider) {
+  constructor(public http: HttpClient, public events: Events, public storage: Storage, public global: GlobalProvider) {
     this.storage.get(AUTH_TOKEN).then((token) => {
       this.tokenUtente = token;
     });
@@ -29,7 +29,6 @@ export class UtenteService {
         }
       );
   }
-
 
   login(account: Account): Observable<Utente> {
     return this.http.post<Utente>(URL.LOGIN, account, {observe: 'response'})
@@ -72,9 +71,9 @@ export class UtenteService {
   updateProfilo(nuovoUtente: Utente): Observable<Utente> {
     return this.http.post<Utente>(URL.UPDATE_USER, nuovoUtente, {observe: 'response'})
       .map((resp: HttpResponse<Utente>) => {
-         if(resp.body.img.length===0) {
-           resp.body.img = "../../assets/imgs/avatar.png";
-         }
+        if (resp.body.img.length === 0) {
+          resp.body.img = "../../assets/imgs/avatar.png";
+        }
         this.storage.set(UTENTE_STORAGE, resp.body);
         return resp.body;
       });
@@ -85,9 +84,9 @@ export class UtenteService {
     return this.http.get<Utente>(apiURL);
   }
 
-  votaUtente(votato: Utente, voto: number){
+  votaUtente(votato: Utente, voto: number) {
     votato.img = "";
-    let body = { votato, voto };
+    let body = {votato, voto};
     return this.http.post<Utente>(URL.VOTAZIONE, body).toPromise()
       .then((response: Utente) => {
         return response;
@@ -97,7 +96,7 @@ export class UtenteService {
       );
   }
 
-  getVoto(votatoEmail: string){
+  getVoto(votatoEmail: string) {
     let apiURL = `${URL.VOTAZIONE}/votato=${votatoEmail}`;
     return this.http.get<number>(apiURL);
   }

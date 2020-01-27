@@ -15,23 +15,23 @@
 
 </ion-header>
 
-
-
-<ion-content padding >
+<ion-content padding>
   <form #loginForm="ngForm" (ngSubmit)="login()">
     <div padding="2px"></div>
     <ion-list>
       <ion-item>
         <!-- <ion-label color="primary" stacked> Inserisci la mail</ion-label> -->
-        <ion-input type="email" name="email" placeholder="Email Input" clearInput required [(ngModel)]="account.username"></ion-input>
+        <ion-input type="email" name="email" placeholder="Email Input" clearInput required
+                   [(ngModel)]="account.username"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="password" name="password" placeholder="Password Input" clearInput required [(ngModel)]="account.password"></ion-input>
+        <ion-input type="password" name="password" placeholder="Password Input" clearInput required
+                   [(ngModel)]="account.password"></ion-input>
       </ion-item>
     </ion-list>
 
-    <div padding class="buttonCenter" >
-      <button ion-button color="primary" block  [disabled]="!loginForm.form.valid" >
+    <div padding class="buttonCenter">
+      <button ion-button color="primary" block [disabled]="!loginForm.form.valid">
         {{'LOGIN' | translate }}
       </button>
     </div>
@@ -42,21 +42,17 @@
       <a> {{'PASSWORD_DIMENTICATA' | translate}} </a>
     </ion-item>
     <ion-item>
-      <ion-col><ion-icon name="logo-facebook" ></ion-icon></ion-col>
+      <ion-col>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-col>
       <ion-col><a> {{'LOGIN_FACEBOOK' | translate}} </a></ion-col>
     </ion-item>
   </ion-row>
 
-
   <div padding class=" buttonCenter buttonBottom">
-    <button ion-button color="secondary" block (click)="openRegistration()" >
+    <button ion-button color="secondary" block (click)="openRegistration()">
       {{'REGISTRATI' | translate }}
     </button>
   </div>
 
-
 </ion-content>
-
-
-
-

@@ -1,4 +1,4 @@
-import { Voto } from './voto.model';
+import {Voto} from './voto.model';
 
 export class Utente {
   nome: string;
@@ -11,5 +11,4 @@ export class Utente {
   numPartite: number;
   mediaVoto: Voto;
   img: string = "";
-
 }

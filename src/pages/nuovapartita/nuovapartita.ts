@@ -31,12 +31,14 @@ export class NuovapartitaPage {
   partita: Partita = new Partita();
   listaTipologia: Array<Tipopartita>;
   today = new Date();
-
   data: Date;
   orario: Date;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider,
-              public partitaService: PartitaService, public utenteService: UtenteService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public global: GlobalProvider,
+              public partitaService: PartitaService,
+              public utenteService: UtenteService) {
   }
 
   ionViewDidLoad() {
@@ -69,8 +71,8 @@ export class NuovapartitaPage {
   createMatch(partitaForm: NgForm) {
     var d = this.data.toString().split("-");
     var o = this.orario.toString().split(":");
-    this.partita.data = new Date(Number(d[0]), Number(d[1])-1, Number(d[2]), Number(o[0]) ,Number(o[1]));
-    this.partitaService.create(this.partita).then( () => (this.openMiePartite()));
+    this.partita.data = new Date(Number(d[0]), Number(d[1]) - 1, Number(d[2]), Number(o[0]), Number(o[1]));
+    this.partitaService.create(this.partita).then(() => (this.openMiePartite()));
   }
 
 }

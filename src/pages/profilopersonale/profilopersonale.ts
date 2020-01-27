@@ -47,7 +47,7 @@ export class ProfilopersonalePage {
 
     this.utenteService.getUtente().subscribe((user) => {
       this.utente = user;
-      if (this.utente.img.length ===0) {
+      if (this.utente.img.length === 0) {
         this.utente.img = "../../assets/imgs/avatar.png";
       }
     });
@@ -62,6 +62,7 @@ export class ProfilopersonalePage {
       });
     }
   }
+
   registrazioneOk() {
     let alert = this.alertCtrl.create({
       title: this.saveUserSubTitle,
@@ -109,7 +110,7 @@ export class ProfilopersonalePage {
       mediaType: this.camera.MediaType.PICTURE
     };
     this.camera.getPicture(options).then((imageURI) => {
-      let base64Image = "data:image/jpeg;base64,"+ imageURI;
+      let base64Image = "data:image/jpeg;base64," + imageURI;
       this.utenteService.updateImage(base64Image);
       this.utente.img = base64Image;
     }, (err) => {

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Events, IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 
-import { Partita } from '../../model/partita.model';
-import { PartitaService } from '../../services/partita.service';
+import {Partita} from '../../model/partita.model';
+import {PartitaService} from '../../services/partita.service';
 import {LOGIN_PAGE, NUOVA_PARTITA_PAGE, PARTITA_PAGE} from "../pages";
 
 import {GlobalProvider} from "../../providers/global/global";
@@ -24,8 +24,11 @@ export class ListapartitePage {
 
   listaPartite: Array<Partita>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events,
-              public partitaService: PartitaService, public global: GlobalProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public events: Events,
+              public partitaService: PartitaService,
+              public global: GlobalProvider) {
     this.subscribeToEvents();
   }
 
@@ -37,7 +40,7 @@ export class ListapartitePage {
   }
 
   openPartita(p: Partita) {
-    this.navCtrl.push(PARTITA_PAGE, { partitaId: p.id});
+    this.navCtrl.push(PARTITA_PAGE, {partitaId: p.id});
   }
 
   doRefresh(refresher: Refresher) {
@@ -48,32 +51,30 @@ export class ListapartitePage {
   }
 
   openNuovaPartita() {
-    if (this.global.isLogged){
+    if (this.global.isLogged) {
       this.navCtrl.push(NUOVA_PARTITA_PAGE);
     } else {
       this.navCtrl.push(LOGIN_PAGE);
     }
   }
 
-
-
   subscribeToEvents() {
-    this.events.subscribe("citta-selected",(campo) => {
+    this.events.subscribe("citta-selected", (campo) => {
       this.partitaService.listPartiteByCampo(campo).subscribe((data: Array<Partita>) => {
-          this.listaPartite = data;
-        });
+        this.listaPartite = data;
+      });
     });
 
-    this.events.subscribe("tipologia-selected",(tipopartita) => {
+    this.events.subscribe("tipologia-selected", (tipopartita) => {
       this.partitaService.listPartiteByTipologia(tipopartita).subscribe((data: Array<Partita>) => {
-          this.listaPartite = data;
-        });
+        this.listaPartite = data;
+      });
     });
 
-    this.events.subscribe("data-selected",(data) => {
+    this.events.subscribe("data-selected", (data) => {
       this.partitaService.listPartiteByData(data).subscribe((data: Array<Partita>) => {
-          this.listaPartite = data;
-        });
+        this.listaPartite = data;
+      });
     });
   }
 

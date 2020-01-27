@@ -63,7 +63,6 @@ export class LoginPage {
         });
   }
 
-
   showLoginError() {
     let alert = this.alertCtrl.create({
       title: this.loginTitle,

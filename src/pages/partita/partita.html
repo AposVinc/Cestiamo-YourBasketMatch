@@ -77,12 +77,12 @@
 
     <ion-item *ngFor="let u of partecipanti" (click)="openProfilo(u)">
       <!--utente loggato e partecipante-->
-      <ion-avatar item-start *ngIf="global.isLogged && isPartecipant">
+      <ion-avatar item-start *ngIf="global.isLogged && u.email === utente.email">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(utente.img)">
       </ion-avatar>
 
       <!--utente loggato e non partecipante-->
-      <ion-avatar item-start *ngIf="global.isLogged && !isPartecipant">
+      <ion-avatar item-start *ngIf="global.isLogged && u.email !== utente.email">
         <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(u.img)">
       </ion-avatar>
 

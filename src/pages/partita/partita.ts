@@ -58,7 +58,6 @@ export class PartitaPage {
 
       if (this.utente != null && this.global.isLogged) {  //utente loggato
         this.partitaService.checkIfUtenteLoggatoPartecipate(this.navParams.data.partitaId).subscribe( (bool :boolean) => {
-          console.log("partecipa " + bool);
           if (bool){
             this.isPartecipant = true;
             if (this.utente.img.length ===0) {

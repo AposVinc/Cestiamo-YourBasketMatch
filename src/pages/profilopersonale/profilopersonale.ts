@@ -69,7 +69,6 @@ export class ProfilopersonalePage {
       buttons: ['OK']
     });
     alert.present();
-    this.navCtrl.push('ProfilopersonalePage');
   }
 
   changePhoto() {

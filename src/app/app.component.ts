@@ -206,16 +206,19 @@ export class MyApp {
   getListaPartiteByCampo(campo: Campo){
     this.events.publish('citta-selected', campo);
     this.menuCtrl.close("filter");
+    this.setFilteredItems("");
   }
 
   getListaPartiteByTip() {
     this.events.publish('tipologia-selected', this.tipologiaSelected);
     this.menuCtrl.close("filter");
+    this.tipologiaSelected = null;
   }
 
   getListaPartitaByData(){
     this.events.publish('data-selected', this.dataSelected);
     this.menuCtrl.close("filter");
+    this.dataSelected = null;
   }
 
 

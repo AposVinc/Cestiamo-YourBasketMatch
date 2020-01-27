@@ -16,6 +16,7 @@
     <button ion-button menuToggle="right" icon-only end padding-right>
       <ion-icon name="funnel"></ion-icon>
     </button>
+
   </ion-navbar>
 
 </ion-header>
@@ -27,6 +28,9 @@
   </ion-refresher>
 
   <ion-list>
+
+    <ion-row *ngIf="notFoundFlag">Nessuna partita trovata</ion-row>
+
     <ion-card *ngFor="let p of listaPartite" (click)="openPartita(p)">
       <ion-card-content>
         <ion-row>
@@ -54,10 +58,13 @@
     </ion-card>
   </ion-list>
 
+
   <ion-fab right bottom (click)="openNuovaPartita()">
-    <button ion-fab>
+    <button ion-fab >
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
+
+
 
 </ion-content>
